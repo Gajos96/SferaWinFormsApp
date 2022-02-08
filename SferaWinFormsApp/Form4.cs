@@ -26,7 +26,7 @@ namespace SferaWinFormsApp
             public string StawkaVat { get; set; }
             public string EAN { get; set; }
             public string CN { get; set; }
-            public string grupa1 { get; set; }
+            public string Grupa1 { get; set; }
             public Symbol(string sys, string sys1, string sys2, string sys3, string sys4, string sys5,string sys6)
             {
                 Nazwa_Symbol = sys;
@@ -35,7 +35,7 @@ namespace SferaWinFormsApp
                 StawkaVat = sys3;
                 EAN = sys4;
                 CN = sys5;
-                grupa1 = sys6;
+                Grupa1 = sys6;
             }
         }
 
@@ -48,8 +48,10 @@ namespace SferaWinFormsApp
         {
             try
             {
-                var excel = new Excel.Application();
-                excel.Visible = true;
+                var excel = new Excel.Application
+                {
+                    Visible = true
+                };
                 excel.Workbooks.Add();
                 Excel._Worksheet Arkusz = (Excel._Worksheet)excel.ActiveSheet;
 
@@ -171,11 +173,13 @@ namespace SferaWinFormsApp
 
         private void Wybór_Ścieżki_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fbd = new OpenFileDialog();
-            fbd.ValidateNames = false;
-            fbd.CheckFileExists = false;
-            fbd.CheckPathExists = true;
-            fbd.Filter = "(*.xls, *.xlsx)|*.xls;*.xlsx";
+            OpenFileDialog fbd = new OpenFileDialog
+            {
+                ValidateNames = false,
+                CheckFileExists = false,
+                CheckPathExists = true,
+                Filter = "(*.xls, *.xlsx)|*.xls;*.xlsx"
+            };
             if (fbd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path = fbd.FileName;
@@ -207,7 +211,6 @@ namespace SferaWinFormsApp
                 return;
             }
             var objbook = objBooks.Open(path);
-            // ścieżka jest modyfikowalna i służy do zaczytywania wartości
             var Sheet = (Excel._Worksheet)objbook.ActiveSheet;
             oApp.Visible = false;
             //Excel.Range range;
@@ -221,9 +224,6 @@ namespace SferaWinFormsApp
                 }
             }
             rows = g;
-            //MessageBox.Show("Liczba Rzedów: " + rows);
-            //range = Sheet.UsedRange;
-            //rows = range.Rows.Count;
             var listsymbol = new List<Symbol>();
             for (int i = 2; i < (rows); i++)
             {
@@ -270,7 +270,6 @@ namespace SferaWinFormsApp
                 Number_loop++;
                 float Licz = Count_Progresbar(listsymbol.Count(), Number_loop);
                 New_Ladowanie.Ładowanie_Load((int)Licz);
-                //MessageBox.Show("Test : " + kupa.Nazwa_Symbol + " " + kupa.Nazwa_Nazwa + " " + kupa.Opis);
                 using (IAsortyment towarBo = asortymenty.Utworz())
                 {
                     towarBo.WypelnijNaPodstawieSzablonu(szablony.DaneDomyslne.Towar);
@@ -297,12 +296,12 @@ namespace SferaWinFormsApp
                     }
                     if(Grupa.Checked == true)
                     {
-                        GrupaAsortymentu grupa = grupy.Dane.Wszystkie().Where(z => z.Nazwa == kupa.grupa1).FirstOrDefault();
+                        GrupaAsortymentu grupa = grupy.Dane.Wszystkie().Where(z => z.Nazwa == kupa.Grupa1).FirstOrDefault();
                         if (grupa == null)
                         {
                             using (var grupaBO = grupy.Utworz())
                             {
-                                grupaBO.Dane.Nazwa = kupa.grupa1;
+                                grupaBO.Dane.Nazwa = kupa.Grupa1;
                                 if (!grupaBO.Zapisz())
                                     grupaBO.WypiszBledy();
                                 grupa = grupaBO.Dane;
@@ -323,7 +322,7 @@ namespace SferaWinFormsApp
             oApp.Quit();
             GC.Collect();
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             Dodaj();
         }

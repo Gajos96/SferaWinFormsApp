@@ -41,6 +41,8 @@ namespace SferaWinFormsApp
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbMagazyn = new System.Windows.Forms.ComboBox();
+            this.Nowosci = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,6 +180,33 @@ namespace SferaWinFormsApp
             this.cbMagazyn.Size = new System.Drawing.Size(208, 30);
             this.cbMagazyn.TabIndex = 10;
             // 
+            // Nowosci
+            // 
+            this.Nowosci.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Nowosci.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Nowosci.BackgroundImage")));
+            this.Nowosci.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Nowosci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Nowosci.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Nowosci.Location = new System.Drawing.Point(12, 346);
+            this.Nowosci.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Nowosci.Name = "Nowosci";
+            this.Nowosci.Size = new System.Drawing.Size(168, 52);
+            this.Nowosci.TabIndex = 11;
+            this.Nowosci.Text = "Asortyment nie przypisany";
+            this.Nowosci.UseVisualStyleBackColor = true;
+            this.Nowosci.Click += new System.EventHandler(this.Nowosci_Click);
+            // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Location = new System.Drawing.Point(10, 312);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(501, 17);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Przycisk wypisuje asortyment nie dodadany do subiecta będący w magazynie .";
+            // 
             // Inwentaryzacja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -186,6 +215,8 @@ namespace SferaWinFormsApp
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1087, 426);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.Nowosci);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.cbMagazyn);
             this.Controls.Add(this.label5);
@@ -220,5 +251,7 @@ namespace SferaWinFormsApp
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbMagazyn;
+        private System.Windows.Forms.Button Nowosci;
+        private System.Windows.Forms.Label label7;
     }
 }

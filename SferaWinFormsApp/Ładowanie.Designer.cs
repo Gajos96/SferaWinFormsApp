@@ -35,7 +35,6 @@ namespace SferaWinFormsApp
             this.button1 = new System.Windows.Forms.Button();
             this.Info_Label = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -74,37 +73,22 @@ namespace SferaWinFormsApp
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(32, 149);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(402, 421);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "1\r\n1\r\n1\r\n1\r\n1\r\n11\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1\r\n11\r\n1\r\n1\r\n1\r\n1" +
-    "\r\n1\r\n1\r\n1\r\n1\r\n1\r\n1";
-            // 
             // Ładowanie
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(466, 582);
+            this.ClientSize = new System.Drawing.Size(466, 154);
             this.ControlBox = false;
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.Info_Label);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.progressBar1);
-            this.DoubleBuffered = true;
-            this.MaximumSize = new System.Drawing.Size(484, 600);
+            this.MaximumSize = new System.Drawing.Size(484, 172);
             this.MinimumSize = new System.Drawing.Size(484, 172);
             this.Name = "Ładowanie";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -114,6 +98,5 @@ namespace SferaWinFormsApp
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label Info_Label;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.TextBox textBox1;
     }
 }
