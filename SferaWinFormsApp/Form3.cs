@@ -9,7 +9,6 @@ namespace SferaWinFormsApp
         public Form3()
         {
             InitializeComponent();
-            timer1.Interval = 1000;
             //timer1.Start();
 
         }
@@ -18,14 +17,14 @@ namespace SferaWinFormsApp
 
 
 
-        private void b_Pan1_Click(object sender, EventArgs e)
+        private void B_Pan1_Click(object sender, EventArgs e)
         {
             int a = 1;
             Change_Style_Button(a, 0);
             Check_Active(a);
         }
 
-        private void b_Pan2_Click(object sender, EventArgs e)
+        private void B_Pan2_Click(object sender, EventArgs e)
         {
             int a = 2;
             Change_Style_Button(a, 0);
@@ -33,7 +32,7 @@ namespace SferaWinFormsApp
 
         }
 
-        private void b_Pan3_Click(object sender, EventArgs e)
+        private void B_Pan3_Click(object sender, EventArgs e)
         {
             int a = 3;
             Change_Style_Button(a, 0);
@@ -42,12 +41,12 @@ namespace SferaWinFormsApp
 
         private void Sing_Menu_Click(object sender, EventArgs e)
         {
-            hide_menu();
+            Hide_menu();
         }
 
         #endregion
 
-        private void hide_menu()
+        private void Hide_menu()
         {
             if (splitContainer1.Panel1Collapsed == true)
             {
@@ -59,7 +58,10 @@ namespace SferaWinFormsApp
             }
         }
 
-        private void x_button_Click(object sender, EventArgs e)
+        
+
+
+        private void X_button_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Czy chcesz wyłaczyć program ? ", "Pytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
             {
@@ -87,21 +89,21 @@ namespace SferaWinFormsApp
         {
             int b = 1;
             Change_Style_Button(0, b);
-            openChildForm(new Dodaj_Asortyment());
+            OpenChildForm(new Dodaj_Asortyment());
         }
 
-        private void b2_Click(object sender, EventArgs e)
+        private void B2_Click(object sender, EventArgs e)
         {
             int b = 2;
             Change_Style_Button(0, b);
-            openChildForm(new Zmien_Asortyment());
+            OpenChildForm(new Zmien_Asortyment());
         }
 
         private void b3_Click(object sender, EventArgs e)
         {
             int b = 3;
             Change_Style_Button(0, b);
-            openChildForm(new Inwentaryzacja());
+            OpenChildForm(new Inwentaryzacja());
 
         }
 
@@ -222,7 +224,7 @@ namespace SferaWinFormsApp
 
 
         private Form activeform = null;
-        private void openChildForm(Form ChildForm)
+        private void OpenChildForm(Form ChildForm)
         {
             if (activeform != null)
             {
@@ -337,15 +339,6 @@ namespace SferaWinFormsApp
             Location = Screen.AllScreens[0].WorkingArea.Location;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
     }
 }
 

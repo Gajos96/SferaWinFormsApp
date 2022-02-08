@@ -47,39 +47,12 @@ namespace SferaWinFormsApp
             button1.Enabled = true;
         }
 
-        public void WypiszBledy1(IObiektBiznesowy obiektBiznesowy)
-        {
-            WypiszBledy1((IBusinessObject)obiektBiznesowy);
-            var uow = ((IGetUnitOfWork)obiektBiznesowy).UnitOfWork;
-            foreach (var innyObiektBiznesowy in uow.Participants.OfType<IBusinessObject>().Where(bo => bo != obiektBiznesowy))
-            {
-                WypiszBledy1(innyObiektBiznesowy);
-            }
-        }
-        public void WypiszBledy1(IBusinessObject obiektBiznesowy)
-        {
-            foreach (var encjaZBledami in obiektBiznesowy.InvalidData)
-            {
-                foreach (var bladNaCalejEncji in encjaZBledami.Errors) // Do przerobienia
-                { 
-                    
-                    Console.Error.WriteLine(bladNaCalejEncji);
-                    textBox1.Text += bladNaCalejEncji + " ";
-                    Console.Error.WriteLine(" na encjach:" + encjaZBledami.GetType().Name);
-                    textBox1.Text += (" na encjach:" + encjaZBledami.GetType().Name) + "\n";
 
-                }
-                foreach (var bladNaKonkretnychPolach in encjaZBledami.MemberErrors)
-                {
-                    Console.Error.WriteLine(bladNaKonkretnychPolach.Key);
-                    textBox1.Text += bladNaKonkretnychPolach.Key + " ";
-                    Console.Error.WriteLine(" na polach:");
-                    textBox1.Text += " na polach: ";
-                    Console.Error.WriteLine(string.Join(", ", bladNaKonkretnychPolach.Select(b => encjaZBledami.GetType().Name + "." + b)));
-                    textBox1.Text += " na polach: ";
-                }
-            }
-        }
+
+
+
+
+
 
     }
 }

@@ -49,11 +49,13 @@ namespace SferaWinFormsApp
 
         private void button3_Click(object sender, System.EventArgs e)
         {
-            OpenFileDialog OFD = new OpenFileDialog();
-            OFD.ValidateNames = false;
-            OFD.CheckFileExists = false;
-            OFD.CheckPathExists = true;
-            OFD.Filter = "(*.xls, *.xlsx)|*.xls;*.xlsx";
+            OpenFileDialog OFD = new OpenFileDialog
+            {
+                ValidateNames = false,
+                CheckFileExists = false,
+                CheckPathExists = true,
+                Filter = "(*.xls, *.xlsx)|*.xls;*.xlsx"
+            };
             if (OFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 path = OFD.FileName;
@@ -85,8 +87,10 @@ namespace SferaWinFormsApp
             else
             {
 
-                var excel = new Excel.Application();
-                excel.Visible = true;
+                var excel = new Excel.Application
+                {
+                    Visible = true
+                };
                 excel.Workbooks.Add();
                 Excel._Worksheet Arkusz = (Excel._Worksheet)excel.ActiveSheet;
                 #region Excel_Kod

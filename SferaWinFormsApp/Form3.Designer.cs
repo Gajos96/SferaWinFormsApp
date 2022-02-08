@@ -29,7 +29,6 @@ namespace SferaWinFormsApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.b_Pan3 = new System.Windows.Forms.Panel();
             this.Min_Max_button = new System.Windows.Forms.Label();
@@ -50,7 +49,6 @@ namespace SferaWinFormsApp
             this.panel2 = new System.Windows.Forms.Panel();
             this.Logowanie = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.b_Pan3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -75,7 +73,7 @@ namespace SferaWinFormsApp
             this.b_Pan3.Location = new System.Drawing.Point(0, 0);
             this.b_Pan3.Margin = new System.Windows.Forms.Padding(2);
             this.b_Pan3.Name = "b_Pan3";
-            this.b_Pan3.Size = new System.Drawing.Size(1577, 100);
+            this.b_Pan3.Size = new System.Drawing.Size(1573, 100);
             this.b_Pan3.TabIndex = 0;
             this.b_Pan3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form3_MouseDown);
             this.b_Pan3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Form3_MouseMove);
@@ -88,7 +86,7 @@ namespace SferaWinFormsApp
             this.Min_Max_button.BackColor = System.Drawing.Color.Transparent;
             this.Min_Max_button.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Min_Max_button.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.Min_Max_button.Location = new System.Drawing.Point(1481, 9);
+            this.Min_Max_button.Location = new System.Drawing.Point(1477, 9);
             this.Min_Max_button.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Min_Max_button.Name = "Min_Max_button";
             this.Min_Max_button.Size = new System.Drawing.Size(38, 34);
@@ -103,13 +101,13 @@ namespace SferaWinFormsApp
             this.x_button.BackColor = System.Drawing.Color.Transparent;
             this.x_button.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.x_button.Font = new System.Drawing.Font("Segoe UI", 13.8F);
-            this.x_button.Location = new System.Drawing.Point(1525, 9);
+            this.x_button.Location = new System.Drawing.Point(1521, 9);
             this.x_button.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.x_button.Name = "x_button";
             this.x_button.Size = new System.Drawing.Size(37, 34);
             this.x_button.TabIndex = 5;
             this.x_button.Text = "✕";
-            this.x_button.Click += new System.EventHandler(this.x_button_Click);
+            this.x_button.Click += new System.EventHandler(this.X_button_Click);
             // 
             // Sing_Menu
             // 
@@ -163,11 +161,10 @@ namespace SferaWinFormsApp
             this.splitContainer1.Panel2.Controls.Add(this.panel2);
             this.splitContainer1.Panel2.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.splitContainer1.Panel2MinSize = 980;
-            this.splitContainer1.Size = new System.Drawing.Size(1577, 674);
+            this.splitContainer1.Size = new System.Drawing.Size(1573, 670);
             this.splitContainer1.SplitterDistance = 210;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 1;
-            this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
             // 
             // tab1
             // 
@@ -253,7 +250,7 @@ namespace SferaWinFormsApp
             this.button7.Text = "button7";
             this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.b_Pan3_Click);
+            this.button7.Click += new System.EventHandler(this.B_Pan3_Click);
             // 
             // b4
             // 
@@ -307,7 +304,7 @@ namespace SferaWinFormsApp
             this.b_Pan2.Text = "Magazyn";
             this.b_Pan2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b_Pan2.UseVisualStyleBackColor = false;
-            this.b_Pan2.Click += new System.EventHandler(this.b_Pan2_Click);
+            this.b_Pan2.Click += new System.EventHandler(this.B_Pan2_Click);
             // 
             // b2
             // 
@@ -325,7 +322,7 @@ namespace SferaWinFormsApp
             this.b2.Text = "Podmień Symbole";
             this.b2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b2.UseVisualStyleBackColor = false;
-            this.b2.Click += new System.EventHandler(this.b2_Click);
+            this.b2.Click += new System.EventHandler(this.B2_Click);
             // 
             // b1
             // 
@@ -359,7 +356,7 @@ namespace SferaWinFormsApp
             this.b_Pan1.Text = "Asortyment";
             this.b_Pan1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b_Pan1.UseVisualStyleBackColor = false;
-            this.b_Pan1.Click += new System.EventHandler(this.b_Pan1_Click);
+            this.b_Pan1.Click += new System.EventHandler(this.B_Pan1_Click);
             // 
             // panel2
             // 
@@ -373,9 +370,9 @@ namespace SferaWinFormsApp
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1362, 674);
+            this.panel2.Size = new System.Drawing.Size(1358, 670);
             this.panel2.TabIndex = 0;
-            this.panel2.Click += new System.EventHandler(this.b_Pan1_Click);
+            this.panel2.Click += new System.EventHandler(this.B_Pan1_Click);
             // 
             // Logowanie
             // 
@@ -400,20 +397,16 @@ namespace SferaWinFormsApp
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1360, 672);
+            this.pictureBox1.Size = new System.Drawing.Size(1356, 668);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1577, 774);
+            this.ClientSize = new System.Drawing.Size(1573, 770);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.b_Pan3);
@@ -464,6 +457,5 @@ namespace SferaWinFormsApp
         private System.Windows.Forms.Button b1;
         private System.Windows.Forms.Button b_Pan1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Timer timer1;
     }
 }
