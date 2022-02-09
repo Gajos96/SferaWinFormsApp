@@ -36,7 +36,7 @@ namespace SferaWinFormsApp
         {
             int a = 3;
             Change_Style_Button(a, 0);
-            Check_Active(a);
+            Check_Active(a); 
         }
 
         private void Sing_Menu_Click(object sender, EventArgs e)
@@ -85,7 +85,7 @@ namespace SferaWinFormsApp
         }
 
         #region button do nowych formularzy
-        private void b1_Click(object sender, EventArgs e)
+        private void B1_Click(object sender, EventArgs e)
         {
             int b = 1;
             Change_Style_Button(0, b);
@@ -99,7 +99,7 @@ namespace SferaWinFormsApp
             OpenChildForm(new Zmien_Asortyment());
         }
 
-        private void b3_Click(object sender, EventArgs e)
+        private void B3_Click(object sender, EventArgs e)
         {
             int b = 3;
             Change_Style_Button(0, b);
@@ -107,19 +107,19 @@ namespace SferaWinFormsApp
 
         }
 
-        private void b4_Click(object sender, EventArgs e)
+        private void B4_Click(object sender, EventArgs e)
         {
             int b = 4;
             Change_Style_Button(0, b);
         }
 
-        private void b5_Click(object sender, EventArgs e)
+        private void B5_Click(object sender, EventArgs e)
         {
             int b = 5;
             Change_Style_Button(0, b);
         }
 
-        private void b6_Click(object sender, EventArgs e)
+        private void B6_Click(object sender, EventArgs e)
         {
             int b = 6;
             Change_Style_Button(0, b);
@@ -148,17 +148,17 @@ namespace SferaWinFormsApp
                 {
                     b_Pan1.BackColor = SystemColors.ScrollBar;
                     b_Pan2.BackColor = SystemColors.ButtonShadow;
-                    b_Pan3.BackColor = SystemColors.ButtonShadow;
+                    Panel_nr1.BackColor = SystemColors.ButtonShadow;
                 }
                 if (a == 2)
                 {
                     b_Pan2.BackColor = SystemColors.ScrollBar;
                     b_Pan1.BackColor = SystemColors.ButtonShadow;
-                    b_Pan3.BackColor = SystemColors.ButtonShadow;
+                    Panel_nr1.BackColor = SystemColors.ButtonShadow;
                 }
                 if (a == 3)
                 {
-                    b_Pan3.BackColor = SystemColors.ScrollBar;
+                    Panel_nr1.BackColor = SystemColors.ScrollBar;
                     b_Pan1.BackColor = SystemColors.ButtonShadow;
                     b_Pan2.BackColor = SystemColors.ButtonShadow;
                 }
@@ -292,7 +292,7 @@ namespace SferaWinFormsApp
             }
             if (a == 3)
             {
-                b_Pan3.Enabled = false;
+                Panel_nr1.Enabled = false;
                 b5.Visible = true;
                 b6.Visible = true;
                 tab1.RowStyles[7].Height = 38;
@@ -300,7 +300,7 @@ namespace SferaWinFormsApp
             }
             else
             {
-                b_Pan3.Enabled = true;
+                Panel_nr1.Enabled = true;
                 b5.Visible = false;
                 b6.Visible = false;
                 tab1.RowStyles[7].Height = 0;
@@ -339,6 +339,10 @@ namespace SferaWinFormsApp
             Location = Screen.AllScreens[0].WorkingArea.Location;
         }
 
+        private void Mini__Click(object sender, EventArgs e)
+        {
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+        }
     }
 }
 
