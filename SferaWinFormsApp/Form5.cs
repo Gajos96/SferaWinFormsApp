@@ -47,7 +47,7 @@ namespace SferaWinFormsApp
             return (float)number_loop / (float)row * 100f;
         }
 
-        private void button3_Click(object sender, System.EventArgs e)
+        private void Button3_Click(object sender, System.EventArgs e)
         {
             OpenFileDialog OFD = new OpenFileDialog
             {
@@ -72,7 +72,7 @@ namespace SferaWinFormsApp
             }
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
+        private void Button1_Click(object sender, System.EventArgs e)
         {
             Create_Excel();
 
@@ -159,7 +159,7 @@ namespace SferaWinFormsApp
             }
         }
 
-        private void button2_Click(object sender, System.EventArgs e)
+        private void Button2_Click(object sender, System.EventArgs e)
         {
             if (Check_List.GetItemChecked(0) == false && Check_List.GetItemChecked(1) == false && Check_List.GetItemChecked(2) == false && Check_List.GetItemChecked(3) == false && Check_List.GetItemChecked(4) == false && Check_List.GetItemChecked(5) == false && Check_List.GetItemChecked(6) == false)
             {

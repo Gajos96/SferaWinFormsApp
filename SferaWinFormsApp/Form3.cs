@@ -9,34 +9,55 @@ namespace SferaWinFormsApp
         public Form3()
         {
             InitializeComponent();
-            //timer1.Start();
-
         }
         public bool MinMax1 = false;
         #region CLICK
 
-
+       private void zmiana(int a)
+        {
+            if (a ==1)
+            {
+                Collapsed_Asortyment = true;
+                Collapsed_Magazyn = false;
+                Collapsed_Ustawienia = false;
+            }
+            if(a==2)
+            {
+                Collapsed_Asortyment = false;
+                Collapsed_Magazyn = true;
+                Collapsed_Ustawienia = false;
+            }
+            if (a==3)
+            {
+                Collapsed_Asortyment = false;
+                Collapsed_Magazyn = false;
+                Collapsed_Ustawienia = true;
+            }
+        }
 
         private void B_Pan1_Click(object sender, EventArgs e)
         {
             int a = 1;
+            zmiana(a);
+            timer1.Start();
             Change_Style_Button(a, 0);
-            Check_Active(a);
         }
 
         private void B_Pan2_Click(object sender, EventArgs e)
         {
             int a = 2;
+            zmiana(a);
+            timer2.Start();
             Change_Style_Button(a, 0);
-            Check_Active(a);
 
         }
 
         private void B_Pan3_Click(object sender, EventArgs e)
         {
             int a = 3;
+            zmiana(a);
+            timer3.Start();
             Change_Style_Button(a, 0);
-            Check_Active(a);
         }
 
         private void Sing_Menu_Click(object sender, EventArgs e)
@@ -57,9 +78,6 @@ namespace SferaWinFormsApp
                 splitContainer1.Panel1Collapsed = true;
             }
         }
-
-        
-
 
         private void X_button_Click(object sender, EventArgs e)
         {
@@ -82,10 +100,10 @@ namespace SferaWinFormsApp
             }
 
             MAXMIN();
-        }
+    }
 
-        #region button do nowych formularzy
-        private void b1_Click(object sender, EventArgs e)
+    #region button do nowych formularzy
+    private void B1_Click(object sender, EventArgs e)
         {
             int b = 1;
             Change_Style_Button(0, b);
@@ -99,7 +117,7 @@ namespace SferaWinFormsApp
             OpenChildForm(new Zmien_Asortyment());
         }
 
-        private void b3_Click(object sender, EventArgs e)
+        private void B3_Click(object sender, EventArgs e)
         {
             int b = 3;
             Change_Style_Button(0, b);
@@ -107,19 +125,19 @@ namespace SferaWinFormsApp
 
         }
 
-        private void b4_Click(object sender, EventArgs e)
+        private void B4_Click(object sender, EventArgs e)
         {
             int b = 4;
             Change_Style_Button(0, b);
         }
 
-        private void b5_Click(object sender, EventArgs e)
+        private void B5_Click(object sender, EventArgs e)
         {
             int b = 5;
             Change_Style_Button(0, b);
         }
 
-        private void b6_Click(object sender, EventArgs e)
+        private void B6_Click(object sender, EventArgs e)
         {
             int b = 6;
             Change_Style_Button(0, b);
@@ -146,21 +164,21 @@ namespace SferaWinFormsApp
             {
                 if (a == 1)
                 {
-                    b_Pan1.BackColor = SystemColors.ScrollBar;
-                    b_Pan2.BackColor = SystemColors.ButtonShadow;
-                    b_Pan3.BackColor = SystemColors.ButtonShadow;
+                    B_Pan1.BackColor = SystemColors.ScrollBar;
+                    B_Pan2.BackColor = Color.Transparent;
+                    B_Pan3.BackColor = Color.Transparent;
                 }
                 if (a == 2)
                 {
-                    b_Pan2.BackColor = SystemColors.ScrollBar;
-                    b_Pan1.BackColor = SystemColors.ButtonShadow;
-                    b_Pan3.BackColor = SystemColors.ButtonShadow;
+                    B_Pan2.BackColor = SystemColors.ScrollBar;
+                    B_Pan1.BackColor = Color.Transparent;
+                    B_Pan3.BackColor = Color.Transparent;
                 }
                 if (a == 3)
                 {
-                    b_Pan3.BackColor = SystemColors.ScrollBar;
-                    b_Pan1.BackColor = SystemColors.ButtonShadow;
-                    b_Pan2.BackColor = SystemColors.ButtonShadow;
+                    B_Pan3.BackColor = SystemColors.ScrollBar;
+                    B_Pan1.BackColor = Color.Transparent;
+                    B_Pan2.BackColor = Color.Transparent;
                 }
             }
             if (a == 0)
@@ -168,56 +186,56 @@ namespace SferaWinFormsApp
                 if (b == 1)
                 {
                     b1.BackColor = SystemColors.ScrollBar;
-                    b2.BackColor = SystemColors.ButtonShadow;
-                    b3.BackColor = SystemColors.ButtonShadow;
-                    b4.BackColor = SystemColors.ButtonShadow;
-                    b5.BackColor = SystemColors.ButtonShadow;
-                    b6.BackColor = SystemColors.ButtonShadow;
+                    b2.BackColor = Color.Transparent;
+                    b3.BackColor = Color.Transparent;
+                    b4.BackColor = Color.Transparent;
+                    b5.BackColor = Color.Transparent;
+                    b6.BackColor = Color.Transparent;
                 }
                 if (b == 2)
                 {
                     b2.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = SystemColors.ButtonShadow;
-                    b3.BackColor = SystemColors.ButtonShadow;
-                    b4.BackColor = SystemColors.ButtonShadow;
-                    b5.BackColor = SystemColors.ButtonShadow;
-                    b6.BackColor = SystemColors.ButtonShadow;
+                    b1.BackColor = Color.Transparent;
+                    b3.BackColor = Color.Transparent;
+                    b4.BackColor = Color.Transparent;
+                    b5.BackColor = Color.Transparent;
+                    b6.BackColor = Color.Transparent;
                 }
                 if (b == 3)
                 {
                     b3.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = SystemColors.ButtonShadow;
-                    b2.BackColor = SystemColors.ButtonShadow;
-                    b4.BackColor = SystemColors.ButtonShadow;
-                    b5.BackColor = SystemColors.ButtonShadow;
-                    b6.BackColor = SystemColors.ButtonShadow;
+                    b1.BackColor = Color.Transparent;
+                    b2.BackColor = Color.Transparent;
+                    b4.BackColor = Color.Transparent;
+                    b5.BackColor = Color.Transparent;
+                    b6.BackColor = Color.Transparent;
                 }
                 if (b == 4)
                 {
                     b4.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = SystemColors.ButtonShadow;
-                    b2.BackColor = SystemColors.ButtonShadow;
-                    b3.BackColor = SystemColors.ButtonShadow;
-                    b5.BackColor = SystemColors.ButtonShadow;
-                    b6.BackColor = SystemColors.ButtonShadow;
+                    b1.BackColor = Color.Transparent;
+                    b2.BackColor = Color.Transparent;
+                    b3.BackColor = Color.Transparent;
+                    b5.BackColor = Color.Transparent;
+                    b6.BackColor = Color.Transparent;
                 }
                 if (b == 5)
                 {
                     b5.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = SystemColors.ButtonShadow;
-                    b2.BackColor = SystemColors.ButtonShadow;
-                    b3.BackColor = SystemColors.ButtonShadow;
-                    b4.BackColor = SystemColors.ButtonShadow;
-                    b6.BackColor = SystemColors.ButtonShadow;
+                    b1.BackColor = Color.Transparent;
+                    b2.BackColor = Color.Transparent;
+                    b3.BackColor = Color.Transparent;
+                    b4.BackColor = Color.Transparent;
+                    b6.BackColor = Color.Transparent;
                 }
                 if (b == 6)
                 {
                     b6.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = SystemColors.ButtonShadow;
-                    b2.BackColor = SystemColors.ButtonShadow;
-                    b3.BackColor = SystemColors.ButtonShadow;
-                    b4.BackColor = SystemColors.ButtonShadow;
-                    b5.BackColor = SystemColors.ButtonShadow;
+                    b1.BackColor = Color.Transparent;
+                    b2.BackColor = Color.Transparent;
+                    b3.BackColor = Color.Transparent;
+                    b4.BackColor = Color.Transparent;
+                    b5.BackColor = Color.Transparent;
                 }
             }
         }
@@ -256,58 +274,6 @@ namespace SferaWinFormsApp
             }
         }
 
-        private void Check_Active(int a)
-        {
-            if (a == 1)
-            {
-                b_Pan1.Enabled = false;
-                b1.Visible = true;
-                b2.Visible = true;
-                tab1.RowStyles[1].Height = 38;
-                tab1.RowStyles[2].Height = 38;
-            }
-            else
-            {
-                b_Pan1.Enabled = true;
-                b1.Visible = false;
-                b2.Visible = false;
-                tab1.RowStyles[1].Height = 0;
-                tab1.RowStyles[2].Height = 0;
-            }
-            if (a == 2)
-            {
-                b_Pan2.Enabled = false;
-                b3.Visible = true;
-                b4.Visible = true;
-                tab1.RowStyles[4].Height = 38;
-                tab1.RowStyles[5].Height = 38;
-            }
-            else
-            {
-                b_Pan2.Enabled = true;
-                b3.Visible = false;
-                b4.Visible = false;
-                tab1.RowStyles[4].Height = 0;
-                tab1.RowStyles[5].Height = 0;
-            }
-            if (a == 3)
-            {
-                b_Pan3.Enabled = false;
-                b5.Visible = true;
-                b6.Visible = true;
-                tab1.RowStyles[7].Height = 38;
-                tab1.RowStyles[8].Height = 38;
-            }
-            else
-            {
-                b_Pan3.Enabled = true;
-                b5.Visible = false;
-                b6.Visible = false;
-                tab1.RowStyles[7].Height = 0;
-                tab1.RowStyles[8].Height = 0;
-            }
-        }
-
         public bool moveDetect = false;
 
         private void Form3_MouseDown(object sender, MouseEventArgs e)
@@ -330,7 +296,6 @@ namespace SferaWinFormsApp
             mov = 0;
         }
 
-
         int mov;
         int movX;
         int movY;
@@ -339,6 +304,85 @@ namespace SferaWinFormsApp
             Location = Screen.AllScreens[0].WorkingArea.Location;
         }
 
+        private void Mini__Click(object sender, EventArgs e)
+        {
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+        }
+
+        private bool Collapsed_Asortyment;
+        private bool Collapsed_Magazyn;
+        private bool Collapsed_Ustawienia ;
+        int a = 550;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (Collapsed_Asortyment)
+            {
+                Asortyment.Height += a;
+                Magazyn.Height -= a;
+                Ustawienia.Height -= a;
+                if (Asortyment.Size == Asortyment.MaximumSize)
+                {
+                    timer1.Stop();
+                    Collapsed_Asortyment = false;
+                }
+            }
+            else
+            {
+                Asortyment.Height -= a;
+                if (Asortyment.Size == Asortyment.MinimumSize )
+                {
+                    timer1.Stop();
+                }
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (Collapsed_Magazyn)
+            {
+                Magazyn.Height += a;
+                Asortyment.Height -= a;
+                Ustawienia.Height -= a;
+                if (Magazyn.Size == Magazyn.MaximumSize)
+                {
+                    timer2.Stop();
+                    Collapsed_Magazyn = false;
+                }
+            }
+            else
+            {
+                Magazyn.Height -= a;
+                if (Magazyn.Size == Magazyn.MinimumSize)
+                {
+                    timer2.Stop();
+                }
+        
+            }  
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (Collapsed_Ustawienia)
+            {
+                Ustawienia.Height += a;
+                Magazyn.Height -= a;
+                Asortyment.Height -= a;
+
+                if (Ustawienia.Size == Ustawienia.MaximumSize)
+                {
+                    timer3.Stop();
+                    Collapsed_Ustawienia = false;
+                }
+            }
+            else
+            {
+                Ustawienia.Height -= a;
+                if (Ustawienia.Size == Ustawienia.MinimumSize)
+                {
+                    timer3.Stop();
+                }
+
+            }
+        }
     }
 }
-

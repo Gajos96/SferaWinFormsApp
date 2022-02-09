@@ -52,8 +52,8 @@ namespace SferaWinFormsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Ładowanie());
             Application.Run(new Form3());
+            //Application.Run(new Form3());
         }
     }
 

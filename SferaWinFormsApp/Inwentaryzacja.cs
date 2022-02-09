@@ -150,7 +150,7 @@ namespace SferaWinFormsApp
                     float Licz = Count_Progresbar(Lista_Inwetaryzacja.Count(), Number_loop);
                     New_Ladowanie.Ładowanie_Load((int)Licz);
                     Asortyment asortyment = asortymenty.Dane.Wszystkie().Where(a => a.Symbol == kupa.Symbol_Rośliny).FirstOrDefault();
-                    if (asortyment == null && kupa.Symbol_Rośliny != "Bład" && kupa.Symbol_Rośliny != "Wprowadz Formę")
+                    if (asortyment == null || kupa.Symbol_Rośliny == "Błąd" || kupa.Symbol_Rośliny == "Wprowadz Formę") // Popraw
                     {
                         lista.Add(new Pomocnicza(kupa.Symbol_Rośliny, kupa.Ilość_Rośliny));
                     }
@@ -286,7 +286,7 @@ namespace SferaWinFormsApp
 
         private string path1;
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void Button1_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog OFD = new OpenFileDialog
             {
@@ -312,7 +312,7 @@ namespace SferaWinFormsApp
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             try
             {

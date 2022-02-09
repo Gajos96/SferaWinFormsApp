@@ -53,7 +53,7 @@ namespace SferaWinFormsApp
             this.Text_Path1.Location = new System.Drawing.Point(13, 135);
             this.Text_Path1.Margin = new System.Windows.Forms.Padding(4);
             this.Text_Path1.Name = "Text_Path1";
-            this.Text_Path1.Size = new System.Drawing.Size(732, 27);
+            this.Text_Path1.Size = new System.Drawing.Size(811, 27);
             this.Text_Path1.TabIndex = 0;
             // 
             // groupBox1
@@ -67,14 +67,14 @@ namespace SferaWinFormsApp
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1055, 71);
+            this.groupBox1.Size = new System.Drawing.Size(1266, 71);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(672, 50);
+            this.label6.Location = new System.Drawing.Point(600, 48);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 17);
@@ -110,14 +110,14 @@ namespace SferaWinFormsApp
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(752, 135);
+            this.button1.Location = new System.Drawing.Point(680, 176);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(147, 51);
             this.button1.TabIndex = 3;
             this.button1.Text = "Wybierz Ścieżkę";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
             // 
             // button2
             // 
@@ -125,14 +125,14 @@ namespace SferaWinFormsApp
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(752, 190);
+            this.button2.Location = new System.Drawing.Point(680, 240);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(147, 52);
             this.button2.TabIndex = 4;
             this.button2.Text = "Wykonaj Inwetaryzacje";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // label3
             // 
@@ -161,7 +161,7 @@ namespace SferaWinFormsApp
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(12, 400);
+            this.label5.Location = new System.Drawing.Point(12, 637);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(547, 17);
             this.label5.TabIndex = 7;
@@ -174,7 +174,7 @@ namespace SferaWinFormsApp
             this.cbMagazyn.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbMagazyn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cbMagazyn.FormattingEnabled = true;
-            this.cbMagazyn.Location = new System.Drawing.Point(691, 95);
+            this.cbMagazyn.Location = new System.Drawing.Point(616, 96);
             this.cbMagazyn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbMagazyn.Name = "cbMagazyn";
             this.cbMagazyn.Size = new System.Drawing.Size(208, 30);
@@ -187,7 +187,7 @@ namespace SferaWinFormsApp
             this.Nowosci.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Nowosci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Nowosci.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Nowosci.Location = new System.Drawing.Point(12, 346);
+            this.Nowosci.Location = new System.Drawing.Point(12, 583);
             this.Nowosci.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Nowosci.Name = "Nowosci";
             this.Nowosci.Size = new System.Drawing.Size(168, 52);
@@ -201,7 +201,7 @@ namespace SferaWinFormsApp
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(10, 312);
+            this.label7.Location = new System.Drawing.Point(10, 549);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(501, 17);
             this.label7.TabIndex = 12;
@@ -214,7 +214,7 @@ namespace SferaWinFormsApp
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1087, 426);
+            this.ClientSize = new System.Drawing.Size(1298, 663);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Nowosci);
             this.Controls.Add(this.button2);
