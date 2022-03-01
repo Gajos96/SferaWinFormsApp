@@ -1,6 +1,4 @@
 ﻿using InsERT.Moria.Sfera;
-using InsERT.Mox.BusinessObjects;
-using InsERT.Mox.ObiektyBiznesowe;
 using InsERT.Mox.Product;
 using System;
 using System.Linq;
@@ -22,7 +20,7 @@ namespace SferaWinFormsApp
             }
             else
             {
-                danePolaczenia = DanePolaczenia.Jawne(@"GARTENLAND13\SQLEXPRESS", "Nexo_Demo_1", true);
+                danePolaczenia = DanePolaczenia.Jawne(@"GARTENLAND13\SQLEXPRESS", "Nexo_Demo_2", true);
             }
 
             MenedzerPolaczen mp = new MenedzerPolaczen();
@@ -53,14 +51,19 @@ namespace SferaWinFormsApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form3());
-            //Application.Run(new Form3());
         }
     }
 
 
   public static class Rozszerzenia
 {
-    internal static void WypiszBledy(this InsERT.Mox.ObiektyBiznesowe.IObiektBiznesowy obiektBiznesowy)
+        public static Form1 ListError = new Form1();
+        private static bool Adam = true;
+        public static string lol;
+        
+        
+
+        internal static void WypiszBledy(this InsERT.Mox.ObiektyBiznesowe.IObiektBiznesowy obiektBiznesowy)
     {
         WypiszBledy((InsERT.Mox.BusinessObjects.IBusinessObject)obiektBiznesowy);
         var uow = ((InsERT.Mox.BusinessObjects.IGetUnitOfWork)obiektBiznesowy).UnitOfWork;
@@ -70,26 +73,33 @@ namespace SferaWinFormsApp
         }
     }
 
-    internal static void WypiszBledy(this InsERT.Mox.BusinessObjects.IBusinessObject obiektBiznesowy)
-    {
-        foreach (var encjaZBledami in obiektBiznesowy.InvalidData)
+        internal static void WypiszBledy(this InsERT.Mox.BusinessObjects.IBusinessObject obiektBiznesowy)
         {
-            foreach (var bladNaCalejEncji in encjaZBledami.Errors)
+           NewMethod();
+            foreach (var encjaZBledami in obiektBiznesowy.InvalidData)
             {
-                Console.Error.WriteLine(bladNaCalejEncji);
-                Console.Error.WriteLine(" na encjach:" + encjaZBledami.GetType().Name);
-                Console.Error.WriteLine();
+                ListError.listBox1.Items.Add("Symbol: " + lol.ToString());
+                foreach (var bladNaCalejEncji in encjaZBledami.Errors)
+                {
+                    ListError.listBox1.Items.Add(bladNaCalejEncji + " na encjach:" + encjaZBledami.GetType().Name);                }
+                foreach (var bladNaKonkretnychPolach in encjaZBledami.MemberErrors)
+                {
+                    ListError.listBox1.Items.Add(bladNaKonkretnychPolach.Key + " na polach:" + string.Join(", ", bladNaKonkretnychPolach.Select(b => encjaZBledami.GetType().Name + "." + b)));
+                }
             }
-            foreach (var bladNaKonkretnychPolach in encjaZBledami.MemberErrors)
+            if (ListError.listBox1.Items == null) { }
+        }
+
+        private static void NewMethod()
+        {
+            if (Adam == true)
             {
-                Console.Error.WriteLine(bladNaKonkretnychPolach.Key);
-                Console.Error.WriteLine(" na polach:");
-                Console.Error.WriteLine(string.Join(", ", bladNaKonkretnychPolach.Select(b => encjaZBledami.GetType().Name + "." + b)));
-                Console.Error.WriteLine();
+                ListError.Show();
+                Adam = false;
             }
         }
+
     }
-}
 
 
 }

@@ -33,6 +33,7 @@ namespace SferaWinFormsApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.Panel_nr1 = new System.Windows.Forms.Panel();
             this.Mini_ = new System.Windows.Forms.Label();
+            this.Logowanie = new System.Windows.Forms.Label();
             this.Min_Max_button = new System.Windows.Forms.Label();
             this.x_button = new System.Windows.Forms.Label();
             this.Sing_Menu = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@ namespace SferaWinFormsApp
             this.b5 = new System.Windows.Forms.Button();
             this.B_Pan3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.Logowanie = new System.Windows.Forms.Label();
             this.Panel_img = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -77,6 +77,7 @@ namespace SferaWinFormsApp
             this.Panel_nr1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Panel_nr1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Panel_nr1.Controls.Add(this.Mini_);
+            this.Panel_nr1.Controls.Add(this.Logowanie);
             this.Panel_nr1.Controls.Add(this.Min_Max_button);
             this.Panel_nr1.Controls.Add(this.x_button);
             this.Panel_nr1.Controls.Add(this.Sing_Menu);
@@ -108,6 +109,19 @@ namespace SferaWinFormsApp
             this.Mini_.Text = "–";
             this.Mini_.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Mini_.Click += new System.EventHandler(this.Mini__Click);
+            // 
+            // Logowanie
+            // 
+            this.Logowanie.AutoSize = true;
+            this.Logowanie.BackColor = System.Drawing.Color.Transparent;
+            this.Logowanie.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Logowanie.Font = new System.Drawing.Font("Times New Roman", 10.2F);
+            this.Logowanie.Location = new System.Drawing.Point(288, 80);
+            this.Logowanie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.Logowanie.Name = "Logowanie";
+            this.Logowanie.Size = new System.Drawing.Size(100, 19);
+            this.Logowanie.TabIndex = 7;
+            this.Logowanie.Text = "Logowanie ...";
             // 
             // Min_Max_button
             // 
@@ -222,7 +236,7 @@ namespace SferaWinFormsApp
             this.Asortyment.Controls.Add(this.b1);
             this.Asortyment.Controls.Add(this.B_Pan1);
             this.Asortyment.Location = new System.Drawing.Point(4, 4);
-            this.Asortyment.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Asortyment.Margin = new System.Windows.Forms.Padding(4);
             this.Asortyment.MaximumSize = new System.Drawing.Size(259, 159);
             this.Asortyment.MinimumSize = new System.Drawing.Size(259, 62);
             this.Asortyment.Name = "Asortyment";
@@ -237,7 +251,7 @@ namespace SferaWinFormsApp
             this.b2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b2.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b2.Location = new System.Drawing.Point(4, 112);
-            this.b2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b2.Margin = new System.Windows.Forms.Padding(4);
             this.b2.Name = "b2";
             this.b2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.b2.Size = new System.Drawing.Size(251, 46);
@@ -255,7 +269,7 @@ namespace SferaWinFormsApp
             this.b1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b1.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b1.Location = new System.Drawing.Point(4, 64);
-            this.b1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b1.Margin = new System.Windows.Forms.Padding(4);
             this.b1.Name = "b1";
             this.b1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.b1.Size = new System.Drawing.Size(251, 46);
@@ -273,7 +287,7 @@ namespace SferaWinFormsApp
             this.B_Pan1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_Pan1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.B_Pan1.Location = new System.Drawing.Point(4, 4);
-            this.B_Pan1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.B_Pan1.Margin = new System.Windows.Forms.Padding(4);
             this.B_Pan1.Name = "B_Pan1";
             this.B_Pan1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.B_Pan1.Size = new System.Drawing.Size(251, 58);
@@ -292,7 +306,7 @@ namespace SferaWinFormsApp
             this.Magazyn.Controls.Add(this.b3);
             this.Magazyn.Controls.Add(this.B_Pan2);
             this.Magazyn.Location = new System.Drawing.Point(4, 74);
-            this.Magazyn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Magazyn.Margin = new System.Windows.Forms.Padding(4);
             this.Magazyn.MaximumSize = new System.Drawing.Size(259, 159);
             this.Magazyn.MinimumSize = new System.Drawing.Size(259, 62);
             this.Magazyn.Name = "Magazyn";
@@ -307,7 +321,7 @@ namespace SferaWinFormsApp
             this.b4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b4.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b4.Location = new System.Drawing.Point(4, 112);
-            this.b4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b4.Margin = new System.Windows.Forms.Padding(4);
             this.b4.Name = "b4";
             this.b4.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.b4.Size = new System.Drawing.Size(251, 46);
@@ -325,7 +339,7 @@ namespace SferaWinFormsApp
             this.b3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b3.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b3.Location = new System.Drawing.Point(4, 64);
-            this.b3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b3.Margin = new System.Windows.Forms.Padding(4);
             this.b3.Name = "b3";
             this.b3.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.b3.Size = new System.Drawing.Size(251, 46);
@@ -344,7 +358,7 @@ namespace SferaWinFormsApp
             this.B_Pan2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_Pan2.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.B_Pan2.Location = new System.Drawing.Point(4, 4);
-            this.B_Pan2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.B_Pan2.Margin = new System.Windows.Forms.Padding(4);
             this.B_Pan2.Name = "B_Pan2";
             this.B_Pan2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.B_Pan2.Size = new System.Drawing.Size(251, 58);
@@ -363,7 +377,7 @@ namespace SferaWinFormsApp
             this.Ustawienia.Controls.Add(this.b5);
             this.Ustawienia.Controls.Add(this.B_Pan3);
             this.Ustawienia.Location = new System.Drawing.Point(4, 144);
-            this.Ustawienia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Ustawienia.Margin = new System.Windows.Forms.Padding(4);
             this.Ustawienia.MaximumSize = new System.Drawing.Size(259, 159);
             this.Ustawienia.MinimumSize = new System.Drawing.Size(259, 62);
             this.Ustawienia.Name = "Ustawienia";
@@ -378,7 +392,7 @@ namespace SferaWinFormsApp
             this.b6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b6.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b6.Location = new System.Drawing.Point(4, 112);
-            this.b6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b6.Margin = new System.Windows.Forms.Padding(4);
             this.b6.Name = "b6";
             this.b6.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.b6.Size = new System.Drawing.Size(251, 46);
@@ -396,7 +410,7 @@ namespace SferaWinFormsApp
             this.b5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.b5.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.b5.Location = new System.Drawing.Point(4, 64);
-            this.b5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.b5.Margin = new System.Windows.Forms.Padding(4);
             this.b5.Name = "b5";
             this.b5.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.b5.Size = new System.Drawing.Size(251, 46);
@@ -414,7 +428,7 @@ namespace SferaWinFormsApp
             this.B_Pan3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.B_Pan3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.B_Pan3.Location = new System.Drawing.Point(4, 4);
-            this.B_Pan3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.B_Pan3.Margin = new System.Windows.Forms.Padding(4);
             this.B_Pan3.Name = "B_Pan3";
             this.B_Pan3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
             this.B_Pan3.Size = new System.Drawing.Size(251, 58);
@@ -429,7 +443,6 @@ namespace SferaWinFormsApp
             this.panel2.AllowDrop = true;
             this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.Logowanie);
             this.panel2.Controls.Add(this.Panel_img);
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -438,19 +451,6 @@ namespace SferaWinFormsApp
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1318, 712);
             this.panel2.TabIndex = 0;
-            // 
-            // Logowanie
-            // 
-            this.Logowanie.AutoSize = true;
-            this.Logowanie.BackColor = System.Drawing.Color.Transparent;
-            this.Logowanie.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Logowanie.Font = new System.Drawing.Font("Times New Roman", 10.2F);
-            this.Logowanie.Location = new System.Drawing.Point(91, 151);
-            this.Logowanie.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.Logowanie.Name = "Logowanie";
-            this.Logowanie.Size = new System.Drawing.Size(100, 19);
-            this.Logowanie.TabIndex = 7;
-            this.Logowanie.Text = "Logowanie ...";
             // 
             // Panel_img
             // 
@@ -513,7 +513,6 @@ namespace SferaWinFormsApp
             this.Magazyn.ResumeLayout(false);
             this.Ustawienia.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Panel_img)).EndInit();
             this.ResumeLayout(false);
 

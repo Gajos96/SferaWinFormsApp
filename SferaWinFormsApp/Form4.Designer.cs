@@ -42,6 +42,7 @@ namespace SferaWinFormsApp
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Grupa = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.Kod_Cn = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
@@ -49,7 +50,6 @@ namespace SferaWinFormsApp
             this.opis_pozycji = new System.Windows.Forms.CheckBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.Grupa = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -182,6 +182,16 @@ namespace SferaWinFormsApp
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             // 
+            // Grupa
+            // 
+            this.Grupa.AutoSize = true;
+            this.Grupa.Location = new System.Drawing.Point(9, 182);
+            this.Grupa.Name = "Grupa";
+            this.Grupa.Size = new System.Drawing.Size(70, 21);
+            this.Grupa.TabIndex = 11;
+            this.Grupa.Text = "Grupa";
+            this.Grupa.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -239,16 +249,6 @@ namespace SferaWinFormsApp
             // 
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
-            // 
-            // Grupa
-            // 
-            this.Grupa.AutoSize = true;
-            this.Grupa.Location = new System.Drawing.Point(9, 182);
-            this.Grupa.Name = "Grupa";
-            this.Grupa.Size = new System.Drawing.Size(70, 21);
-            this.Grupa.TabIndex = 11;
-            this.Grupa.Text = "Grupa";
-            this.Grupa.UseVisualStyleBackColor = true;
             // 
             // Dodaj_Asortyment
             // 

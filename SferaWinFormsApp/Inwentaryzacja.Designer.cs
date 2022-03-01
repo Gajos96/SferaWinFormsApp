@@ -1,7 +1,7 @@
 ﻿
 namespace SferaWinFormsApp
 {
-    partial class Inwentaryzacja
+    partial class Łaczymy
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,8 @@ namespace SferaWinFormsApp
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inwentaryzacja));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Łaczymy));
             this.Text_Path1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,7 +44,11 @@ namespace SferaWinFormsApp
             this.cbMagazyn = new System.Windows.Forms.ComboBox();
             this.Nowosci = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.Reading2Data = new System.Windows.Forms.BindingSource(this.components);
+            this.database2DataSet = new SferaWinFormsApp.Database2DataSet();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Reading2Data)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // Text_Path1
@@ -63,11 +68,11 @@ namespace SferaWinFormsApp
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(16, 15);
+            this.groupBox1.Location = new System.Drawing.Point(0, 8);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1266, 71);
+            this.groupBox1.Size = new System.Drawing.Size(1464, 128);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -161,7 +166,7 @@ namespace SferaWinFormsApp
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Location = new System.Drawing.Point(12, 637);
+            this.label5.Location = new System.Drawing.Point(24, 1010);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(547, 17);
             this.label5.TabIndex = 7;
@@ -187,7 +192,7 @@ namespace SferaWinFormsApp
             this.Nowosci.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Nowosci.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Nowosci.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Nowosci.Location = new System.Drawing.Point(12, 583);
+            this.Nowosci.Location = new System.Drawing.Point(16, 592);
             this.Nowosci.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Nowosci.Name = "Nowosci";
             this.Nowosci.Size = new System.Drawing.Size(168, 52);
@@ -201,38 +206,50 @@ namespace SferaWinFormsApp
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Location = new System.Drawing.Point(10, 549);
+            this.label7.Location = new System.Drawing.Point(16, 568);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(501, 17);
             this.label7.TabIndex = 12;
             this.label7.Text = "Przycisk wypisuje asortyment nie dodadany do subiecta będący w magazynie .";
             // 
-            // Inwentaryzacja
+            // Reading2Data
+            // 
+            this.Reading2Data.DataMember = "Table";
+            this.Reading2Data.DataSource = this.database2DataSet;
+            // 
+            // database2DataSet
+            // 
+            this.database2DataSet.DataSetName = "Database2DataSet";
+            this.database2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // Łaczymy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1298, 663);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.Nowosci);
+            this.ClientSize = new System.Drawing.Size(1468, 686);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.cbMagazyn);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.Text_Path1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.Nowosci);
+            this.Controls.Add(this.cbMagazyn);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.Text_Path1);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Inwentaryzacja";
+            this.Name = "Łaczymy";
             this.Activated += new System.EventHandler(this.Loan_EveryThing);
             this.Load += new System.EventHandler(this.Loan_EveryThing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Reading2Data)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,5 +270,7 @@ namespace SferaWinFormsApp
         private System.Windows.Forms.ComboBox cbMagazyn;
         private System.Windows.Forms.Button Nowosci;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.BindingSource Reading2Data;
+        private Database2DataSet database2DataSet;
     }
 }

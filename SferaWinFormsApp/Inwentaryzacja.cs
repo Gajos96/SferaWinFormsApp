@@ -10,12 +10,20 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
+using System.Data.SqlClient;
+using System.Collections;
 
 namespace SferaWinFormsApp
 {
-    public partial class Inwentaryzacja : Form
+    public partial class Łaczymy : Form
     {
-        public Inwentaryzacja()
+        class Zaczytywanie
+        {
+           public int Id { get; set; }
+           public string PathFile { get; set; }
+        }
+
+        public Łaczymy()
         {
             InitializeComponent();
             Kupa(staticpath);
@@ -33,7 +41,7 @@ namespace SferaWinFormsApp
             }
         }
 
-        class Symbol
+       public class Symbol
         {
             public string Symbol_Rośliny { get; set; }
             public int Ilość_Rośliny { get; set; }
@@ -60,6 +68,10 @@ namespace SferaWinFormsApp
             return i;
         }
         // Tworzenie spisu inwentaryzacji
+           
+        
+        
+
         static readonly string staticpath = @"\\fs1\Szklarnia\Magazyn 2021-2022 Nowy Index\MAGAZYNY LOKALIZACJI  Jesień 2021 wiosna 2022 nowy.xlsx";
 
         private object[] Pobierz_Magazyny()
@@ -89,9 +101,45 @@ namespace SferaWinFormsApp
 
         private void Loan_EveryThing(object sender, EventArgs e)
         {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'pathFile.NewPath' . Możesz go przenieść lub usunąć.
             cbMagazyn.Items.AddRange(Pobierz_Magazyny());
             cbMagazyn.SelectedIndex = 0;
+            DownloadPath();
+
+
         }
+
+        // Zapytanie
+        private DataRowCollection ZapytanieSelect (string zapytanie)
+        {
+            DataRowCollection dr;
+            string asd = "";
+            using (SqlConnection poloczenie = new SqlConnection(asd))
+            {
+                SqlCommand cmd = new SqlCommand(zapytanie, poloczenie);
+                cmd.CommandType = CommandType.Text;
+                DataSet dataSet = new DataSet();
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dataSet);
+                dr = dataSet.Tables[0].Rows;
+            }
+            return dr;
+        }
+
+        public IEnumerable DownloadPath()
+        {
+            var dane = ZapytanieSelect("SELECT Id, PathFile FROM dbo.NewPath");
+            foreach (DataRow dr in dane)
+            {
+                yield return new Zaczytywanie
+                {
+                    Id = int.Parse(dr["Id"].ToString()),
+                    PathFile = dr["PathFile"].ToString(),
+                };
+            }
+         }
+
+        // Pozniej przetestuje
 
         public float Count_Progresbar(int row, int number_loop)
         {
@@ -328,5 +376,8 @@ namespace SferaWinFormsApp
         {
             Pozycje_not_null();
         }
+
+
+
     }
 }

@@ -108,21 +108,24 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pliki_Szablonowe\DataBase_AppDataSet.cs">
-      <DependentUpon>DataBase_AppDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Pliki_Szablonowe\DataBase_AppDataSet.Designer.cs">
+    <Compile Include="Database2DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataBase_AppDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>Database2DataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Coś pod 4 przyciskiem.cs">
+    <Compile Include="Klasy\Metody.cs" />
+    <Compile Include="Klasy\Symbol.cs" />
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Coś pod 4 przyciskiem.Designer.cs">
-      <DependentUpon>Coś pod 4 przyciskiem.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ustawienia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ustawienia.Designer.cs">
+      <DependentUpon>Ustawienia.cs</DependentUpon>
     </Compile>
     <Compile Include="Ładowanie_Excel.cs">
       <SubType>Form</SubType>
@@ -168,8 +171,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Coś pod 4 przyciskiem.resx">
-      <DependentUpon>Coś pod 4 przyciskiem.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ustawienia.resx">
+      <DependentUpon>Ustawienia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -201,19 +207,16 @@
     <EmbeddedResource Include="Ładowanie_Excel.resx">
       <DependentUpon>Ładowanie_Excel.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Pliki_Szablonowe\DataBase_AppDataSet.xsc">
-      <DependentUpon>DataBase_AppDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="Database2DataSet.xsc">
+      <DependentUpon>Database2DataSet.xsd</DependentUpon>
     </None>
-    <None Include="Pliki_Szablonowe\DataBase_AppDataSet.xsd">
+    <None Include="Database2DataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataBase_AppDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>Database2DataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Pliki_Szablonowe\DataBase_AppDataSet.xss">
-      <DependentUpon>DataBase_AppDataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="Database2DataSet.xss">
+      <DependentUpon>Database2DataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -274,12 +277,12 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pliki_Szablonowe\DataBase_App.mdf">
+    <Content Include="Database2.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Pliki_Szablonowe\DataBase_App_log.ldf">
+    <Content Include="Database2_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DataBase_App.mdf</DependentUpon>
+      <DependentUpon>Database2.mdf</DependentUpon>
     </Content>
     <Content Include="TextTemplate.ico" />
   </ItemGroup>

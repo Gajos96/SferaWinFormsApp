@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.Threading;
 
 namespace SferaWinFormsApp
 {
@@ -35,29 +37,35 @@ namespace SferaWinFormsApp
             }
         }
 
-        private void B_Pan1_Click(object sender, EventArgs e)
+        private async void B_Pan1_Click(object sender, EventArgs e)
         {
-            int a = 1;
-            zmiana(a);
             timer1.Start();
-            Change_Style_Button(a, 0);
+            B_Pan1.Enabled = false;
+            int a = 1;
+            await Change_Style_Button(a, 0);
+            zmiana(a);
+            B_Pan1.Enabled = true;
         }
 
-        private void B_Pan2_Click(object sender, EventArgs e)
+        private async void B_Pan2_Click(object sender, EventArgs e)
         {
-            int a = 2;
-            zmiana(a);
             timer2.Start();
-            Change_Style_Button(a, 0);
+            B_Pan2.Enabled = false;
+            int a = 2;
+            await Change_Style_Button(a, 0);
+            zmiana(a);
+            B_Pan2.Enabled = true;
 
         }
 
-        private void B_Pan3_Click(object sender, EventArgs e)
+        private async void B_Pan3_Click(object sender, EventArgs e)
         {
-            int a = 3;
-            zmiana(a);
             timer3.Start();
-            Change_Style_Button(a, 0);
+            B_Pan3.Enabled = false;
+            int a = 3;
+            await Change_Style_Button(a, 0);
+            zmiana(a);
+            B_Pan3.Enabled = true;
         }
 
         private void Sing_Menu_Click(object sender, EventArgs e)
@@ -103,44 +111,61 @@ namespace SferaWinFormsApp
     }
 
     #region button do nowych formularzy
-    private void B1_Click(object sender, EventArgs e)
+    private async void B1_Click(object sender, EventArgs e)
         {
             int b = 1;
-            Change_Style_Button(0, b);
+            b1.Enabled = false;
+            await Change_Style_Button(0, b);
             OpenChildForm(new Dodaj_Asortyment());
+            Thread.Sleep(200);
+            b1.Enabled = true;
         }
 
-        private void B2_Click(object sender, EventArgs e)
+        private async void B2_Click(object sender, EventArgs e)
         {
             int b = 2;
-            Change_Style_Button(0, b);
+            b2.Enabled = false;
+            await Change_Style_Button(0, b);
             OpenChildForm(new Zmien_Asortyment());
+            Thread.Sleep(200);
+            b2.Enabled = true;
         }
 
-        private void B3_Click(object sender, EventArgs e)
+        private async void B3_Click(object sender, EventArgs e)
         {
             int b = 3;
-            Change_Style_Button(0, b);
-            OpenChildForm(new Inwentaryzacja());
+            b3.Enabled = false;
+            await Change_Style_Button(0, b);
+            OpenChildForm(new Łaczymy());
+            Thread.Sleep(200);
+            b3.Enabled = true;
 
         }
 
-        private void B4_Click(object sender, EventArgs e)
+        private async void B4_Click(object sender, EventArgs e)
         {
             int b = 4;
-            Change_Style_Button(0, b);
+            b4.Enabled = false;
+          await Change_Style_Button(0, b);
+            b4.Enabled = true;
+            
         }
 
-        private void B5_Click(object sender, EventArgs e)
+        private async void B5_Click(object sender, EventArgs e)
         {
             int b = 5;
-            Change_Style_Button(0, b);
+            b5.Enabled = false;
+           await Change_Style_Button(0, b);
+            OpenChildForm(new Ustawinia());
+            b5.Enabled = true;
         }
 
-        private void B6_Click(object sender, EventArgs e)
+        private async void B6_Click(object sender, EventArgs e)
         {
             int b = 6;
-            Change_Style_Button(0, b);
+            b6.Enabled = false;
+            await Change_Style_Button(0, b);
+            b6.Enabled = true;
         }
 
         #endregion
@@ -158,86 +183,90 @@ namespace SferaWinFormsApp
         }
         #endregion
 
-        private void Change_Style_Button(int a, int b)
+        private async Task Change_Style_Button(int a, int b)
         {
-            if (b == 0)
+            await Task.Run(() =>
             {
-                if (a == 1)
+                if (b == 0)
                 {
-                    B_Pan1.BackColor = SystemColors.ScrollBar;
-                    B_Pan2.BackColor = Color.Transparent;
-                    B_Pan3.BackColor = Color.Transparent;
+                    if (a == 1)
+                    {
+                        B_Pan1.BackColor = SystemColors.ScrollBar;
+                        B_Pan2.BackColor = Color.Transparent;
+                        B_Pan3.BackColor = Color.Transparent;
+                    }
+                    if (a == 2)
+                    {
+                        B_Pan2.BackColor = SystemColors.ScrollBar;
+                        B_Pan1.BackColor = Color.Transparent;
+                        B_Pan3.BackColor = Color.Transparent;
+                    }
+                    if (a == 3)
+                    {
+                        B_Pan3.BackColor = SystemColors.ScrollBar;
+                        B_Pan1.BackColor = Color.Transparent;
+                        B_Pan2.BackColor = Color.Transparent;
+                    }
+
                 }
-                if (a == 2)
+                if (a == 0)
                 {
-                    B_Pan2.BackColor = SystemColors.ScrollBar;
-                    B_Pan1.BackColor = Color.Transparent;
-                    B_Pan3.BackColor = Color.Transparent;
+                    if (b == 1)
+                    {
+                        b1.BackColor = SystemColors.ScrollBar;
+                        b2.BackColor = Color.Transparent;
+                        b3.BackColor = Color.Transparent;
+                        b4.BackColor = Color.Transparent;
+                        b5.BackColor = Color.Transparent;
+                        b6.BackColor = Color.Transparent;
+                    }
+                    if (b == 2)
+                    {
+                        b2.BackColor = SystemColors.ScrollBar;
+                        b1.BackColor = Color.Transparent;
+                        b3.BackColor = Color.Transparent;
+                        b4.BackColor = Color.Transparent;
+                        b5.BackColor = Color.Transparent;
+                        b6.BackColor = Color.Transparent;
+                    }
+                    if (b == 3)
+                    {
+                        b3.BackColor = SystemColors.ScrollBar;
+                        b1.BackColor = Color.Transparent;
+                        b2.BackColor = Color.Transparent;
+                        b4.BackColor = Color.Transparent;
+                        b5.BackColor = Color.Transparent;
+                        b6.BackColor = Color.Transparent;
+                    }
+                    if (b == 4)
+                    {
+                        b4.BackColor = SystemColors.ScrollBar;
+                        b1.BackColor = Color.Transparent;
+                        b2.BackColor = Color.Transparent;
+                        b3.BackColor = Color.Transparent;
+                        b5.BackColor = Color.Transparent;
+                        b6.BackColor = Color.Transparent;
+                    }
+                    if (b == 5)
+                    {
+                        b5.BackColor = SystemColors.ScrollBar;
+                        b1.BackColor = Color.Transparent;
+                        b2.BackColor = Color.Transparent;
+                        b3.BackColor = Color.Transparent;
+                        b4.BackColor = Color.Transparent;
+                        b6.BackColor = Color.Transparent;
+                    }
+                    if (b == 6)
+                    {
+                        b6.BackColor = SystemColors.ScrollBar;
+                        b1.BackColor = Color.Transparent;
+                        b2.BackColor = Color.Transparent;
+                        b3.BackColor = Color.Transparent;
+                        b4.BackColor = Color.Transparent;
+                        b5.BackColor = Color.Transparent;
+                    }
                 }
-                if (a == 3)
-                {
-                    B_Pan3.BackColor = SystemColors.ScrollBar;
-                    B_Pan1.BackColor = Color.Transparent;
-                    B_Pan2.BackColor = Color.Transparent;
-                }
-            }
-            if (a == 0)
-            {
-                if (b == 1)
-                {
-                    b1.BackColor = SystemColors.ScrollBar;
-                    b2.BackColor = Color.Transparent;
-                    b3.BackColor = Color.Transparent;
-                    b4.BackColor = Color.Transparent;
-                    b5.BackColor = Color.Transparent;
-                    b6.BackColor = Color.Transparent;
-                }
-                if (b == 2)
-                {
-                    b2.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = Color.Transparent;
-                    b3.BackColor = Color.Transparent;
-                    b4.BackColor = Color.Transparent;
-                    b5.BackColor = Color.Transparent;
-                    b6.BackColor = Color.Transparent;
-                }
-                if (b == 3)
-                {
-                    b3.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = Color.Transparent;
-                    b2.BackColor = Color.Transparent;
-                    b4.BackColor = Color.Transparent;
-                    b5.BackColor = Color.Transparent;
-                    b6.BackColor = Color.Transparent;
-                }
-                if (b == 4)
-                {
-                    b4.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = Color.Transparent;
-                    b2.BackColor = Color.Transparent;
-                    b3.BackColor = Color.Transparent;
-                    b5.BackColor = Color.Transparent;
-                    b6.BackColor = Color.Transparent;
-                }
-                if (b == 5)
-                {
-                    b5.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = Color.Transparent;
-                    b2.BackColor = Color.Transparent;
-                    b3.BackColor = Color.Transparent;
-                    b4.BackColor = Color.Transparent;
-                    b6.BackColor = Color.Transparent;
-                }
-                if (b == 6)
-                {
-                    b6.BackColor = SystemColors.ScrollBar;
-                    b1.BackColor = Color.Transparent;
-                    b2.BackColor = Color.Transparent;
-                    b3.BackColor = Color.Transparent;
-                    b4.BackColor = Color.Transparent;
-                    b5.BackColor = Color.Transparent;
-                }
-            }
+            });
         }
 
 
@@ -312,7 +341,7 @@ namespace SferaWinFormsApp
         private bool Collapsed_Asortyment;
         private bool Collapsed_Magazyn;
         private bool Collapsed_Ustawienia ;
-        int a = 550;
+        int a = 500;
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (Collapsed_Asortyment)

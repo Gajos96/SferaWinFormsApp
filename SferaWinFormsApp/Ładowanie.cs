@@ -14,10 +14,13 @@ namespace SferaWinFormsApp
 {
     public partial class Ładowanie : Form
     {
+
+        
         public Ładowanie()
         {
 
             InitializeComponent();
+            this.Update();
         }
 
 
@@ -31,7 +34,7 @@ namespace SferaWinFormsApp
             try
             {
                 progressBar1.Value = (int)(procent);
-                if(progressBar1.Value == 100)
+                if(progressBar1.Value == int.MaxValue)
                 {
                     Info_Label.Text = "Zakończone :";
                 }

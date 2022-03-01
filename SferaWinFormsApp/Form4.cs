@@ -13,35 +13,14 @@ namespace SferaWinFormsApp
 {
     public partial class Dodaj_Asortyment : Form
     {
+
+        private Best_Void kr = new Best_Void();
+        
+
+
         public Dodaj_Asortyment()
         {
             InitializeComponent();
-        }
-
-        class Symbol
-        {
-            public string Nazwa_Symbol { get; set; }
-            public string Nazwa_Nazwa { get; set; }
-            public string Opis { get; set; }
-            public string StawkaVat { get; set; }
-            public string EAN { get; set; }
-            public string CN { get; set; }
-            public string Grupa1 { get; set; }
-            public Symbol(string sys, string sys1, string sys2, string sys3, string sys4, string sys5,string sys6)
-            {
-                Nazwa_Symbol = sys;
-                Nazwa_Nazwa = sys1;
-                Opis = sys2;
-                StawkaVat = sys3;
-                EAN = sys4;
-                CN = sys5;
-                Grupa1 = sys6;
-            }
-        }
-
-        public float Count_Progresbar(int row, int number_loop)
-        {
-            return (float)number_loop / (float)row * 100f;
         }
 
         private void Pobierz_Szablon_Click(object sender, EventArgs e)
@@ -160,6 +139,7 @@ namespace SferaWinFormsApp
                 excel.Quit();
                 Marshal.ReleaseComObject(excel);
                 Marshal.ReleaseComObject(Arkusz);
+                
             }
             catch (Exception theException)
             {
@@ -198,6 +178,8 @@ namespace SferaWinFormsApp
 
         private void Dodaj()
         {
+            
+            var ListError = new Form1();
             var Excel_Load = new Ładowanie_Excel();
             Excel_Load.Show();
             IAsortymenty asortymenty = Program.Sfera.PodajObiektTypu<IAsortymenty>();
@@ -213,7 +195,6 @@ namespace SferaWinFormsApp
             var objbook = objBooks.Open(path);
             var Sheet = (Excel._Worksheet)objbook.ActiveSheet;
             oApp.Visible = false;
-            //Excel.Range range;
             int rows = 0;
             int g = 2;
             for (int i = 2; i < (1500); i++)
@@ -263,67 +244,83 @@ namespace SferaWinFormsApp
             }
             int Number_loop = 0;
             var New_Ladowanie = new Ładowanie();
+           
             Excel_Load.Close();
             New_Ladowanie.Show();
             foreach (Symbol kupa in listsymbol)
             {
                 Number_loop++;
-                float Licz = Count_Progresbar(listsymbol.Count(), Number_loop);
+                float Licz = kr.Count_Progresbar1(listsymbol.Count(), Number_loop);
                 New_Ladowanie.Ładowanie_Load((int)Licz);
                 using (IAsortyment towarBo = asortymenty.Utworz())
                 {
-                    towarBo.WypelnijNaPodstawieSzablonu(szablony.DaneDomyslne.Towar);
-                    towarBo.Dane.Symbol = kupa.Nazwa_Symbol;
-                    towarBo.Dane.Nazwa = kupa.Nazwa_Nazwa;
-                    if (opis_pozycji.Checked == true)
                     {
-                        towarBo.Dane.Opis = kupa.Opis;
-                    }
-                    if (Stawka_Vat.Checked == true)
-                    {
-                        towarBo.Dane.PolaWlasne.PoleWlasne1 = kupa.StawkaVat;
-                    }
-                    if (checkBox3.Checked == true)
-                    {
-                        var kod = new KodKreskowy();
-                        towarBo.Dane.PodstawowaJednostkaMiaryAsortymentu.KodyKreskowe.Add(kod);
-                        kod.Kod = kupa.EAN;
-                        towarBo.Dane.PodstawowaJednostkaMiaryAsortymentu.PodstawowyKodKreskowy = kod;
-                    }
-                    if (Kod_Cn.Checked == true)
-                    {
-                        towarBo.Dane.KodCN = kupa.CN;
-                    }
-                    if(Grupa.Checked == true)
-                    {
-                        GrupaAsortymentu grupa = grupy.Dane.Wszystkie().Where(z => z.Nazwa == kupa.Grupa1).FirstOrDefault();
-                        if (grupa == null)
-                        {
-                            using (var grupaBO = grupy.Utworz())
+                            towarBo.WypelnijNaPodstawieSzablonu(szablony.DaneDomyslne.Towar);
+                            try
                             {
-                                grupaBO.Dane.Nazwa = kupa.Grupa1;
-                                if (!grupaBO.Zapisz())
-                                    grupaBO.WypiszBledy();
-                                grupa = grupaBO.Dane;
+                            towarBo.Dane.Symbol = kupa.Nazwa_Symbol;
                             }
-                        }
-                        towarBo.Dane.Grupa = grupa;
-                    }
-
-                    if (!towarBo.Zapisz())
-                    {
-                        towarBo.WypiszBledy();
+                            catch
+                            {
+                            Rozszerzenia.lol = kupa.Nazwa_Symbol;
+                            towarBo.WypiszBledy();
+                            continue;
+                            }
+                            
+                            towarBo.Dane.Nazwa = kupa.Nazwa_Nazwa;
+                            if (opis_pozycji.Checked == true)
+                            {
+                                towarBo.Dane.Opis = kupa.Opis;
+                            }
+                            if (Stawka_Vat.Checked == true)
+                            {
+                                towarBo.Dane.PolaWlasne.PoleWlasne1 = kupa.StawkaVat;
+                            }
+                            if (checkBox3.Checked == true)
+                            {
+                                var kod = new KodKreskowy();
+                                towarBo.Dane.PodstawowaJednostkaMiaryAsortymentu.KodyKreskowe.Add(kod);
+                                kod.Kod = kupa.EAN;
+                                towarBo.Dane.PodstawowaJednostkaMiaryAsortymentu.PodstawowyKodKreskowy = kod;
+                            }
+                            if (Kod_Cn.Checked == true)
+                            {
+                                towarBo.Dane.KodCN = kupa.CN;
+                            }
+                            if (Grupa.Checked == true)
+                            {
+                                GrupaAsortymentu grupa = grupy.Dane.Wszystkie().Where(z => z.Nazwa == kupa.Grupa1).FirstOrDefault();
+                                if (grupa == null)
+                                {
+                                    using (var grupaBO = grupy.Utworz())
+                                    {
+                                        grupaBO.Dane.Nazwa = kupa.Grupa1;
+                                        if (!grupaBO.Zapisz())
+                                            grupaBO.WypiszBledy();
+                                        grupa = grupaBO.Dane;
+                                    }
+                                }
+                                towarBo.Dane.Grupa = grupa;
+                            }
+                            if (!towarBo.Zapisz())
+                            {
+                            towarBo.WypiszBledy();
+                            }
                     }
 
                 }
             }
+            
             New_Ladowanie.Visa_Button();
             objBooks.Close();
+            listsymbol.Clear();
             oApp.Quit();
             GC.Collect();
         }
+
         private void Button3_Click(object sender, EventArgs e)
         {
+
             Dodaj();
         }
     }
