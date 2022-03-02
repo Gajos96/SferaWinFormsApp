@@ -12,11 +12,15 @@ using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using System.Data.SqlClient;
 using System.Collections;
+using Newtonsoft.Json;
+using System.IO;
 
 namespace SferaWinFormsApp
 {
     public partial class Łaczymy : Form
     {
+        string staticpath = @"\\fs1\Szklarnia\Magazyn 2021-2022 Nowy Index.xlsx";
+
         class Zaczytywanie
         {
            public int Id { get; set; }
@@ -26,6 +30,8 @@ namespace SferaWinFormsApp
         public Łaczymy()
         {
             InitializeComponent();
+            string PathObject1 = File.ReadAllText(Application.StartupPath + "/PathOption.json");
+            string staticpath = PathObject1;
             Kupa(staticpath);
         }
 
@@ -67,12 +73,8 @@ namespace SferaWinFormsApp
             }
             return i;
         }
-        // Tworzenie spisu inwentaryzacji
-           
-        
-        
 
-        static readonly string staticpath = @"\\fs1\Szklarnia\Magazyn 2021-2022 Nowy Index\MAGAZYNY LOKALIZACJI  Jesień 2021 wiosna 2022 nowy.xlsx";
+        
 
         private object[] Pobierz_Magazyny()
         {
@@ -104,9 +106,6 @@ namespace SferaWinFormsApp
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'pathFile.NewPath' . Możesz go przenieść lub usunąć.
             cbMagazyn.Items.AddRange(Pobierz_Magazyny());
             cbMagazyn.SelectedIndex = 0;
-            DownloadPath();
-
-
         }
 
         // Zapytanie

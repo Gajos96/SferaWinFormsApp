@@ -27,6 +27,7 @@ namespace SferaWinFormsApp
                 Number = x;
                 path = y;
             }
+            
         }
 
         public string path_update;
@@ -43,7 +44,8 @@ namespace SferaWinFormsApp
             };
             if (InFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                tableTableAdapter.UpTable(1, InFile.FileName);
+                Path_Find.path(InFile.FileName);
+                Path_Find.Json();
             }
         }
 

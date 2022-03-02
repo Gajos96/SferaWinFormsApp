@@ -55,7 +55,6 @@ namespace SferaWinFormsApp
             await Change_Style_Button(a, 0);
             zmiana(a);
             B_Pan2.Enabled = true;
-
         }
 
         private async void B_Pan3_Click(object sender, EventArgs e)

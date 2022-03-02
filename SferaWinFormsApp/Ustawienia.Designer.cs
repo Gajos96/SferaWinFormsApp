@@ -52,9 +52,9 @@ namespace SferaWinFormsApp
             this.groupBox1.Controls.Add(this.Przycisk_FindFile);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.groupBox1.Location = new System.Drawing.Point(24, 32);
+            this.groupBox1.Location = new System.Drawing.Point(16, 16);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1248, 608);
+            this.groupBox1.Size = new System.Drawing.Size(1264, 632);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ustawienia";
@@ -66,7 +66,7 @@ namespace SferaWinFormsApp
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.Location = new System.Drawing.Point(240, 112);
+            this.label2.Location = new System.Drawing.Point(336, 112);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 49);
             this.label2.TabIndex = 3;
@@ -81,7 +81,7 @@ namespace SferaWinFormsApp
             this.textBox2.MinimumSize = new System.Drawing.Size(208, 48);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 48);
+            this.textBox2.Size = new System.Drawing.Size(304, 48);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "Wyloguj / \r\nZmień Użytkownika";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -93,7 +93,7 @@ namespace SferaWinFormsApp
             this.Przycisk_FindFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Przycisk_FindFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Przycisk_FindFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Przycisk_FindFile.Location = new System.Drawing.Point(240, 48);
+            this.Przycisk_FindFile.Location = new System.Drawing.Point(336, 48);
             this.Przycisk_FindFile.Name = "Przycisk_FindFile";
             this.Przycisk_FindFile.Size = new System.Drawing.Size(88, 49);
             this.Przycisk_FindFile.TabIndex = 1;
@@ -108,9 +108,9 @@ namespace SferaWinFormsApp
             this.textBox1.MinimumSize = new System.Drawing.Size(208, 48);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 48);
+            this.textBox1.Size = new System.Drawing.Size(304, 48);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Zmiana domymyślego położenia pliku .";
+            this.textBox1.Text = "Zmiana domymyślego położenia Magazynu Lokalizacji .";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // database2DataSet
@@ -142,7 +142,7 @@ namespace SferaWinFormsApp
             this.ClientSize = new System.Drawing.Size(1298, 663);
             this.Controls.Add(this.groupBox1);
             this.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.MaximumSize = new System.Drawing.Size(1316, 710);
+            this.MaximumSize = new System.Drawing.Size(1500000, 150000);
             this.MinimumSize = new System.Drawing.Size(1316, 710);
             this.Name = "Ustawinia";
             this.Text = "Janusz Wypieralaj człowiek suksecu";

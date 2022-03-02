@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Windows.Forms;
 
 namespace SferaWinFormsApp
 {
@@ -51,9 +54,20 @@ namespace SferaWinFormsApp
         }
     }
 
-   class Wypisz_Błedy
-    {
-        
-    }
+   static class Path_Find
+    { 
+        public static string Path_Access { get; set; }
 
+        public static Action<string> path = (y) =>
+         { 
+             Path_Access = y;
+         };
+
+        public static void Json()
+        {
+            string PathOption = JsonConvert.SerializeObject(Path_Access);
+            File.WriteAllText(Application.StartupPath + "/PathOption.json", PathOption);
+            //Zaczytywanie do pliku Json Scieżki do magazynu ( Zapisuje ją )
+        }
+    }
 }
