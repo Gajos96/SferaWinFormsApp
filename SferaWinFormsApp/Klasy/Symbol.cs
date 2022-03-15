@@ -70,4 +70,16 @@ namespace SferaWinFormsApp
             //Zaczytywanie do pliku Json Scieżki do magazynu ( Zapisuje ją )
         }
     }
+
+
+
+    public static class Sort_Data
+    {
+        public static DateTime OriginDate { get; set; }
+        public static DateTime FinishDate { get; set; }
+        public static string Rodzaj_dokumentu { get; set; }
+    }
+
+
+
 }

@@ -47,12 +47,16 @@ namespace SferaWinFormsApp
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.Przycisk_FindFile);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.groupBox1.Location = new System.Drawing.Point(16, 16);
+            this.groupBox1.MinimumSize = new System.Drawing.Size(1264, 632);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1264, 632);
             this.groupBox1.TabIndex = 0;
@@ -77,12 +81,16 @@ namespace SferaWinFormsApp
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox2.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.textBox2.Location = new System.Drawing.Point(32, 112);
             this.textBox2.MinimumSize = new System.Drawing.Size(208, 48);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.ShortcutsEnabled = false;
             this.textBox2.Size = new System.Drawing.Size(304, 48);
             this.textBox2.TabIndex = 2;
+            this.textBox2.TabStop = false;
             this.textBox2.Text = "Wyloguj / \r\nZmień Użytkownika";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -108,10 +116,12 @@ namespace SferaWinFormsApp
             this.textBox1.MinimumSize = new System.Drawing.Size(208, 48);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(304, 48);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "Zmiana domymyślego położenia Magazynu Lokalizacji .";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.WordWrap = false;
             // 
             // database2DataSet
             // 
@@ -142,7 +152,6 @@ namespace SferaWinFormsApp
             this.ClientSize = new System.Drawing.Size(1298, 663);
             this.Controls.Add(this.groupBox1);
             this.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.MaximumSize = new System.Drawing.Size(1500000, 150000);
             this.MinimumSize = new System.Drawing.Size(1316, 710);
             this.Name = "Ustawinia";
             this.Text = "Janusz Wypieralaj człowiek suksecu";

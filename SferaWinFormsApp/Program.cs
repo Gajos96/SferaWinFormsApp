@@ -12,6 +12,7 @@ namespace SferaWinFormsApp
 
         public static Uchwyt UruchomSfere()
         {
+
             DanePolaczenia danePolaczenia = null;
             string pName = "/UruchomionePrzezInsLauncher";
             if (Environment.GetCommandLineArgs().Any(a => string.Compare(a, pName, true) == 0))

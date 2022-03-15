@@ -128,6 +128,7 @@ namespace SferaWinFormsApp
             OpenChildForm(new Zmien_Asortyment());
             Thread.Sleep(200);
             b2.Enabled = true;
+            
         }
 
         private async void B3_Click(object sender, EventArgs e)
@@ -146,6 +147,7 @@ namespace SferaWinFormsApp
             int b = 4;
             b4.Enabled = false;
           await Change_Style_Button(0, b);
+            OpenChildForm(new Pozycje_Fakturowe());
             b4.Enabled = true;
             
         }
@@ -327,6 +329,7 @@ namespace SferaWinFormsApp
         int mov;
         int movX;
         int movY;
+
         private void Form3_Load(object sender, EventArgs e)
         {
             Location = Screen.AllScreens[0].WorkingArea.Location;
@@ -341,6 +344,7 @@ namespace SferaWinFormsApp
         private bool Collapsed_Magazyn;
         private bool Collapsed_Ustawienia ;
         int a = 500;
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (Collapsed_Asortyment)
