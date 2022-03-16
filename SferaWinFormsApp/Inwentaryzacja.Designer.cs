@@ -118,7 +118,7 @@ namespace SferaWinFormsApp
             this.button1.TabIndex = 3;
             this.button1.Text = "Wybierz Ścieżkę";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.Choose_Path_Click);
             // 
             // button2
             // 
@@ -133,7 +133,7 @@ namespace SferaWinFormsApp
             this.button2.TabIndex = 4;
             this.button2.Text = "Wykonaj Inwetaryzacje";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.button2.Click += new System.EventHandler(this.Inwetaryzacja_Click);
             // 
             // label3
             // 

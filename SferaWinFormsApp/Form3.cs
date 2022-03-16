@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Threading;
+using SferaWinFormsApp.Cenniki_Forms;
 
 namespace SferaWinFormsApp
 {
@@ -30,7 +31,7 @@ namespace SferaWinFormsApp
             {
                 b1.Visible = true;
                 b2.Visible = true;
-                b3.Visible = false;
+                b3.Visible = true;
                 b4.Visible = false;
                 b5.Visible = false;
                 b6.Visible = false;
@@ -164,6 +165,7 @@ namespace SferaWinFormsApp
             int b = 2;
             b2.Enabled = false;
             await Change_Style_Button(0, b);
+            OpenChildForm(new Dodaj_Klient());
             Thread.Sleep(200);
             b2.Enabled = true;
             
@@ -212,6 +214,7 @@ namespace SferaWinFormsApp
             int b = 7;
             b6.Enabled = false;
             await Change_Style_Button(0, b);
+            OpenChildForm(new Cennik_Menu());
             b6.Enabled = true;
         }
 
@@ -422,76 +425,6 @@ namespace SferaWinFormsApp
         }
 
 
-        //private void timer1_Tick(object sender, EventArgs e)
-        //{
-        //    if (Collapsed_Asortyment)
-        //    {
-        //        Asortyment.Height += a;
-        //        Magazyn.Height -= a;
-        //        Ustawienia.Height -= a;
-        //        if (Asortyment.Size == Asortyment.MaximumSize)
-        //        {
-        //            timer1.Stop();
-        //            Collapsed_Asortyment = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Asortyment.Height -= a;
-        //        if (Asortyment.Size == Asortyment.MinimumSize )
-        //        {
-        //            timer1.Stop();
-        //        }
-        //    }
-        //}
-
-        //private void timer2_Tick(object sender, EventArgs e)
-        //{
-        //    if (Collapsed_Magazyn)
-        //    {
-        //        Magazyn.Height += a;
-        //        Asortyment.Height -= a;
-        //        Ustawienia.Height -= a;
-        //        if (Magazyn.Size == Magazyn.MaximumSize)
-        //        {
-        //            timer2.Stop();
-        //            Collapsed_Magazyn = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Magazyn.Height -= a;
-        //        if (Magazyn.Size == Magazyn.MinimumSize)
-        //        {
-        //            timer2.Stop();
-        //        }
-        
-        //    }  
-        //}
-
-        //private void timer3_Tick(object sender, EventArgs e)
-        //{
-        //    if (Collapsed_Ustawienia)
-        //    {
-        //        Ustawienia.Height += a;
-        //        Magazyn.Height -= a;
-        //        Asortyment.Height -= a;
-
-        //        if (Ustawienia.Size == Ustawienia.MaximumSize)
-        //        {
-        //            timer3.Stop();
-        //            Collapsed_Ustawienia = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Ustawienia.Height -= a;
-        //        if (Ustawienia.Size == Ustawienia.MinimumSize)
-        //        {
-        //            timer3.Stop();
-        //        }
-
-        //    }
-        //}
+      
     }
 }

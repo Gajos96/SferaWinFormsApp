@@ -13,6 +13,7 @@ namespace SferaWinFormsApp
         public string Login { get { return ((Uzytkownik)cbUzytkownik.SelectedItem).Login; } }
         public string Haslo { get { return txtHaslo.Text; } }
         public string Uzytkownik { get { return ((Uzytkownik)cbUzytkownik.SelectedItem).Nazwa; } }
+
         public Logowanie(Uchwyt sfera)
         {
             Sfera = sfera;

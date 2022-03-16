@@ -30,7 +30,6 @@ namespace SferaWinFormsApp
         }
     }
 
-
     class Symbol_Update
     {
         public string Stary_Symbol { get; set; }
@@ -54,12 +53,12 @@ namespace SferaWinFormsApp
         }
     }
 
-   static class Path_Find
-    { 
+    static class Path_Find
+    {
         public static string Path_Access { get; set; }
 
         public static Action<string> path = (y) =>
-         { 
+         {
              Path_Access = y;
          };
 
@@ -71,13 +70,47 @@ namespace SferaWinFormsApp
         }
     }
 
-
-
     public static class Sort_Data
     {
         public static DateTime OriginDate { get; set; }
         public static DateTime FinishDate { get; set; }
         public static string Rodzaj_dokumentu { get; set; }
+    }
+
+    class Klient
+    {
+        public string Symbol { get; set; }
+        public string NIP { get; set; }
+        public string Nazwa_Firmy { get; set; }
+        public string Name_Short { get; set; }
+
+        public Klient(string x, string y, string z, string c)
+        {
+            Symbol = c ?? throw new ArgumentNullException(nameof(c));
+            NIP = y;
+            Nazwa_Firmy = z;
+            Name_Short = x;
+        }
+
+    }
+
+    public static class Cenniki_Pomocnicza
+    {
+        private static bool _active;
+        /// <summary>
+        /// Reaguje jak zmiane
+        /// </summary>
+        public static bool Active
+        {
+            get
+            {
+                return _active;
+            }
+            set
+            {
+                _active = value;
+            }
+        }
     }
 
 

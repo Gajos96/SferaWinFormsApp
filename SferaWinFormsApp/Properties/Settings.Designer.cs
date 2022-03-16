@@ -55,5 +55,16 @@ namespace SferaWinFormsApp.Properties {
                 return ((string)(this["Baza_Ap"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=GARTENLAND13\\SQLEXPRESS;Initial Catalog=Nexo_Demo_1;Integrated Securi" +
+            "ty=True")]
+        public string Nexo_Demo_1ConnectionString {
+            get {
+                return ((string)(this["Nexo_Demo_1ConnectionString"]));
+            }
+        }
     }
 }

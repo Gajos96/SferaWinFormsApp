@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\AppData\Local\InsERT\Deployments\Nexo\Demo_1a2015a263c714600b2ce1743ce\Binaries\</OutputPath>
+    <OutputPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -59,28 +59,28 @@
       <HintPath>..\..\..\..\AppData\Local\InsERT\Deployments\Nexo\Demo_1a2015a263c714600b2ce1743ce\Binaries\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
     <Reference Include="InsERT.Moria.API">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_37.1.0.4997\Bin\InsERT.Moria.API.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.API.dll</HintPath>
     </Reference>
     <Reference Include="InsERT.Moria.BibliotekaDokumentow">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_37.1.0.4997\Bin\InsERT.Moria.BibliotekaDokumentow.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.BibliotekaDokumentow.dll</HintPath>
     </Reference>
     <Reference Include="InsERT.Moria.DaneDomyslne">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_37.1.0.4997\Bin\InsERT.Moria.DaneDomyslne.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.DaneDomyslne.dll</HintPath>
     </Reference>
     <Reference Include="InsERT.Moria.ModelDanych">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_37.1.0.4997\Bin\InsERT.Moria.ModelDanych.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.ModelDanych.dll</HintPath>
     </Reference>
     <Reference Include="InsERT.Moria.Sfera">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_37.1.0.4997\Bin\InsERT.Moria.Sfera.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.Sfera.dll</HintPath>
     </Reference>
     <Reference Include="InsERT.Mox.Core">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_37.1.0.4997\Bin\InsERT.Mox.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Mox.Core.dll</HintPath>
     </Reference>
     <Reference Include="InsERT.Mox.EntityFramework.Core">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_37.1.0.4997\Bin\InsERT.Mox.EntityFramework.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Mox.EntityFramework.Core.dll</HintPath>
     </Reference>
     <Reference Include="InsERT.Mox.EntityFrameworkSupport">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_37.1.0.4997\Bin\InsERT.Mox.EntityFrameworkSupport.dll</HintPath>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Mox.EntityFrameworkSupport.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -89,6 +89,8 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
     </Reference>
@@ -99,6 +101,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -111,12 +114,55 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cenniki_Forms\Dodaj_Cennik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Dodaj_Cennik.Designer.cs">
+      <DependentUpon>Dodaj_Cennik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Dodaj_Dodadkowy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Dodaj_Dodadkowy.Designer.cs">
+      <DependentUpon>Dodaj_Dodadkowy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Dodaj_Próg_Cennowy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Dodaj_Próg_Cennowy.Designer.cs">
+      <DependentUpon>Dodaj_Próg_Cennowy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cenniki_Forms\MenuCenników.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cenniki_Forms\MenuCenników.Designer.cs">
+      <DependentUpon>MenuCenników.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Personalizacja_Cennika_Dodakowego.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Personalizacja_Cennika_Dodakowego.Designer.cs">
+      <DependentUpon>Personalizacja_Cennika_Dodakowego.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Przecena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Przecena.Designer.cs">
+      <DependentUpon>Przecena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.Designer.cs">
+      <DependentUpon>Zmiana_Sposobu_Wyliczania.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dodaj_Klient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dodaj_Klient.Designer.cs">
       <DependentUpon>Dodaj_Klient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Klasy\Event_Vi.cs" />
     <Compile Include="Pozycje_Fakturowe.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +227,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Cenniki_Forms\Dodaj_Cennik.resx">
+      <DependentUpon>Dodaj_Cennik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cenniki_Forms\MenuCenników.resx">
+      <DependentUpon>MenuCenników.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dodaj_Klient.resx">
       <DependentUpon>Dodaj_Klient.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,7 +287,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Klasy\App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

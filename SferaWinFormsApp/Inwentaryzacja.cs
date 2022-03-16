@@ -19,23 +19,42 @@ namespace SferaWinFormsApp
 {
     public partial class Łaczymy : Form
     {
-        string staticpath = @"\\fs1\Szklarnia\Magazyn 2021-2022 Nowy Index.xlsx";
+        #region Zmienne prywatne dla Łączymy
+        private string staticpath = @"\\fs1\Szklarnia\Magazyn 2021-2022 Nowy Index.xlsx\MAGAZYNY LOKALIZACJI  Jesień 2021 wiosna 2022 nowy";
+        private string path1;
+        private Best_Void kr = new Best_Void();
+        #endregion
 
-        class Zaczytywanie
+        /// <summary>
+        /// Tworzenie Jsona jakby go nie było w miejscu aplikacji
+        /// </summary>
+        public void CreateBlankFile()
         {
-           public int Id { get; set; }
-           public string PathFile { get; set; }
+            using (File.Create(Application.StartupPath + "PathOption.json")) { }
+
         }
 
+        /// <summary>
+        /// Inicjalizacja Forms + Zaczytywanie ścieżki z Jasona
+        /// </summary>
         public Łaczymy()
         {
             InitializeComponent();
-            string PathObject1 = File.ReadAllText(Application.StartupPath + "/PathOption.json");
-            string staticpath = PathObject1;
-            Kupa(staticpath);
+           if(File.Exists(Application.StartupPath + "/PathOption.json"))
+            {
+                string PathObject1 = File.ReadAllText(Application.StartupPath + "/PathOption.json");
+                string staticpath = PathObject1;
+                Short_Name(staticpath);
+            }
+            else { CreateBlankFile();
+                Short_Name(staticpath);
+            }
         }
-
-        class Pomocnicza
+    
+        /// <summary>
+        /// Dwie klasy pomocniocze do zaczytywania danych /// Powinny być przeniesione do Symbol.cs ,ale istnieje tam klasa o tej samej nazwie
+        /// </summary>
+       class Pomocnicza
         {
             public string Symbol_1 { get; set; }
             public int Ilosc { get; set; }
@@ -46,8 +65,7 @@ namespace SferaWinFormsApp
                 Ilosc = y;
             }
         }
-
-       public class Symbol
+       class Symbol
         {
             public string Symbol_Rośliny { get; set; }
             public int Ilość_Rośliny { get; set; }
@@ -59,7 +77,12 @@ namespace SferaWinFormsApp
             }
         }
 
-        private string Kupa(string i)
+        /// <summary>
+        /// Skraca ścieżkę dostepu widoczną w pasku z 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        private string Short_Name(string i)
         {
             if (i.Length <= 70)
             {
@@ -74,8 +97,10 @@ namespace SferaWinFormsApp
             return i;
         }
 
-        
-
+        /// <summary>
+        /// Zaczytuje pozycje z bazy Danych Subiect
+        /// </summary>
+        /// <returns></returns>
         private object[] Pobierz_Magazyny()
         {
             var magaz = new List<Magazyn>();
@@ -101,6 +126,11 @@ namespace SferaWinFormsApp
             return magaz.ToArray();
         }
 
+        /// <summary>
+        /// Ładowanie forma po właczeniu go
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Loan_EveryThing(object sender, EventArgs e)
         {
             // TODO: Ten wiersz kodu wczytuje dane do tabeli 'pathFile.NewPath' . Możesz go przenieść lub usunąć.
@@ -108,43 +138,9 @@ namespace SferaWinFormsApp
             cbMagazyn.SelectedIndex = 0;
         }
 
-        // Zapytanie
-        private DataRowCollection ZapytanieSelect (string zapytanie)
-        {
-            DataRowCollection dr;
-            string asd = "";
-            using (SqlConnection poloczenie = new SqlConnection(asd))
-            {
-                SqlCommand cmd = new SqlCommand(zapytanie, poloczenie);
-                cmd.CommandType = CommandType.Text;
-                DataSet dataSet = new DataSet();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                adapter.Fill(dataSet);
-                dr = dataSet.Tables[0].Rows;
-            }
-            return dr;
-        }
-
-        public IEnumerable DownloadPath()
-        {
-            var dane = ZapytanieSelect("SELECT Id, PathFile FROM dbo.NewPath");
-            foreach (DataRow dr in dane)
-            {
-                yield return new Zaczytywanie
-                {
-                    Id = int.Parse(dr["Id"].ToString()),
-                    PathFile = dr["PathFile"].ToString(),
-                };
-            }
-         }
-
-        // Pozniej przetestuje
-
-        public float Count_Progresbar(int row, int number_loop)
-        {
-            return (float)number_loop / (float)row * 100f;
-        }
-
+        /// <summary>
+        /// Połaczone z Guzikiem Inwetaryzacja_Clik rozpoczyna proces Inwetaryzacji
+        /// </summary>
         private void Auto_Spis()
         {
             var Excel_Load = new Ładowanie_Excel();
@@ -194,7 +190,7 @@ namespace SferaWinFormsApp
                 foreach (Symbol kupa in Lista_Inwetaryzacja)
                 {
                     Number_loop++;
-                    float Licz = Count_Progresbar(Lista_Inwetaryzacja.Count(), Number_loop);
+                    float Licz = kr.Count_Progresbar1(Lista_Inwetaryzacja.Count(), Number_loop);
                     New_Ladowanie.Ładowanie_Load((int)Licz);
                     Asortyment asortyment = asortymenty.Dane.Wszystkie().Where(a => a.Symbol == kupa.Symbol_Rośliny).FirstOrDefault();
                     if (asortyment == null || kupa.Symbol_Rośliny == "Błąd" || kupa.Symbol_Rośliny == "Wprowadz Formę") // Popraw
@@ -262,6 +258,9 @@ namespace SferaWinFormsApp
             }
         }
 
+        /// <summary>
+        /// Połaczona z guzikiem nowości sprawdzajacy które pozycje znajdują się w Excelowski magazynie a nie ma go w bazie danych .
+        /// </summary>
         private void Pozycje_not_null()
         {
             IAsortymenty asortymenty = Program.Sfera.PodajObiektTypu<IAsortymenty>();
@@ -331,9 +330,12 @@ namespace SferaWinFormsApp
             Excel_Load.Close();
         }
 
-        private string path1;
-
-        private void Button1_Click_1(object sender, EventArgs e)
+        /// <summary>
+        /// Guzik zaczytujacy nową ścieżkę do pliku
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Choose_Path_Click(object sender, EventArgs e)
         {
             OpenFileDialog OFD = new OpenFileDialog
             {
@@ -359,7 +361,12 @@ namespace SferaWinFormsApp
             }
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Buzik wykonywania Inwetaryzacji
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Inwetaryzacja_Click(object sender, EventArgs e)
         {
             try
             {
@@ -371,12 +378,14 @@ namespace SferaWinFormsApp
             }
         }
 
+        /// <summary>
+        /// Guzik zaczytujacy nowe asortymenty
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Nowosci_Click(object sender, EventArgs e)
         {
             Pozycje_not_null();
         }
-
-
-
     }
 }

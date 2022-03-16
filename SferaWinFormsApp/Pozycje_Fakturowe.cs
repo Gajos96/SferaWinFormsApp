@@ -56,7 +56,7 @@ namespace SferaWinFormsApp
 
             if (cbDokument.Text != null)
             {
-                using (SqlConnection polaczenie = new SqlConnection(@"Data Source=GARTENLAND13\SQLEXPRESS;Initial Catalog=Nexo_Demo_2;Integrated Security=True"))
+                using (SqlConnection polaczenie = new SqlConnection(@"Data Source=GARTENLAND13\SQLEXPRESS;Initial Catalog=Nexo_Demo_1;Integrated Security=True"))
                 {
 
                     string zapytanie = Builder();
@@ -65,18 +65,8 @@ namespace SferaWinFormsApp
                     DataSet dataSet = new DataSet();
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(dataSet);
-                    dataGridView1.DataSource = dataSet.Tables[0].DefaultView;
-
-               
-                    //try
-                    //{
-                    //    polaczenie.Open();
-                    //}
-                    //catch
-                    //{
-                    //    Console.WriteLine(" Nie Udało się połaczyć z serverem :");
-                    //    Console.WriteLine(" W razie problemów skontaktuj się z administratorem");
-                    //}
+                    try { dataGridView1.DataSource = dataSet.Tables[0].DefaultView; }
+                    catch { }
 
                 }
 
@@ -95,9 +85,9 @@ namespace SferaWinFormsApp
             ///Zapytanie do Sql o połaczone 3 tabele Dokument/ Pozycja Asortymentu / oraz Asortyment
             /// </summary>
             string local1 = @"SELECT d.[LP] , e.[Symbol], e.[Nazwa] , (g.[DataWprowadzenia]) , g.[NumerWewnetrzny_PelnaSygnatura] as 'Numer dokumentu', g.[NumerZewnetrzny] as 'Numer Orginału' , d.[ilosc] ,d.[Cena_NettoPoRabacie] ,g.[Symbol]
-            FROM[Nexo_Demo_2].[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN[Nexo_Demo_2].[ModelDanychContainer].[Asortymenty] e
+            FROM[Nexo_Demo_1].[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN[Nexo_Demo_1].[ModelDanychContainer].[Asortymenty] e
             ON d.[AsortymentWybranyId] = e.[Id]
-            INNER JOIN[Nexo_Demo_2].[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID]
+            INNER JOIN[Nexo_Demo_1].[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID]
             where g.[Symbol] = ('";
             string local2 = @"') and(g.[NumerWewnetrzny_PelnaSygnatura] LIKE '[A-Z]%') and (g.[DataWprowadzenia] BETWEEN '";
             string local3 = @"')

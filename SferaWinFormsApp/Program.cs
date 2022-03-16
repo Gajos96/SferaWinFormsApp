@@ -21,7 +21,7 @@ namespace SferaWinFormsApp
             }
             else
             {
-                danePolaczenia = DanePolaczenia.Jawne(@"GARTENLAND13\SQLEXPRESS", "Nexo_Demo_2", true);
+                danePolaczenia = DanePolaczenia.Jawne(@"GARTENLAND13\SQLEXPRESS", "Nexo_Demo_1", true);
             }
 
             MenedzerPolaczen mp = new MenedzerPolaczen();

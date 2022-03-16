@@ -52,41 +52,6 @@ namespace SferaWinFormsApp
         private void Label2_Click(object sender, EventArgs e)
         {
             
-
-
         }
-
-
-        //private Rectangle buttonOrginRectangle;
-        //private Rectangle OrginFormSize;
-
-        //private void Ustawinia_Load(object sender, EventArgs e)
-        //{
-        //    OrginFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Size.Width, this.Size.Height);
-        //    buttonOrginRectangle = new Rectangle(label1.Location.X, label1.Location.Y, label1.Size.Width, label1.Size.Height);
-        //}
-
-        //private void resizeControl(Rectangle r, Control c)
-        //{
-        //    float xRatio = (float)(this.Width) / (float)(OrginFormSize.Width);
-        //    float yRatio = (float)(this.Height) / (float)(OrginFormSize.Height);
-
-        //    int newX = (int)(r.Width * xRatio);
-        //    int newY = (int)(r.Height * yRatio);
-
-        //    int newWidth = (int)(r.Width * xRatio);
-        //    int newHeight = (int)(r.Height * yRatio);
-
-        //    c.Location = new Point(newX, newY);
-        //    c.Size = new Size(newWidth, newHeight);
-        //}
-
-        //private void Ustawinia_Resize(object sender, EventArgs e)
-        //{
-        //    resizeControl(buttonOrginRectangle, label1);
-        //}
     }
-
-
-
 }

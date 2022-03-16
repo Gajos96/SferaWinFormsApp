@@ -249,7 +249,7 @@ namespace SferaWinFormsApp
             this.b7.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.b7.Size = new System.Drawing.Size(208, 48);
             this.b7.TabIndex = 9;
-            this.b7.Text = "Asortymentu";
+            this.b7.Text = "Obsługa Cenników";
             this.b7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b7.UseVisualStyleBackColor = true;
             this.b7.Visible = false;
@@ -279,7 +279,7 @@ namespace SferaWinFormsApp
             this.b5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.b5.Size = new System.Drawing.Size(208, 48);
             this.b5.TabIndex = 7;
-            this.b5.Text = "Inwetaryzacja Mag";
+            this.b5.Text = "Inwetaryzacja Magazynowa";
             this.b5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b5.UseVisualStyleBackColor = true;
             this.b5.Visible = false;

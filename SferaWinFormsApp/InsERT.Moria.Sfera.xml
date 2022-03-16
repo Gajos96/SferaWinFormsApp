@@ -1,0 +1,392 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>InsERT.Moria.Sfera</name>
+    </assembly>
+    <members>
+        <member name="T:Sfera.NexoFolders.INexoInformator">
+            <summary>
+            Interface zwracający informację o folderach nexo.
+            </summary>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.DanePolaczenia">
+            <summary>
+            Klasa odpowiadająca za parametry służące Sferze do połączenia z bazą danych <token>ProductName</token>.
+            </summary>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.DanePolaczenia.ZapiszDoTestowegoPlikuStartowego(System.String)">
+            <summary>
+            Metoda zapisująca parametry połączenia do testowego pliku startowego.
+            </summary>
+            <param name="plik">Ścieżka do pliku, do którego mają być zapisane parametry.</param>
+            <remarks>Jeśli plik wynikowy nie istnieje, zostanie utworzony, a jeśli istnieje, zostanie nadpisany.</remarks>
+            <seealso cref="M:InsERT.Moria.Sfera.DanePolaczenia.WczytajZTestowegoPlikuStartowego(System.String)"/>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.DanePolaczenia.WczytajZTestowegoPlikuStartowego(System.String)">
+            <summary>
+            Metoda wczytująca parametry połączenia z testowego pliku startowego.
+            </summary>
+            <param name="plik">Ścieżka do pliku, z którego mają być wczytane parametry.</param>
+            <returns>Zwraca obiekt zainicjowany parametrami wczytanymi ze wskazanego pliku testowego.</returns>
+            <seealso cref="M:InsERT.Moria.Sfera.DanePolaczenia.ZapiszDoTestowegoPlikuStartowego(System.String)"/>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.DanePolaczenia.Jawne(System.String,System.String,System.Boolean,System.String,System.String,System.Boolean,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Metoda pozwalająca na jawne ustawienie parametrów połączenia.
+            </summary>
+            <param name="serwer">Nazwa instancji serwera SQL Server.</param>
+            <param name="baza">Nazwa bazy danych <token>ProductName</token></param>
+            <param name="autentykacjaWindowsDoSerwera">Określa, czy ma być użyta autentykacja Windows przy łączeniu do serwera SQL.</param>
+            <param name="uzytkownikSerwera">Nazwa użytkownika, jeśli nie jest używana autentykacja Windows.</param>
+            <param name="hasloUzytkownikaSerwera">Hasło użytkownika, jeśli nie jest używana autentykacja Windows.</param>
+            <param name="szyfrowaniePolaczeniaZSerwerem">Określa, czy połączenie z serwerem SQL ma być szyfrowane.</param>
+            <param name="nazwaUzytkownikaDoImpersonacjiWBazie">Nazwa użytkownika, w kontekście którego mają być wykonywane operacje bazodanowe.</param>
+            <param name="katalogBinariow">Ścieżka do binariów <token>ProductName</token>.</param>
+            <param name="katalogPlikowKonfiguracyjnych">Ścieżka do plików konfiguracyjnych.</param>
+            <param name="katalogTymczasowy">Ścieżka do katalogu tymczasowego.</param>
+            <param name="plikStartowy">Ścieżka do pliku startowego.</param>
+            <param name="nazwaWdrozenia">Nazwa wdrożenia.</param>
+            <returns></returns>
+            <remarks>Metoda ta ma zastosowanie głównie do celów testowych.</remarks>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.DanePolaczenia.Odbierz">
+            <summary>
+            Metoda wczytująca parametry połączenia ze standardowego wejścia.
+            </summary>
+            <returns>Zwraca obiekt zainicjowany parametrami wczytanymi ze standardowego wejścia.</returns>
+            <remarks>
+            Metodę tę należy wykorzystać przy uruchamianiu za pomocą launchera, który przekazuje parametry właśnie przez standardowe wejście.
+            Sytuację uruchomienia przez launcher można rozpoznać po wystąpieniu w linii poleceń parametru <command>/UruchomionePrzezInsLauncher</command>.
+            </remarks>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.DanePolaczenia.WersjaSfery">
+            <summary>
+            Wersja binariów Sfery
+            </summary>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.IPostepLadowaniaSfery">
+            <summary>
+            Interfejs obiektu raportującego o postępie w otwieraniu połączenia sferycznego. 
+            </summary>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.IPostepLadowaniaSfery.RaportujPostep(InsERT.Moria.Sfera.PostepLadowaniaSferyEventArgs)">
+            <summary>
+            Metoda przekazująca informacje o postępie w ładowaniu Sfery do odbiorcy, np. do interfejsu użytkownika. 
+            </summary>
+            <param name="args">Parametry opisujące aktualny stan ładowania Sfery</param>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.MenedzerPolaczen">
+            <summary>
+            Klasa pozwalająca na uzyskanie dostępu do obiektów Sfery w kontekście wybranej bazy danych podmotu i wybranego zakresu funkcjonalnego.
+            </summary>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.MenedzerPolaczen.Polacz(InsERT.Moria.Sfera.DanePolaczenia,InsERT.Mox.Product.ProductId,System.Nullable{InsERT.Mox.Product.ProductId},System.Nullable{InsERT.Mox.Product.ProductId},System.Nullable{InsERT.Mox.Product.ProductId},System.Nullable{InsERT.Mox.Product.ProductId},System.Nullable{InsERT.Mox.Product.ProductId})">
+            <summary>
+            Metoda pozwalająca uzyskać połączenie sferyczne dla wybranego zakesu funkcjonalnego.
+            </summary>
+            <param name="danePolaczenia">Dane połączenia.</param>
+            <param name="produkt">Identyfikator produktu.</param>
+            <param name="dodatkowyProdukt1">Dodatkowy identyfikator produktu.</param>
+            <param name="dodatkowyProdukt2">Dodatkowy identyfikator produktu.</param>
+            <param name="dodatkowyProdukt3">Dodatkowy identyfikator produktu.</param>
+            <param name="dodatkowyProdukt4">Dodatkowy identyfikator produktu.</param>
+            <param name="dodatkowyProdukt5">Dodatkowy identyfikator produktu.</param>
+            <returns>Zwraca połączenie sferyczne dla wybranych parametrów czyli dla określonego podmiotu, użytkownika oraz programów (zakresu funkcjonalnego).</returns>
+            <remarks>Zakres funkcjonalny <token>ProductName</token>, do którego dostęp ma mieć rozwiązanie sferyczne określa się z dokładnością 
+            do produktów wchodzących w skład <token>ProductName</token>. Służą do tego parametry <codeInline>produkt</codeInline> oraz <codeInline>dodatkowyProdukt1</codeInline>
+            i <literal>dodatkowyProdukt2</literal>. Licencje wszystkich wyspecyfikowanych produktów muszą być aktywne w wersji PRO, inaczej połączenie się nie powiedzie.
+            <note><para>
+            Po zbudowaniu projektu, a jeszcze przed jego uruchomieniem należy skopiować folder <quoteInline>x86</quoteInline> z folderu <quoteInline>nexo SDK\Bin</quoteInline> do katalogu wynikowego projektu, gdzie już znajdują się pozostałe moduły (DLL) z SDK. Jeśli ten krok nie zostanie wykonany, przy wywołaniu metody <codeInline>Polacz</codeInline> wystąpi wyjątek informujący o braku pliku:
+            </para>
+            <para>
+            <errorInline>FileNotFoundException: Could not load file or assembly 'InsERT.Moria.Security.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f3ef93a6b458098' or one of its dependencies. Nie można odnaleźć określonego pliku.</errorInline>
+            </para>
+            <para>Jeśli przy wywołaniu metody <codeInline>Polacz</codeInline> wystąpi wyjątek informujący o braku licencji:
+            </para>
+            <para>
+            <errorInline>InvalidOperationException: Licencja zabrania używania Sfery w podanej bazie podmiotu.</errorInline>
+            </para>
+            <para>
+            Oznacza to, że <embeddedLabel>InsERT.Moria.Security.Core.dll</embeddedLabel> znalazł się w katalogu wynikowym projektu razem z innymi plikami z SDK. Należy wówczas usunąć plik <embeddedLabel>InsERT.Moria.Security.Core.dll</embeddedLabel> z tego folderu.
+            </para>
+            </note>
+            </remarks>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.MenedzerPolaczen.Polacz(InsERT.Moria.Sfera.DanePolaczenia,InsERT.Mox.Product.ProductId,InsERT.Moria.Sfera.IPostepLadowaniaSfery,System.Collections.Generic.IEnumerable{InsERT.Mox.Product.ProductId})">
+            <summary>
+            Metoda pozwalająca uzyskać połączenie sferyczne dla wybranego zakesu funkcjonalnego.
+            </summary>
+            <param name="danePolaczenia">Dane połączenia.</param>
+            <param name="produkt">Identyfikator produktu.</param>
+            <param name="postep">Obiekt raportujący postęp łączenia.</param>
+            <param name="dodatkoweProdukty">Dodatkowe identyfikatory produktów.</param>
+            <returns>Zwraca połączenie sferyczne dla wybranych parametrów czyli dla określonego podmiotu, użytkownika oraz programów (zakresu funkcjonalnego).</returns>
+            <remarks>Zakres funkcjonalny <token>ProductName</token>, do którego dostęp ma mieć rozwiązanie sferyczne określa się z dokładnością 
+            do produktów wchodzących w skład <token>ProductName</token>. Służą do tego parametry <codeInline>produkt</codeInline> oraz <codeInline>dodatkoweProdukty</codeInline>.
+            Licencje wszystkich wyspecyfikowanych produktów muszą być aktywne w wersji PRO, inaczej połączenie się nie powiedzie.
+            <note><para>
+            Po zbudowaniu projektu, a jeszcze przed jego uruchomieniem należy skopiować folder <quoteInline>x86</quoteInline> z folderu <quoteInline>nexo SDK\Bin</quoteInline> do katalogu wynikowego projektu, gdzie już znajdują się pozostałe moduły (DLL) z SDK. Jeśli ten krok nie zostanie wykonany, przy wywołaniu metody <codeInline>Polacz</codeInline> wystąpi wyjątek informujący o braku pliku:
+            </para>
+            <para>
+            <errorInline>FileNotFoundException: Could not load file or assembly 'InsERT.Moria.Security.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f3ef93a6b458098' or one of its dependencies. Nie można odnaleźć określonego pliku.</errorInline>
+            </para>
+            <para>Jeśli przy wywołaniu metody <codeInline>Polacz</codeInline> wystąpi wyjątek informujący o braku licencji:
+            </para>
+            <para>
+            <errorInline>InvalidOperationException: Licencja zabrania używania Sfery w podanej bazie podmiotu.</errorInline>
+            </para>
+            <para>
+            Oznacza to, że <embeddedLabel>InsERT.Moria.Security.Core.dll</embeddedLabel> znalazł się w katalogu wynikowym projektu razem z innymi plikami z SDK. Należy wówczas usunąć plik <embeddedLabel>InsERT.Moria.Security.Core.dll</embeddedLabel> z tego folderu.
+            </para>
+            </note>
+            </remarks>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.MenedzerPolaczen.DostepDoUI">
+            <summary>
+            Parametr określający, czy nowonawiązywane połączenie sferyczne umożliwi tworzenie komponentów graficznego interfejsu użytkownika
+            </summary>
+            <remarks>
+            Wartość tego parametru nie jest uwzględniania połączeniach sferycznych ustanowionych przed jego ustawieniem.
+            </remarks>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.PolaWlasne2Extensions">
+            <summary>
+            Metody ułatwiające korzystanie z pól własnych w wersji 2.
+            </summary>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.PolaWlasne2Extensions.UtworzPolaWlasneAdv2Accessor(InsERT.Moria.Sfera.Uchwyt,InsERT.Mox.DataAccess.EntityFramework.EntityDataObjectBase,System.Boolean)">
+            <summary>
+            Tworzy obiekt ułatwiający odczyt i zapis wartości zaawansowanych pól własnych.
+            </summary>
+            <param name="uchwyt">Uchwyt do Sfery.</param>
+            <param name="entityObject">Obiekt encji rozszerzanej.</param>\
+            <param name="createAndAttachIfNull">Określa czy utworzyć i przypisać obiekt encji rozszerzeń do właściwości <c>PolaWlasneAdv2</c> w sytuacji, gdy właściwość <c>PolaWlasneAdv2</c> zwraca <c>null</c>.</param>
+            <returns>Obiekt enkapsulujący w sobie obiekt encji rozszerzeń zwracany przez właściwość <c>PolaWlasneAdv2</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">Wyrzucany, gdy <paramref name="uchwyt"/> lub <paramref name="entityObject"/> jest <c>null</c>.</exception>
+            <exception cref="T:System.InvalidOperationException">Wyrzucany, gdy <paramref name="entityObject"/> nie obsługuje zaawansowanych pól własnych oraz gdy obsługuje zaawansowane pola własne, ale nie posiada zdefiniowanego żadnego zaawansowanego pola własnego.</exception>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.PolaWlasne2Extensions.UtworzPolaWlasneAdv2Accessor(InsERT.Moria.Sfera.Uchwyt,InsERT.Mox.DataAccess.EntityFramework.EntityDataObjectBase,InsERT.Moria.Narzedzia.PolaWlasne2.PolaWlasneAdv2AccessorFactoryNullHandlingKind)">
+            <summary>
+            Tworzy obiekt ułatwiający odczyt i zapis wartości zaawansowanych pól własnych.
+            </summary>
+            <param name="uchwyt">Uchwyt do Sfery.</param>
+            <param name="entityObject">Obiekt encji rozszerzanej.</param>\
+            <param name="nullHandlingKind">Określa jak ma zostać obsłużona sytuacja, gdy właściwość <c>PolaWlasneAdv2</c> zwraca <c>null</c>.</param>
+            <returns>Obiekt enkapsulujący w sobie obiekt encji rozszerzeń zwracany przez właściwość <c>PolaWlasneAdv2</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">Wyrzucany, gdy <paramref name="uchwyt"/> lub <paramref name="entityObject"/> jest <c>null</c>.</exception>
+            <exception cref="T:System.InvalidOperationException">Wyrzucany, gdy <paramref name="entityObject"/> nie obsługuje zaawansowanych pól własnych oraz gdy obsługuje zaawansowane pola własne, ale nie posiada zdefiniowanego żadnego zaawansowanego pola własnego.</exception>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.PolaWlasne2Extensions.UtworzPolaWlasneAdv2Accessor(InsERT.Moria.Sfera.Uchwyt,InsERT.Mox.DataAccess.EntityFramework.EntityDataObjectBase,InsERT.Moria.Narzedzia.PolaWlasne2.PolaWlasneAdv2AccessorFactoryNullHandlingKind,InsERT.Moria.Narzedzia.PolaWlasne2.PolaWlasneAdv2AccessorOptions)">
+            <summary>
+            Tworzy obiekt ułatwiający odczyt i zapis wartości zaawansowanych pól własnych.
+            </summary>
+            <param name="uchwyt">Uchwyt do Sfery.</param>
+            <param name="entityObject">Obiekt encji rozszerzanej.</param>\
+            <param name="nullHandlingKind">Określa jak ma zostać obsłużona sytuacja, gdy właściwość <c>PolaWlasneAdv2</c> zwraca <c>null</c>.</param>
+            <param name="options">Opcje działania obiektu <see cref="T:InsERT.Moria.Narzedzia.PolaWlasne2.IPolaWlasneAdv2Accessor"/>.</param>
+            <returns>Obiekt enkapsulujący w sobie obiekt encji rozszerzeń zwracany przez właściwość <c>PolaWlasneAdv2</c>.</returns>
+            <exception cref="T:System.ArgumentNullException">Wyrzucany, gdy <paramref name="uchwyt"/> lub <paramref name="entityObject"/> jest <c>null</c>.</exception>
+            <exception cref="T:System.InvalidOperationException">Wyrzucany, gdy <paramref name="entityObject"/> nie obsługuje zaawansowanych pól własnych oraz gdy obsługuje zaawansowane pola własne, ale nie posiada zdefiniowanego żadnego zaawansowanego pola własnego.</exception>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.PolaWlasneExtensions">
+            <summary>
+            Metody ułatwiające korzystanie z pól własnych w wersji 1.
+            </summary>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.PolaWlasneExtensions.PobierzEncjeZaawansowanychPolWlasnych(InsERT.Mox.DataAccess.EntityFramework.EntityDataObjectBase)">
+            <summary>
+            Zwraca encję zawierającą zaawansowane pola własne wersji 1. dla podanej encji.
+            </summary>
+            <param name="encja">Encja, dla której zdefiniowano zaawansowane pola własne wersji 1.</param>
+            <returns>Encja zawierająca zaawansowane pola własne wersji 1.</returns>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.PolaWlasneExtensions.PobierzWartoscPola(InsERT.Mox.DataAccess.EntityFramework.EntityDataObjectBase,System.String)">
+            <summary>
+            Pobiera wartość pola podanej encji.
+            </summary>
+            <param name="encja">Encja, wartość pola której ma być pobrana.</param>
+            <param name="nazwaPola">Nazwa pola, wartość którego ma być pobrana.</param>
+            <returns>Wartość podanego pola.</returns>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.PolaWlasneExtensions.UstawWartoscPola(InsERT.Mox.DataAccess.EntityFramework.EntityDataObjectBase,System.String,System.Object)">
+            <summary>
+            Ustawia wartość pola podanej encji.
+            </summary>
+            <param name="encja">Encja, wartość pola której ma być ustawiona.</param>
+            <param name="nazwaPola">Nazwa pola, wartość którego ma być ustawiona.</param>
+            <param name="wartoscPola">Wartość pola, która ma być ustawiona.</param>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.PostepLadowaniaSferyEventArgs">
+            <summary>
+            Parametr metody IPostepLadowaniaSfery.RaportujPostep
+            <see cref="M:InsERT.Moria.Sfera.IPostepLadowaniaSfery.RaportujPostep(InsERT.Moria.Sfera.PostepLadowaniaSferyEventArgs)"/>
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.PostepLadowaniaSferyEventArgs.Opis">
+            <summary>
+            Opis operacji podczas ładowania sfery
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.PostepLadowaniaSferyEventArgs.BiezacyProcent">
+            <summary>
+            Stan zaawansowania operacji podczas ładowania sfery
+            </summary>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.PostepLadowaniaSferyEventArgs.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            Konstruktor obiektu
+            </summary>
+            <param name="opis">Opis operacji</param>
+            <param name="currentZeroBased">biężący stan zaawansowania wykonywania operacji</param>
+            <param name="max">maksymalny stan zaawanowania operacji</param>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.PostepLadowaniaSferyEventArgs.Equals(InsERT.Moria.Sfera.PostepLadowaniaSferyEventArgs)">
+            <summary>
+            Element implementacji IEquatable
+            </summary>
+            <param name="other">element do porówniania z bieżącym</param>
+            <returns>czy bieżący element jest równy elementowi other true:tak, false: nie</returns>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.Properties.Resources.InvalidProductDatabase">
+            <summary>
+              Looks up a localized string similar to Podana baza danych nie jest przystosowana do pracy z Nexo, bądź przystosowana jest do wersji innej, niż uruchamiane rozwiązanie sferyczne. Spakuj i zarejestruj rozwiązanie w programie serwisowym Nexo, aby rozwiązać problem..
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.Properties.Resources.InvalidTestStartupFile">
+            <summary>
+              Looks up a localized string similar to Testowy plik startowy jest w nieprawidłowym formacie lub nie zawiera wszystkich informacji potrzebnych do połączenia z podmiotem..
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.Properties.Resources.NoAdvUserDefinedProperties">
+            <summary>
+              Looks up a localized string similar to Dla encji typu {0} nie zdefiniowano zaawansowanych pól własnych w wersji 1..
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.Properties.Resources.NoLicense">
+            <summary>
+              Looks up a localized string similar to Licencja zabrania używania Sfery w podanej bazie podmiotu..
+            </summary>
+        </member>
+        <member name="P:InsERT.Moria.Sfera.Properties.Resources.NoOperator">
+            <summary>
+              Looks up a localized string similar to Nie zalogowano operatora. Przed pobraniem obiektu należy zalogować operatora..
+            </summary>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.Rozszerzenia">
+            <summary>
+            Rozszerzenia klas Sfery
+            </summary>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.Rozszerzenia.PodajZarejestrowaneFunkcje``1(InsERT.Moria.Sfera.Uchwyt)">
+            <summary>
+            Metoda pozwalająca uzyskać listę zainstalowanych funkcji (rozszerzeń) w określonym punkcie rozszerzania.
+            </summary>
+            <typeparam name="T">Interfejs funkcji charakterystyczny dla punktu rozszerzania, dziedziczący po <see cref="T:InsERT.Moria.Rozszerzanie.IFunkcja"/>.</typeparam>
+            <param name="uchwyt">Uchwyt do Sfery.</param>
+            <returns>Zwraca listę funkcji implementujących podany interfejs (parametr T).</returns>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.SferaWynikLogowania">
+            <summary>
+            Wynik logowania sferyczngo
+            </summary>
+        </member>
+        <member name="F:InsERT.Moria.Sfera.SferaWynikLogowania.Zalogowano">
+            <summary>
+            Zalogowano użytkownika
+            </summary>
+        </member>
+        <member name="F:InsERT.Moria.Sfera.SferaWynikLogowania.PrzekroczonoLimitZalogowanychUzytkownikow">
+            <summary>
+            Nie zalogowano użytkownika, ponieważ osiągnięto limit zalogowanych użytkowników
+            </summary>
+        </member>
+        <member name="F:InsERT.Moria.Sfera.SferaWynikLogowania.NieznanyUzytkownikLubNieprawidloweHaslo">
+            <summary>
+            Nie zalogowano użytkownika, ponieważ podano nieprawidłowe hasło lub nazwa użytkownika jest nieprawidłowa.
+            </summary>
+        </member>
+        <member name="F:InsERT.Moria.Sfera.SferaWynikLogowania.NieznanyBlad">
+            <summary>
+            Nie zalogowano użytkownika z powodu nieoczekiwanego błędu
+            </summary>
+        </member>
+        <member name="T:InsERT.Moria.Sfera.Uchwyt">
+            <summary>
+            Klasa dająca dostęp do obiektów Sfery.
+            </summary>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.Uchwyt.PodajObiektTypu``1">
+            <summary>
+            Metoda dająca dostęp do obiektów Sfery.
+            </summary>
+            <typeparam name="Typ">Typ, interfejs, który ma być udostępniony.</typeparam>
+            <returns></returns>
+            <remarks>Podstawowa metoda uchwytu do Sfery. Podstawowym jej zadaniem jest udostępnienie managerów obiektów biznesowych w kontekście 
+            danego podmiotu i zalogowanego użytkownika.
+            </remarks>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.Uchwyt.ZalogujOperatora(System.Guid,System.String)">
+            <summary>
+            Metoda ustawiająca kontekst zalogowanego użytkownika-operatora systemu na podstawie identyfikatora.
+            </summary>
+            <param name="id">Identyfikator użytkownika.</param>
+            <param name="haslo">Hasło użytkownika.</param>
+            <returns>Zwraca informację, czy logowanie się powiodło.</returns>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.Uchwyt.Zaloguj(System.String,System.String)">
+            <summary>
+            Metoda ustawiająca kontekst zalogowanego użytkownika-operatora systemu na podstawie loginu.
+            </summary>
+            <param name="login">Login użytkownika.</param>
+            <param name="haslo">Hasło użytkownika (<c>null</c> dla trybu logowania bez hasła)</param>
+            <returns>Zwraca wynik logowania</returns>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.Uchwyt.Zaloguj(System.Guid,System.String)">
+            <summary>
+            Metoda ustawiająca kontekst zalogowanego użytkownika-operatora systemu na podstawie identyfikatora.
+            </summary>
+            <param name="id">Identyfikator użytkownika.</param>
+            <param name="haslo">Hasło użytkownika.</param>
+            <returns>Zwraca wynik logowania</returns>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.Uchwyt.ZalogujOperatora(System.String,System.String)">
+            <summary>
+            Metoda ustawiająca kontekst zalogowanego użytkownika-operatora systemu na podstawie loginu.
+            </summary>
+            <param name="login">Login użytkownika.</param>
+            <param name="haslo">Hasło użytkownika (<c>null</c> dla trybu logowania bez hasła)</param>
+            <returns>Zwraca informację, czy logowanie się powiodło.</returns>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.Uchwyt.PodajPolaczenie">
+            <summary>
+            Udostępnia połączenie do bieżącej bazy danych nexo w celu wykonywania operacji bezpośrednio na bazie danych.
+            </summary>
+            <returns>Zwraca skonfigurowanie połączenie do bazy danych.</returns>
+            <remarks>Połączenie jest w stanie zamkniętym, więc przed użyciem należy je otworzyć (metoda Open), a po wykorzystaniu zwolnić (metoda Dispose lub wykorzystać using).</remarks>
+        </member>
+        <member name="M:InsERT.Moria.Sfera.Uchwyt.SprawdzHaslo(System.String,System.String)">
+            <summary>
+            Metoda umożliwiająca sprawdzenie danych logowania bez logowania użytkownika.
+            </summary>
+            <param name="login">Login użytkownika.</param>
+            <param name="haslo">Hasło użytkownika (<c>null</c> dla trybu logowania bez hasła)</param>
+            <returns>Zwraca informację, czy login i hasło są poprawne (<c>true</c>), czy nie (<c>false</c>).</returns>
+        </member>
+    </members>
+</doc>

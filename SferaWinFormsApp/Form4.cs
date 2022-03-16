@@ -36,8 +36,6 @@ namespace SferaWinFormsApp
 
                 #region ExelStyle
                 {
-
-
                     Arkusz.Cells[1, "A"] = "LP.";
                     Arkusz.Cells[1, "A"].Interior.Color = Color.SlateGray;
                     Arkusz.Cells[1, "B"] = "Symbol";
