@@ -164,6 +164,7 @@ namespace SferaWinFormsApp
             int b = 2;
             b2.Enabled = false;
             await Change_Style_Button(0, b);
+            OpenChildForm(new Dodaj_Klient());
             Thread.Sleep(200);
             b2.Enabled = true;
             
