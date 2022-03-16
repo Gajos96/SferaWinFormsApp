@@ -44,11 +44,7 @@ namespace SferaWinFormsApp
             this.cbMagazyn = new System.Windows.Forms.ComboBox();
             this.Nowosci = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
-            this.Reading2Data = new System.Windows.Forms.BindingSource(this.components);
-            this.database2DataSet = new SferaWinFormsApp.Database2DataSet();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Reading2Data)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // Text_Path1
@@ -212,15 +208,7 @@ namespace SferaWinFormsApp
             this.label7.TabIndex = 12;
             this.label7.Text = "Przycisk wypisuje asortyment nie dodadany do subiecta będący w magazynie .";
             // 
-            // Reading2Data
             // 
-            this.Reading2Data.DataMember = "Table";
-            this.Reading2Data.DataSource = this.database2DataSet;
-            // 
-            // database2DataSet
-            // 
-            this.database2DataSet.DataSetName = "Database2DataSet";
-            this.database2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Łaczymy
             // 
@@ -248,8 +236,6 @@ namespace SferaWinFormsApp
             this.Load += new System.EventHandler(this.Loan_EveryThing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Reading2Data)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,7 +256,6 @@ namespace SferaWinFormsApp
         private System.Windows.Forms.ComboBox cbMagazyn;
         private System.Windows.Forms.Button Nowosci;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.BindingSource Reading2Data;
-        private Database2DataSet database2DataSet;
+
     }
 }

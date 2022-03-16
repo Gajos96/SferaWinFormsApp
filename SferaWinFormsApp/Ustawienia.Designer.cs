@@ -36,13 +36,7 @@ namespace SferaWinFormsApp
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.Przycisk_FindFile = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.database2DataSet = new SferaWinFormsApp.Database2DataSet();
-            this.tableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tableTableAdapter = new SferaWinFormsApp.Database2DataSetTableAdapters.TableTableAdapter();
-            this.tableAdapterManager = new SferaWinFormsApp.Database2DataSetTableAdapters.TableAdapterManager();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -123,25 +117,7 @@ namespace SferaWinFormsApp
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.WordWrap = false;
             // 
-            // database2DataSet
             // 
-            this.database2DataSet.DataSetName = "Database2DataSet";
-            this.database2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // tableBindingSource
-            // 
-            this.tableBindingSource.DataMember = "Table";
-            this.tableBindingSource.DataSource = this.database2DataSet;
-            // 
-            // tableTableAdapter
-            // 
-            this.tableTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.TableTableAdapter = this.tableTableAdapter;
-            this.tableAdapterManager.UpdateOrder = SferaWinFormsApp.Database2DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // Ustawinia
             // 
@@ -155,11 +131,8 @@ namespace SferaWinFormsApp
             this.MinimumSize = new System.Drawing.Size(1316, 710);
             this.Name = "Ustawinia";
             this.Text = "Janusz Wypieralaj człowiek suksecu";
-            this.Load += new System.EventHandler(this.Ustawinia_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.database2DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -171,9 +144,6 @@ namespace SferaWinFormsApp
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
-        private Database2DataSet database2DataSet;
         private System.Windows.Forms.BindingSource tableBindingSource;
-        private Database2DataSetTableAdapters.TableTableAdapter tableTableAdapter;
-        private Database2DataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }

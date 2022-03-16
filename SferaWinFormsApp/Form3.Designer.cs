@@ -29,7 +29,6 @@ namespace SferaWinFormsApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.Panel_nr1 = new System.Windows.Forms.Panel();
             this.Mini_ = new System.Windows.Forms.Label();
@@ -39,33 +38,26 @@ namespace SferaWinFormsApp
             this.Sing_Menu = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.Asortyment = new System.Windows.Forms.Panel();
-            this.b2 = new System.Windows.Forms.Button();
-            this.b1 = new System.Windows.Forms.Button();
-            this.B_Pan1 = new System.Windows.Forms.Button();
-            this.Magazyn = new System.Windows.Forms.Panel();
-            this.b4 = new System.Windows.Forms.Button();
-            this.b3 = new System.Windows.Forms.Button();
-            this.B_Pan2 = new System.Windows.Forms.Button();
-            this.Ustawienia = new System.Windows.Forms.Panel();
+            this.Panel_Button = new System.Windows.Forms.Panel();
+            this.B_Pan4 = new System.Windows.Forms.Button();
+            this.b7 = new System.Windows.Forms.Button();
             this.b6 = new System.Windows.Forms.Button();
             this.b5 = new System.Windows.Forms.Button();
             this.B_Pan3 = new System.Windows.Forms.Button();
+            this.b4 = new System.Windows.Forms.Button();
+            this.b3 = new System.Windows.Forms.Button();
+            this.B_Pan2 = new System.Windows.Forms.Button();
+            this.b2 = new System.Windows.Forms.Button();
+            this.b1 = new System.Windows.Forms.Button();
+            this.B_Pan1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Panel_img = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.Panel_nr1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.Asortyment.SuspendLayout();
-            this.Magazyn.SuspendLayout();
-            this.Ustawienia.SuspendLayout();
+            this.Panel_Button.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Panel_img)).BeginInit();
             this.SuspendLayout();
@@ -198,7 +190,7 @@ namespace SferaWinFormsApp
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.Silver;
             this.splitContainer1.Panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("splitContainer1.Panel1.BackgroundImage")));
-            this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer1.Panel1.Controls.Add(this.Panel_Button);
             this.splitContainer1.Panel1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Panel1MinSize = 208;
             // 
@@ -212,231 +204,195 @@ namespace SferaWinFormsApp
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 1;
             // 
-            // flowLayoutPanel1
+            // Panel_Button
             // 
-            this.flowLayoutPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("flowLayoutPanel1.BackgroundImage")));
-            this.flowLayoutPanel1.Controls.Add(this.Asortyment);
-            this.flowLayoutPanel1.Controls.Add(this.Magazyn);
-            this.flowLayoutPanel1.Controls.Add(this.Ustawienia);
-            this.flowLayoutPanel1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(208, 712);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.Panel_Button.Controls.Add(this.B_Pan4);
+            this.Panel_Button.Controls.Add(this.b7);
+            this.Panel_Button.Controls.Add(this.b6);
+            this.Panel_Button.Controls.Add(this.b5);
+            this.Panel_Button.Controls.Add(this.B_Pan3);
+            this.Panel_Button.Controls.Add(this.b4);
+            this.Panel_Button.Controls.Add(this.b3);
+            this.Panel_Button.Controls.Add(this.B_Pan2);
+            this.Panel_Button.Controls.Add(this.b2);
+            this.Panel_Button.Controls.Add(this.b1);
+            this.Panel_Button.Controls.Add(this.B_Pan1);
+            this.Panel_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel_Button.Location = new System.Drawing.Point(0, 0);
+            this.Panel_Button.Name = "Panel_Button";
+            this.Panel_Button.Size = new System.Drawing.Size(208, 712);
+            this.Panel_Button.TabIndex = 0;
             // 
-            // Asortyment
+            // B_Pan4
             // 
-            this.Asortyment.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Asortyment.BackColor = System.Drawing.Color.Transparent;
-            this.Asortyment.Controls.Add(this.b2);
-            this.Asortyment.Controls.Add(this.b1);
-            this.Asortyment.Controls.Add(this.B_Pan1);
-            this.Asortyment.Location = new System.Drawing.Point(4, 4);
-            this.Asortyment.Margin = new System.Windows.Forms.Padding(4);
-            this.Asortyment.MaximumSize = new System.Drawing.Size(259, 159);
-            this.Asortyment.MinimumSize = new System.Drawing.Size(259, 62);
-            this.Asortyment.Name = "Asortyment";
-            this.Asortyment.Size = new System.Drawing.Size(259, 62);
-            this.Asortyment.TabIndex = 0;
+            this.B_Pan4.AutoSize = true;
+            this.B_Pan4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.B_Pan4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.B_Pan4.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.B_Pan4.Location = new System.Drawing.Point(0, 504);
+            this.B_Pan4.Margin = new System.Windows.Forms.Padding(4);
+            this.B_Pan4.Name = "B_Pan4";
+            this.B_Pan4.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.B_Pan4.Size = new System.Drawing.Size(208, 56);
+            this.B_Pan4.TabIndex = 10;
+            this.B_Pan4.Text = "Ustawienia";
+            this.B_Pan4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.B_Pan4.UseVisualStyleBackColor = true;
+            this.B_Pan4.Click += new System.EventHandler(this.B_Pan4_Click);
             // 
-            // b2
+            // b7
             // 
-            this.b2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.b2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.b2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.b2.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b2.Location = new System.Drawing.Point(4, 112);
-            this.b2.Margin = new System.Windows.Forms.Padding(4);
-            this.b2.Name = "b2";
-            this.b2.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.b2.Size = new System.Drawing.Size(251, 46);
-            this.b2.TabIndex = 2;
-            this.b2.Text = "Zmień Asortyment";
-            this.b2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.b2.UseVisualStyleBackColor = true;
-            this.b2.Click += new System.EventHandler(this.B2_Click);
-            // 
-            // b1
-            // 
-            this.b1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.b1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.b1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.b1.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b1.Location = new System.Drawing.Point(4, 64);
-            this.b1.Margin = new System.Windows.Forms.Padding(4);
-            this.b1.Name = "b1";
-            this.b1.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.b1.Size = new System.Drawing.Size(251, 46);
-            this.b1.TabIndex = 1;
-            this.b1.Text = "Dodaj Asortyment";
-            this.b1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.b1.UseVisualStyleBackColor = true;
-            this.b1.Click += new System.EventHandler(this.B1_Click);
-            // 
-            // B_Pan1
-            // 
-            this.B_Pan1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Pan1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.B_Pan1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.B_Pan1.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B_Pan1.Location = new System.Drawing.Point(4, 4);
-            this.B_Pan1.Margin = new System.Windows.Forms.Padding(4);
-            this.B_Pan1.Name = "B_Pan1";
-            this.B_Pan1.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.B_Pan1.Size = new System.Drawing.Size(251, 58);
-            this.B_Pan1.TabIndex = 0;
-            this.B_Pan1.Text = "Asortyment";
-            this.B_Pan1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.B_Pan1.UseVisualStyleBackColor = true;
-            this.B_Pan1.Click += new System.EventHandler(this.B_Pan1_Click);
-            // 
-            // Magazyn
-            // 
-            this.Magazyn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Magazyn.BackColor = System.Drawing.Color.Transparent;
-            this.Magazyn.Controls.Add(this.b4);
-            this.Magazyn.Controls.Add(this.b3);
-            this.Magazyn.Controls.Add(this.B_Pan2);
-            this.Magazyn.Location = new System.Drawing.Point(4, 74);
-            this.Magazyn.Margin = new System.Windows.Forms.Padding(4);
-            this.Magazyn.MaximumSize = new System.Drawing.Size(259, 159);
-            this.Magazyn.MinimumSize = new System.Drawing.Size(259, 62);
-            this.Magazyn.Name = "Magazyn";
-            this.Magazyn.Size = new System.Drawing.Size(259, 62);
-            this.Magazyn.TabIndex = 1;
-            // 
-            // b4
-            // 
-            this.b4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.b4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.b4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.b4.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b4.Location = new System.Drawing.Point(4, 112);
-            this.b4.Margin = new System.Windows.Forms.Padding(4);
-            this.b4.Name = "b4";
-            this.b4.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.b4.Size = new System.Drawing.Size(251, 46);
-            this.b4.TabIndex = 2;
-            this.b4.Text = "Jeszcze nie wymysliłem";
-            this.b4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.b4.UseVisualStyleBackColor = true;
-            this.b4.Click += new System.EventHandler(this.B4_Click);
-            // 
-            // b3
-            // 
-            this.b3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.b3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.b3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.b3.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b3.Location = new System.Drawing.Point(4, 64);
-            this.b3.Margin = new System.Windows.Forms.Padding(4);
-            this.b3.Name = "b3";
-            this.b3.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.b3.Size = new System.Drawing.Size(251, 46);
-            this.b3.TabIndex = 1;
-            this.b3.Text = "Auto Inwetaryzacja";
-            this.b3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.b3.UseVisualStyleBackColor = true;
-            this.b3.Click += new System.EventHandler(this.B3_Click);
-            // 
-            // B_Pan2
-            // 
-            this.B_Pan2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.B_Pan2.BackColor = System.Drawing.Color.Transparent;
-            this.B_Pan2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.B_Pan2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.B_Pan2.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B_Pan2.Location = new System.Drawing.Point(4, 4);
-            this.B_Pan2.Margin = new System.Windows.Forms.Padding(4);
-            this.B_Pan2.Name = "B_Pan2";
-            this.B_Pan2.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.B_Pan2.Size = new System.Drawing.Size(251, 58);
-            this.B_Pan2.TabIndex = 0;
-            this.B_Pan2.Text = "Magazyn";
-            this.B_Pan2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.B_Pan2.UseVisualStyleBackColor = false;
-            this.B_Pan2.Click += new System.EventHandler(this.B_Pan2_Click);
-            // 
-            // Ustawienia
-            // 
-            this.Ustawienia.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Ustawienia.BackColor = System.Drawing.Color.Transparent;
-            this.Ustawienia.Controls.Add(this.b6);
-            this.Ustawienia.Controls.Add(this.b5);
-            this.Ustawienia.Controls.Add(this.B_Pan3);
-            this.Ustawienia.Location = new System.Drawing.Point(4, 144);
-            this.Ustawienia.Margin = new System.Windows.Forms.Padding(4);
-            this.Ustawienia.MaximumSize = new System.Drawing.Size(259, 159);
-            this.Ustawienia.MinimumSize = new System.Drawing.Size(259, 62);
-            this.Ustawienia.Name = "Ustawienia";
-            this.Ustawienia.Size = new System.Drawing.Size(259, 62);
-            this.Ustawienia.TabIndex = 2;
+            this.b7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.b7.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b7.Location = new System.Drawing.Point(0, 456);
+            this.b7.Name = "b7";
+            this.b7.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.b7.Size = new System.Drawing.Size(208, 48);
+            this.b7.TabIndex = 9;
+            this.b7.Text = "Asortymentu";
+            this.b7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.b7.UseVisualStyleBackColor = true;
+            this.b7.Visible = false;
+            this.b7.Click += new System.EventHandler(this.B7_Click);
             // 
             // b6
             // 
-            this.b6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.b6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.b6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.b6.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b6.Location = new System.Drawing.Point(4, 112);
-            this.b6.Margin = new System.Windows.Forms.Padding(4);
+            this.b6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.b6.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b6.Location = new System.Drawing.Point(0, 408);
             this.b6.Name = "b6";
-            this.b6.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.b6.Size = new System.Drawing.Size(251, 46);
-            this.b6.TabIndex = 2;
-            this.b6.Text = "Zawasowanne";
+            this.b6.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.b6.Size = new System.Drawing.Size(208, 48);
+            this.b6.TabIndex = 8;
+            this.b6.Text = "Pozycje Fakturowe";
             this.b6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b6.UseVisualStyleBackColor = true;
+            this.b6.Visible = false;
             this.b6.Click += new System.EventHandler(this.B6_Click);
             // 
             // b5
             // 
-            this.b5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.b5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.b5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.b5.Font = new System.Drawing.Font("Gadugi", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.b5.Location = new System.Drawing.Point(4, 64);
-            this.b5.Margin = new System.Windows.Forms.Padding(4);
+            this.b5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.b5.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b5.Location = new System.Drawing.Point(0, 360);
             this.b5.Name = "b5";
-            this.b5.Padding = new System.Windows.Forms.Padding(25, 0, 0, 0);
-            this.b5.Size = new System.Drawing.Size(251, 46);
-            this.b5.TabIndex = 1;
-            this.b5.Text = "Pospolite";
+            this.b5.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.b5.Size = new System.Drawing.Size(208, 48);
+            this.b5.TabIndex = 7;
+            this.b5.Text = "Inwetaryzacja Mag";
             this.b5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.b5.UseVisualStyleBackColor = true;
+            this.b5.Visible = false;
             this.b5.Click += new System.EventHandler(this.B5_Click);
             // 
             // B_Pan3
             // 
-            this.B_Pan3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.B_Pan3.AutoSize = true;
             this.B_Pan3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.B_Pan3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.B_Pan3.Font = new System.Drawing.Font("Gadugi", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.B_Pan3.Location = new System.Drawing.Point(4, 4);
-            this.B_Pan3.Margin = new System.Windows.Forms.Padding(4);
+            this.B_Pan3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.B_Pan3.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.B_Pan3.Location = new System.Drawing.Point(0, 304);
+            this.B_Pan3.Margin = new System.Windows.Forms.Padding(0);
             this.B_Pan3.Name = "B_Pan3";
-            this.B_Pan3.Padding = new System.Windows.Forms.Padding(12, 0, 0, 0);
-            this.B_Pan3.Size = new System.Drawing.Size(251, 58);
-            this.B_Pan3.TabIndex = 0;
-            this.B_Pan3.Text = "Ustawienia";
+            this.B_Pan3.Size = new System.Drawing.Size(208, 56);
+            this.B_Pan3.TabIndex = 6;
+            this.B_Pan3.Text = "Dodatkowe Fukcje";
             this.B_Pan3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.B_Pan3.UseVisualStyleBackColor = true;
             this.B_Pan3.Click += new System.EventHandler(this.B_Pan3_Click);
+            // 
+            // b4
+            // 
+            this.b4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.b4.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b4.Location = new System.Drawing.Point(0, 256);
+            this.b4.Name = "b4";
+            this.b4.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.b4.Size = new System.Drawing.Size(208, 48);
+            this.b4.TabIndex = 5;
+            this.b4.Text = "Danych Klijenta";
+            this.b4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.b4.UseVisualStyleBackColor = true;
+            this.b4.Visible = false;
+            this.b4.Click += new System.EventHandler(this.B4_Click);
+            // 
+            // b3
+            // 
+            this.b3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.b3.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b3.Location = new System.Drawing.Point(0, 208);
+            this.b3.Name = "b3";
+            this.b3.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.b3.Size = new System.Drawing.Size(208, 48);
+            this.b3.TabIndex = 4;
+            this.b3.Text = "Pozycji Asortymetowej";
+            this.b3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.b3.UseVisualStyleBackColor = true;
+            this.b3.Visible = false;
+            this.b3.Click += new System.EventHandler(this.B3_Click);
+            // 
+            // B_Pan2
+            // 
+            this.B_Pan2.AutoSize = true;
+            this.B_Pan2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.B_Pan2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.B_Pan2.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.B_Pan2.Location = new System.Drawing.Point(0, 152);
+            this.B_Pan2.Margin = new System.Windows.Forms.Padding(4);
+            this.B_Pan2.Name = "B_Pan2";
+            this.B_Pan2.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.B_Pan2.Size = new System.Drawing.Size(208, 56);
+            this.B_Pan2.TabIndex = 3;
+            this.B_Pan2.Text = "Zmiany";
+            this.B_Pan2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.B_Pan2.UseVisualStyleBackColor = true;
+            this.B_Pan2.Click += new System.EventHandler(this.B_Pan2_Click);
+            // 
+            // b2
+            // 
+            this.b2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.b2.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b2.Location = new System.Drawing.Point(0, 104);
+            this.b2.Name = "b2";
+            this.b2.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.b2.Size = new System.Drawing.Size(208, 48);
+            this.b2.TabIndex = 2;
+            this.b2.Text = "Nowego Klienta";
+            this.b2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.b2.UseVisualStyleBackColor = true;
+            this.b2.Visible = false;
+            this.b2.Click += new System.EventHandler(this.B2_Click);
+            // 
+            // b1
+            // 
+            this.b1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.b1.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.b1.Location = new System.Drawing.Point(0, 56);
+            this.b1.Name = "b1";
+            this.b1.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
+            this.b1.Size = new System.Drawing.Size(208, 48);
+            this.b1.TabIndex = 1;
+            this.b1.Text = "Nowego Asortymentu";
+            this.b1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.b1.UseVisualStyleBackColor = true;
+            this.b1.Visible = false;
+            this.b1.Click += new System.EventHandler(this.B1_Click);
+            // 
+            // B_Pan1
+            // 
+            this.B_Pan1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.B_Pan1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.B_Pan1.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.B_Pan1.Location = new System.Drawing.Point(0, 0);
+            this.B_Pan1.Margin = new System.Windows.Forms.Padding(4);
+            this.B_Pan1.Name = "B_Pan1";
+            this.B_Pan1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.B_Pan1.Size = new System.Drawing.Size(208, 56);
+            this.B_Pan1.TabIndex = 0;
+            this.B_Pan1.Text = "Dodawanie";
+            this.B_Pan1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.B_Pan1.UseVisualStyleBackColor = true;
+            this.B_Pan1.Click += new System.EventHandler(this.B_Pan1_Click);
             // 
             // panel2
             // 
@@ -467,21 +423,6 @@ namespace SferaWinFormsApp
             this.Panel_img.TabStop = false;
             this.Panel_img.WaitOnLoad = true;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Interval = 1;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 1;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -508,10 +449,8 @@ namespace SferaWinFormsApp
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.Asortyment.ResumeLayout(false);
-            this.Magazyn.ResumeLayout(false);
-            this.Ustawienia.ResumeLayout(false);
+            this.Panel_Button.ResumeLayout(false);
+            this.Panel_Button.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Panel_img)).EndInit();
             this.ResumeLayout(false);
@@ -530,21 +469,17 @@ namespace SferaWinFormsApp
         private System.Windows.Forms.Label Logowanie;
         private System.Windows.Forms.PictureBox Panel_img;
         private System.Windows.Forms.Label Mini_;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Panel Asortyment;
-        private System.Windows.Forms.Button b2;
-        private System.Windows.Forms.Button b1;
-        private System.Windows.Forms.Button B_Pan1;
-        private System.Windows.Forms.Panel Magazyn;
-        private System.Windows.Forms.Button b4;
-        private System.Windows.Forms.Button b3;
-        private System.Windows.Forms.Button B_Pan2;
-        private System.Windows.Forms.Panel Ustawienia;
+        private System.Windows.Forms.Panel Panel_Button;
+        private System.Windows.Forms.Button B_Pan4;
+        private System.Windows.Forms.Button b7;
         private System.Windows.Forms.Button b6;
         private System.Windows.Forms.Button b5;
         private System.Windows.Forms.Button B_Pan3;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Button b4;
+        private System.Windows.Forms.Button b3;
+        private System.Windows.Forms.Button B_Pan2;
+        private System.Windows.Forms.Button b2;
+        private System.Windows.Forms.Button b1;
+        private System.Windows.Forms.Button B_Pan1;
     }
 }

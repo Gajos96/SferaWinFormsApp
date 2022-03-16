@@ -15,31 +15,61 @@ namespace SferaWinFormsApp
         public bool MinMax1 = false;
         #region CLICK
 
-       private void zmiana(int a)
+        //private bool Dodawanie_Menu;
+        //private bool Zmiana_Menu;
+        //private bool Inne_Fukcje_Menu;
+        //private bool Ustawienia_manu;
+
+        /// <summary>
+        /// Sprawdza który z guzików był klikniety
+        /// </summary>
+        /// <param name="a"></param>
+        private void zmiana(int a)
         {
             if (a ==1)
             {
-                Collapsed_Asortyment = true;
-                Collapsed_Magazyn = false;
-                Collapsed_Ustawienia = false;
+                b1.Visible = true;
+                b2.Visible = true;
+                b3.Visible = false;
+                b4.Visible = false;
+                b5.Visible = false;
+                b6.Visible = false;
+                b7.Visible = false;
             }
             if(a==2)
             {
-                Collapsed_Asortyment = false;
-                Collapsed_Magazyn = true;
-                Collapsed_Ustawienia = false;
+                b1.Visible = false;
+                b2.Visible = false;
+                b3.Visible = true;
+                b4.Visible = true;
+                b5.Visible = false;
+                b6.Visible = false;
+                b7.Visible = false;
             }
             if (a==3)
             {
-                Collapsed_Asortyment = false;
-                Collapsed_Magazyn = false;
-                Collapsed_Ustawienia = true;
+                b1.Visible = false;
+                b2.Visible = false;
+                b3.Visible = false;
+                b4.Visible = false;
+                b5.Visible = true;
+                b6.Visible = true;
+                b7.Visible = true;
+            }
+            if (a==4)
+            {
+                b1.Visible = false;
+                b2.Visible = false;
+                b3.Visible = false;
+                b4.Visible = false;
+                b5.Visible = false;
+                b6.Visible = false;
+                b7.Visible = false;
             }
         }
 
         private async void B_Pan1_Click(object sender, EventArgs e)
         {
-            timer1.Start();
             B_Pan1.Enabled = false;
             int a = 1;
             await Change_Style_Button(a, 0);
@@ -49,7 +79,6 @@ namespace SferaWinFormsApp
 
         private async void B_Pan2_Click(object sender, EventArgs e)
         {
-            timer2.Start();
             B_Pan2.Enabled = false;
             int a = 2;
             await Change_Style_Button(a, 0);
@@ -59,13 +88,23 @@ namespace SferaWinFormsApp
 
         private async void B_Pan3_Click(object sender, EventArgs e)
         {
-            timer3.Start();
             B_Pan3.Enabled = false;
             int a = 3;
             await Change_Style_Button(a, 0);
             zmiana(a);
             B_Pan3.Enabled = true;
         }
+
+        private async void B_Pan4_Click(object sender, EventArgs e)
+        {
+            B_Pan4.Enabled = false;
+            int a = 4;
+            await Change_Style_Button(a, 0);
+            zmiana(a);
+            OpenChildForm(new Ustawinia());
+            B_Pan4.Enabled = true;
+        }
+
 
         private void Sing_Menu_Click(object sender, EventArgs e)
         {
@@ -125,7 +164,6 @@ namespace SferaWinFormsApp
             int b = 2;
             b2.Enabled = false;
             await Change_Style_Button(0, b);
-            OpenChildForm(new Zmien_Asortyment());
             Thread.Sleep(200);
             b2.Enabled = true;
             
@@ -136,7 +174,7 @@ namespace SferaWinFormsApp
             int b = 3;
             b3.Enabled = false;
             await Change_Style_Button(0, b);
-            OpenChildForm(new Łaczymy());
+            OpenChildForm(new Zmien_Asortyment());
             Thread.Sleep(200);
             b3.Enabled = true;
 
@@ -147,7 +185,6 @@ namespace SferaWinFormsApp
             int b = 4;
             b4.Enabled = false;
           await Change_Style_Button(0, b);
-            OpenChildForm(new Pozycje_Fakturowe());
             b4.Enabled = true;
             
         }
@@ -157,13 +194,22 @@ namespace SferaWinFormsApp
             int b = 5;
             b5.Enabled = false;
            await Change_Style_Button(0, b);
-            OpenChildForm(new Ustawinia());
+            OpenChildForm(new Łaczymy());
             b5.Enabled = true;
         }
 
         private async void B6_Click(object sender, EventArgs e)
         {
             int b = 6;
+            b6.Enabled = false;
+            await Change_Style_Button(0, b);
+            OpenChildForm(new Pozycje_Fakturowe());
+            b6.Enabled = true;
+        }
+
+        private async void B7_Click(object sender, EventArgs e)
+        {
+            int b = 7;
             b6.Enabled = false;
             await Change_Style_Button(0, b);
             b6.Enabled = true;
@@ -184,6 +230,12 @@ namespace SferaWinFormsApp
         }
         #endregion
 
+        /// <summary>
+        /// Zmienia kolor guzika przy kliknieciu wykorzystuje wielowatkowość
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         private async Task Change_Style_Button(int a, int b)
         {
             await Task.Run(() =>
@@ -195,19 +247,32 @@ namespace SferaWinFormsApp
                         B_Pan1.BackColor = SystemColors.ScrollBar;
                         B_Pan2.BackColor = Color.Transparent;
                         B_Pan3.BackColor = Color.Transparent;
+                        B_Pan4.BackColor = Color.Transparent;
                     }
                     if (a == 2)
                     {
                         B_Pan2.BackColor = SystemColors.ScrollBar;
                         B_Pan1.BackColor = Color.Transparent;
                         B_Pan3.BackColor = Color.Transparent;
+                        B_Pan4.BackColor = Color.Transparent;
+
                     }
                     if (a == 3)
                     {
                         B_Pan3.BackColor = SystemColors.ScrollBar;
                         B_Pan1.BackColor = Color.Transparent;
                         B_Pan2.BackColor = Color.Transparent;
+                        B_Pan4.BackColor = Color.Transparent;
                     }
+                    if (a == 4)
+                    {
+                        B_Pan4.BackColor = SystemColors.ScrollBar;
+                        B_Pan1.BackColor = Color.Transparent;
+                        B_Pan2.BackColor = Color.Transparent;
+                        B_Pan3.BackColor = Color.Transparent;
+                    }
+
+
 
                 }
                 if (a == 0)
@@ -220,6 +285,7 @@ namespace SferaWinFormsApp
                         b4.BackColor = Color.Transparent;
                         b5.BackColor = Color.Transparent;
                         b6.BackColor = Color.Transparent;
+                        b7.BackColor = Color.Transparent;
                     }
                     if (b == 2)
                     {
@@ -229,6 +295,7 @@ namespace SferaWinFormsApp
                         b4.BackColor = Color.Transparent;
                         b5.BackColor = Color.Transparent;
                         b6.BackColor = Color.Transparent;
+                        b7.BackColor = Color.Transparent;
                     }
                     if (b == 3)
                     {
@@ -238,6 +305,7 @@ namespace SferaWinFormsApp
                         b4.BackColor = Color.Transparent;
                         b5.BackColor = Color.Transparent;
                         b6.BackColor = Color.Transparent;
+                        b7.BackColor = Color.Transparent;
                     }
                     if (b == 4)
                     {
@@ -247,6 +315,7 @@ namespace SferaWinFormsApp
                         b3.BackColor = Color.Transparent;
                         b5.BackColor = Color.Transparent;
                         b6.BackColor = Color.Transparent;
+                        b7.BackColor = Color.Transparent;
                     }
                     if (b == 5)
                     {
@@ -256,6 +325,7 @@ namespace SferaWinFormsApp
                         b3.BackColor = Color.Transparent;
                         b4.BackColor = Color.Transparent;
                         b6.BackColor = Color.Transparent;
+                        b7.BackColor = Color.Transparent;
                     }
                     if (b == 6)
                     {
@@ -265,6 +335,17 @@ namespace SferaWinFormsApp
                         b3.BackColor = Color.Transparent;
                         b4.BackColor = Color.Transparent;
                         b5.BackColor = Color.Transparent;
+                        b7.BackColor = Color.Transparent;
+                    }
+                    if (b == 7)
+                    {
+                        b7.BackColor = SystemColors.ScrollBar;
+                        b1.BackColor = Color.Transparent;
+                        b2.BackColor = Color.Transparent;
+                        b3.BackColor = Color.Transparent;
+                        b4.BackColor = Color.Transparent;
+                        b5.BackColor = Color.Transparent;
+                        b6.BackColor = Color.Transparent;
                     }
                 }
             });
@@ -340,81 +421,77 @@ namespace SferaWinFormsApp
             this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
         }
 
-        private bool Collapsed_Asortyment;
-        private bool Collapsed_Magazyn;
-        private bool Collapsed_Ustawienia ;
-        int a = 500;
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (Collapsed_Asortyment)
-            {
-                Asortyment.Height += a;
-                Magazyn.Height -= a;
-                Ustawienia.Height -= a;
-                if (Asortyment.Size == Asortyment.MaximumSize)
-                {
-                    timer1.Stop();
-                    Collapsed_Asortyment = false;
-                }
-            }
-            else
-            {
-                Asortyment.Height -= a;
-                if (Asortyment.Size == Asortyment.MinimumSize )
-                {
-                    timer1.Stop();
-                }
-            }
-        }
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    if (Collapsed_Asortyment)
+        //    {
+        //        Asortyment.Height += a;
+        //        Magazyn.Height -= a;
+        //        Ustawienia.Height -= a;
+        //        if (Asortyment.Size == Asortyment.MaximumSize)
+        //        {
+        //            timer1.Stop();
+        //            Collapsed_Asortyment = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Asortyment.Height -= a;
+        //        if (Asortyment.Size == Asortyment.MinimumSize )
+        //        {
+        //            timer1.Stop();
+        //        }
+        //    }
+        //}
 
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (Collapsed_Magazyn)
-            {
-                Magazyn.Height += a;
-                Asortyment.Height -= a;
-                Ustawienia.Height -= a;
-                if (Magazyn.Size == Magazyn.MaximumSize)
-                {
-                    timer2.Stop();
-                    Collapsed_Magazyn = false;
-                }
-            }
-            else
-            {
-                Magazyn.Height -= a;
-                if (Magazyn.Size == Magazyn.MinimumSize)
-                {
-                    timer2.Stop();
-                }
+        //private void timer2_Tick(object sender, EventArgs e)
+        //{
+        //    if (Collapsed_Magazyn)
+        //    {
+        //        Magazyn.Height += a;
+        //        Asortyment.Height -= a;
+        //        Ustawienia.Height -= a;
+        //        if (Magazyn.Size == Magazyn.MaximumSize)
+        //        {
+        //            timer2.Stop();
+        //            Collapsed_Magazyn = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Magazyn.Height -= a;
+        //        if (Magazyn.Size == Magazyn.MinimumSize)
+        //        {
+        //            timer2.Stop();
+        //        }
         
-            }  
-        }
+        //    }  
+        //}
 
-        private void timer3_Tick(object sender, EventArgs e)
-        {
-            if (Collapsed_Ustawienia)
-            {
-                Ustawienia.Height += a;
-                Magazyn.Height -= a;
-                Asortyment.Height -= a;
+        //private void timer3_Tick(object sender, EventArgs e)
+        //{
+        //    if (Collapsed_Ustawienia)
+        //    {
+        //        Ustawienia.Height += a;
+        //        Magazyn.Height -= a;
+        //        Asortyment.Height -= a;
 
-                if (Ustawienia.Size == Ustawienia.MaximumSize)
-                {
-                    timer3.Stop();
-                    Collapsed_Ustawienia = false;
-                }
-            }
-            else
-            {
-                Ustawienia.Height -= a;
-                if (Ustawienia.Size == Ustawienia.MinimumSize)
-                {
-                    timer3.Stop();
-                }
+        //        if (Ustawienia.Size == Ustawienia.MaximumSize)
+        //        {
+        //            timer3.Stop();
+        //            Collapsed_Ustawienia = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        Ustawienia.Height -= a;
+        //        if (Ustawienia.Size == Ustawienia.MinimumSize)
+        //        {
+        //            timer3.Stop();
+        //        }
 
-            }
-        }
+        //    }
+        //}
     }
 }

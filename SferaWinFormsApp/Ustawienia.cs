@@ -57,13 +57,6 @@ namespace SferaWinFormsApp
         }
 
 
-        private void Ustawinia_Load(object sender, EventArgs e)
-        {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'database2DataSet.Table' . Możesz go przenieść lub usunąć.
-            this.tableTableAdapter.Fill(this.database2DataSet.Table);
-
-        }
-
         //private Rectangle buttonOrginRectangle;
         //private Rectangle OrginFormSize;
 
