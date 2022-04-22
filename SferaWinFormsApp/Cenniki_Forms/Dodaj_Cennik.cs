@@ -12,16 +12,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SferaWinFormsApp.Klasy;
 
 namespace SferaWinFormsApp.Cenniki_Forms
 {
     public partial class Dodaj_Cennik : Form
     {
 
-        public Dodaj_Cennik(Form ehe)
+        public Dodaj_Cennik()
         {
             InitializeComponent();
-            ehe.Close();
         }
 
         public string Symbol_Cennik { get { return Csymbol.Text; } }
@@ -33,71 +33,98 @@ namespace SferaWinFormsApp.Cenniki_Forms
         {
             Cwaluta.Items.Add(Euro);
             Cwaluta.Items.Add(Pln);
-            Cwaluta.SelectedIndex = 0; 
+            Cwaluta.SelectedIndex = 0;
         }
 
-        string Euro = "EUR";
-        string Pln = "PLN";
+        readonly string Euro = "EUR";
+        readonly string Pln = "PLN";
 
 
         public void DodajCennikGlowny()
         {
-                ICenniki menadzerCennikow = Program.Sfera.PodajObiektTypu<ICenniki>();
-                IPoziomyCen menadzerPoziomowCen = Program.Sfera.PodajObiektTypu<IPoziomyCen>();
-                IWalutyDaneDomyslne walutyDD = Program.Sfera.PodajObiektTypu<IWaluty>().DaneDomyslne;
-                IUzytkownicy uzytkownicy = Program.Sfera.PodajObiektTypu<IUzytkownicy>();
+            ICenniki menadzerCennikow = Program.Sfera.PodajObiektTypu<ICenniki>();
+            IPoziomyCen menadzerPoziomowCen = Program.Sfera.PodajObiektTypu<IPoziomyCen>();
+            IWalutyDaneDomyslne walutyDD = Program.Sfera.PodajObiektTypu<IWaluty>().DaneDomyslne;
+            IUzytkownicy uzytkownicy = Program.Sfera.PodajObiektTypu<IUzytkownicy>();
 
-                PoziomCen poziomWzorcowy = menadzerPoziomowCen.DaneDomyslne.Podstawowy;
-                PoziomCen poziom = null;
-                using (IPoziomCen poziomCen = menadzerPoziomowCen.Utworz())
-                {
-                    poziomCen.Dane.Symbol = Symbol_Cennik;
-                    poziomCen.Dane.Nazwa = Nazwa_Cennik;
-                    poziomCen.Dane.Waluta = Cwaluta.SelectedItem.ToString() == Pln ? walutyDD.PLN : walutyDD.EUR;
-                    poziomCen.Dane.FunkcjaWyboruCennika = poziomWzorcowy.FunkcjaWyboruCennika;
-                    poziomCen.Dane.FunkcjaWyliczaniaCenyBazowej = poziomWzorcowy.FunkcjaWyliczaniaCenyBazowej;
-                    poziomCen.Dane.FunkcjaWyliczaniaCenyBazowejBezStanow = poziomWzorcowy.FunkcjaWyliczaniaCenyBazowejBezStanow;
-                //    if (poziomCen.Zapisz())
-                //        poziom = poziomCen.Dane;
-                //    else
-                //        poziomCen.WypiszBledy();
-                //}
-                //if (poziom != null)
-                //{
-                //    using (ICennik cennik = menadzerCennikow.Utworz())
-                //    {
-                //        cennik.Dane.PoziomCen = poziom;
-                //        cennik.Dane.Bazowy = true; // ustawiamy cennik jako główny
-                //        cennik.Dane.Tytul = "Cennik " + poziom.Nazwa;
-                //       // cennik.Dane.CenaZerowa = (int)MetodaWyliczaniaPozycjiCennika.WedlugMarzy; // Wywali
-                //        //cennik.Dane.DomyslnaMarza = 0.65m;
-                //        cennik.WypelnijCennik(); // generujemy pozycje dla całego asortymentu
-
-                //        //opublikowanie (zatwierdzenie) cennika:
-                //        cennik.UstawStatus(uzytkownicy.Dane.Wszystkie().First(), StatusCennika.Zatwierdzony);
-
-                //    if (cennik.Zapisz()) { }
-                //    else
-                //        cennik.WypiszBledy();
-                //    }
-                }
-        }
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (Csymbol.Text != null && Cnazwa.Text != null)
+            PoziomCen poziomWzorcowy = menadzerPoziomowCen.DaneDomyslne.Podstawowy;
+            PoziomCen poziom = null;
+            using (IPoziomCen poziomCen = menadzerPoziomowCen.Utworz())
             {
-                DodajCennikGlowny();
-           
+                poziomCen.Dane.Symbol = Symbol_Cennik;
+                poziomCen.Dane.Nazwa = Nazwa_Cennik;
+                poziomCen.Dane.Waluta = Cwaluta.SelectedItem.ToString() == Pln ? walutyDD.PLN : walutyDD.EUR;
+                poziomCen.Dane.FunkcjaWyboruCennika = poziomWzorcowy.FunkcjaWyboruCennika;
+                poziomCen.Dane.FunkcjaWyliczaniaCenyBazowej = poziomWzorcowy.FunkcjaWyliczaniaCenyBazowej;
+                poziomCen.Dane.FunkcjaWyliczaniaCenyBazowejBezStanow = poziomWzorcowy.FunkcjaWyliczaniaCenyBazowejBezStanow;
+                if (poziomCen.Zapisz())
+                {
+                    poziom = poziomCen.Dane;
+                }
+                else
+                {
+                    MessageBox.Show("Dupa ehhh");
+                }
+                if(poziom != null) {
+                    using (ICennik cennik = menadzerCennikow.Utworz())
+                    {
+                        cennik.Dane.PoziomCen = poziom;
+                        cennik.Dane.Bazowy = true; // ustawiamy cennik jako główny
+                        cennik.Dane.Tytul = "Cennik " + poziom.Nazwa;
+
+
+
+                        // Uwaga Strefa Zepsuta 
+
+
+                        //Kocham jak coś jest aktualizowane na bierząco
+                        /*cennik.Dane.CenaZerowa = (int)MetodaWyliczaniaPozycjiCennika.WedlugMarzy; 
+                        cennik.Dane.DomyslnaMarza = 0.65m;*/
+
+
+
+
+
+                        cennik.WypelnijCennik(); // generujemy pozycje dla całego asortymen
+                        
+                        //opublikowanie (zatwierdzenie) cennika:
+                        cennik.UstawStatus(uzytkownicy.Dane.Wszystkie().First(), StatusCennika.Zatwierdzony);
+                        if(cennik.Zapisz())
+                        {
+                            MessageBox.Show("Wszysko ok");
+                        }
+                        else
+                        {
+                            MessageBox.Show(" Będzie Dupa Powodu zjebanego cennika ");
+                        }
+                    }
+                }
             }
-            else
-                MessageBox.Show("Nie wypełniono wszyskich Pól");
         }
 
-        private void Dodaj_Cennik_FormClosing(object sender, FormClosingEventArgs e)
-        {
-          
-        }
+            private void Button1_Click(object sender, EventArgs e)
+            {
+                if (Csymbol.Text != null && Cnazwa.Text != null)
+                {
+                    DodajCennikGlowny();
+
+                }
+                else
+                    MessageBox.Show("Nie wypełniono wszyskich Pól");
+            }
+
+
+            private void Dodaj_Cennik_FormClosing(object sender, FormClosingEventArgs e)
+            {
+                (this.Owner as Menu_Show).panel2.Visible = true;
+
+            }
+
+            private void Button2_Click(object sender, EventArgs e)
+            {
+                base.Close();
+            }
+
     }
-}
+    } 
+

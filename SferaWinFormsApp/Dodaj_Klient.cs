@@ -163,7 +163,7 @@ namespace SferaWinFormsApp
         #endregion
 
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             Polecenie_Wykonaj();
         }
@@ -174,7 +174,7 @@ namespace SferaWinFormsApp
             var Excel_Load = new Ładowanie_Excel();
             Excel_Load.Show();
             IPodmioty podmioty = Program.Sfera.PodajObiektTypu<IPodmioty>();
-            Podmiot encjaOddzial = null;
+            
 
             #region Zaczytywanie do listy Excela
             var List = new List<Klient>();

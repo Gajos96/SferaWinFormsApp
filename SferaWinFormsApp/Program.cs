@@ -3,6 +3,7 @@ using InsERT.Mox.Product;
 using System;
 using System.Linq;
 using System.Windows.Forms;
+using SferaWinFormsApp.Klasy;
 
 
 namespace SferaWinFormsApp
@@ -12,7 +13,7 @@ namespace SferaWinFormsApp
 
         public static Uchwyt UruchomSfere()
         {
-
+            Database database = new Database();
             DanePolaczenia danePolaczenia = null;
             string pName = "/UruchomionePrzezInsLauncher";
             if (Environment.GetCommandLineArgs().Any(a => string.Compare(a, pName, true) == 0))

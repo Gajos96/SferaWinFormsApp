@@ -126,17 +126,17 @@
     <Compile Include="Cenniki_Forms\Dodaj_Dodadkowy.Designer.cs">
       <DependentUpon>Dodaj_Dodadkowy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cenniki_Forms\Dodaj_Próg_Cennowy.cs">
+    <Compile Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cenniki_Forms\Dodaj_Próg_Cennowy.Designer.cs">
-      <DependentUpon>Dodaj_Próg_Cennowy.cs</DependentUpon>
+    <Compile Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.Designer.cs">
+      <DependentUpon>Zmiana_Sposobu_Wyliczania.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cenniki_Forms\MenuCenników.cs">
+    <Compile Include="Cenniki_Forms\Memu_Show.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cenniki_Forms\MenuCenników.Designer.cs">
-      <DependentUpon>MenuCenników.cs</DependentUpon>
+    <Compile Include="Cenniki_Forms\Memu_Show.Designer.cs">
+      <DependentUpon>Memu_Show.cs</DependentUpon>
     </Compile>
     <Compile Include="Cenniki_Forms\Personalizacja_Cennika_Dodakowego.cs">
       <SubType>Form</SubType>
@@ -150,11 +150,11 @@
     <Compile Include="Cenniki_Forms\Przecena.Designer.cs">
       <DependentUpon>Przecena.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.cs">
+    <Compile Include="Cenniki_Forms\Zmiana_Progu_Cen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.Designer.cs">
-      <DependentUpon>Zmiana_Sposobu_Wyliczania.cs</DependentUpon>
+    <Compile Include="Cenniki_Forms\Zmiana_Progu_Cen.Designer.cs">
+      <DependentUpon>Zmiana_Progu_Cen.cs</DependentUpon>
     </Compile>
     <Compile Include="Dodaj_Klient.cs">
       <SubType>Form</SubType>
@@ -230,8 +230,17 @@
     <EmbeddedResource Include="Cenniki_Forms\Dodaj_Cennik.resx">
       <DependentUpon>Dodaj_Cennik.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cenniki_Forms\MenuCenników.resx">
-      <DependentUpon>MenuCenników.cs</DependentUpon>
+    <EmbeddedResource Include="Cenniki_Forms\Zmiana_Progu_Cen.resx">
+      <DependentUpon>Zmiana_Progu_Cen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.resx">
+      <DependentUpon>Zmiana_Sposobu_Wyliczania.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cenniki_Forms\Memu_Show.resx">
+      <DependentUpon>Memu_Show.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cenniki_Forms\Przecena.resx">
+      <DependentUpon>Przecena.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dodaj_Klient.resx">
       <DependentUpon>Dodaj_Klient.cs</DependentUpon>

@@ -25,7 +25,7 @@ namespace SferaWinFormsApp
         /// Sprawdza który z guzików był klikniety
         /// </summary>
         /// <param name="a"></param>
-        private void zmiana(int a)
+        private void Zmiana(int a)
         {
             if (a ==1)
             {
@@ -74,7 +74,7 @@ namespace SferaWinFormsApp
             B_Pan1.Enabled = false;
             int a = 1;
             await Change_Style_Button(a, 0);
-            zmiana(a);
+            Zmiana(a);
             B_Pan1.Enabled = true;
         }
 
@@ -83,7 +83,7 @@ namespace SferaWinFormsApp
             B_Pan2.Enabled = false;
             int a = 2;
             await Change_Style_Button(a, 0);
-            zmiana(a);
+            Zmiana(a);
             B_Pan2.Enabled = true;
         }
 
@@ -92,7 +92,7 @@ namespace SferaWinFormsApp
             B_Pan3.Enabled = false;
             int a = 3;
             await Change_Style_Button(a, 0);
-            zmiana(a);
+            Zmiana(a);
             B_Pan3.Enabled = true;
         }
 
@@ -101,7 +101,7 @@ namespace SferaWinFormsApp
             B_Pan4.Enabled = false;
             int a = 4;
             await Change_Style_Button(a, 0);
-            zmiana(a);
+            Zmiana(a);
             OpenChildForm(new Ustawinia());
             B_Pan4.Enabled = true;
         }
@@ -214,7 +214,7 @@ namespace SferaWinFormsApp
             int b = 7;
             b6.Enabled = false;
             await Change_Style_Button(0, b);
-            OpenChildForm(new Cennik_Menu());
+            OpenChildForm(new Menu_Show(this)); ;
             b6.Enabled = true;
         }
 

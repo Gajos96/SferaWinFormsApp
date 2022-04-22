@@ -12,7 +12,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
 {
     public partial class Dodaj_Dodadkowy : Form
     {
-        public Dodaj_Dodadkowy()
+        public Dodaj_Dodadkowy(Form ehe)
         {
             InitializeComponent();
         }

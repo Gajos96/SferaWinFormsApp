@@ -36,10 +36,12 @@ namespace SferaWinFormsApp
                 {
                     while (reader.Read())
                     {
-                        var u = new Uzytkownik();
-                        u.Id = reader.GetGuid(0);
-                        u.Nazwa = reader.GetString(1);
-                        u.Login = reader.GetString(2);
+                        var u = new Uzytkownik
+                        {
+                            Id = reader.GetGuid(0),
+                            Nazwa = reader.GetString(1),
+                            Login = reader.GetString(2)
+                        };
                         uzytkownicy.Add(u);
                     }
                 }

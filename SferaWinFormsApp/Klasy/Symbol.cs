@@ -91,28 +91,23 @@ namespace SferaWinFormsApp
             Nazwa_Firmy = z;
             Name_Short = x;
         }
-
     }
 
-    public static class Cenniki_Pomocnicza
+    public static class IsItActive
     {
-        private static bool _active;
-        /// <summary>
-        /// Reaguje jak zmiane
-        /// </summary>
-        public static bool Active
-        {
-            get
-            {
-                return _active;
-            }
-            set
-            {
-                _active = value;
-            }
-        }
+        public static bool Active { get; set; } = true;
     }
 
+    public class Database
+    {
+        public string Path_Connecting  { get {return @"Data Source=GARTENLAND13\SQLEXPRESS;Initial Catalog=Nexo_Demo_1;Integrated Security=True";}}
+        public string Nazwa_Bazy { get { return @"[Nexo_Demo_1]"; } }
+    }
+
+    public class Cechy_List
+    {
+        public string Nazwa { get; set; }
+    }
 
 
 }

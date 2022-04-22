@@ -1,7 +1,7 @@
 ﻿
 namespace SferaWinFormsApp.Cenniki_Forms
 {
-    partial class Dodaj_Próg_Cennowy
+    partial class Zmiana_Progu_Cen
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,19 @@ namespace SferaWinFormsApp.Cenniki_Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Zmiana_Progu_Cen));
+            this.SuspendLayout();
+            // 
+            // Zmiana_Progu_Cen
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Dodaj_Próg_Cennowy";
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1081, 619);
+            this.Name = "Zmiana_Progu_Cen";
+            this.Text = "Zmiana_Sposobu_Wyliczania";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

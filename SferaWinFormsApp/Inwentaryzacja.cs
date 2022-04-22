@@ -125,7 +125,6 @@ namespace SferaWinFormsApp
             }
             return magaz.ToArray();
         }
-
         /// <summary>
         /// Ładowanie forma po właczeniu go
         /// </summary>

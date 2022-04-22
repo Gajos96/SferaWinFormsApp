@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SferaWinFormsApp.Klasy;
 
 namespace SferaWinFormsApp
 {
@@ -19,6 +20,8 @@ namespace SferaWinFormsApp
             InitializeComponent();
         }
 
+        
+
         /// <summary>
         /// Tworzenie listy podstawowych dokumentów do zaczytania ( nie istnieje okreslona lista faktów w bazie SQL )
         /// </summary>
@@ -26,15 +29,16 @@ namespace SferaWinFormsApp
         /// <returns></returns>
         object[] Zaczytanie ()
         {
-            List<string> rodzaj_Dokumentów = new List<string>();
-                rodzaj_Dokumentów.Add("FS");
-                rodzaj_Dokumentów.Add("FZ");
-                rodzaj_Dokumentów.Add("RR");
-                rodzaj_Dokumentów.Add("FL");
-                rodzaj_Dokumentów.Add("ZK");
-                rodzaj_Dokumentów.Add("ZD");
-                rodzaj_Dokumentów.Add("PA");
-                rodzaj_Dokumentów.Sort();
+            List<string> rodzaj_Dokumentów = new List<string>
+            { "FS",
+              "FZ",
+              "RR",
+              "FL",
+              "ZK",
+              "ZD",
+              "PA"
+            };
+            rodzaj_Dokumentów.Sort();
                 return rodzaj_Dokumentów.ToArray();
         }
 
@@ -48,7 +52,7 @@ namespace SferaWinFormsApp
             dateTimePicker2.Value = DateTime.Today;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             Sort_Data.OriginDate = dateTimePicker1.Value;
             Sort_Data.FinishDate = dateTimePicker2.Value;
@@ -56,12 +60,15 @@ namespace SferaWinFormsApp
 
             if (cbDokument.Text != null)
             {
-                using (SqlConnection polaczenie = new SqlConnection(@"Data Source=GARTENLAND13\SQLEXPRESS;Initial Catalog=Nexo_Demo_1;Integrated Security=True"))
+                Database database = new Database();
+                using (SqlConnection polaczenie = new SqlConnection(database.Path_Connecting))
                 {
 
                     string zapytanie = Builder();
-                    SqlCommand cmd = new SqlCommand(zapytanie, polaczenie);
-                    cmd.CommandType = System.Data.CommandType.Text;
+                    SqlCommand cmd = new SqlCommand(zapytanie, polaczenie)
+                    {
+                        CommandType = System.Data.CommandType.Text
+                    };
                     DataSet dataSet = new DataSet();
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     adapter.Fill(dataSet);
@@ -76,6 +83,7 @@ namespace SferaWinFormsApp
 
         public static string Builder()
         {
+            Database database1 = new Database();
             ///<summary>
             /// Konwersja dat na zgodne z datami z subiecta
             /// </summary>
@@ -85,10 +93,7 @@ namespace SferaWinFormsApp
             ///Zapytanie do Sql o połaczone 3 tabele Dokument/ Pozycja Asortymentu / oraz Asortyment
             /// </summary>
             string local1 = @"SELECT d.[LP] , e.[Symbol], e.[Nazwa] , (g.[DataWprowadzenia]) , g.[NumerWewnetrzny_PelnaSygnatura] as 'Numer dokumentu', g.[NumerZewnetrzny] as 'Numer Orginału' , d.[ilosc] ,d.[Cena_NettoPoRabacie] ,g.[Symbol]
-            FROM[Nexo_Demo_1].[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN[Nexo_Demo_1].[ModelDanychContainer].[Asortymenty] e
-            ON d.[AsortymentWybranyId] = e.[Id]
-            INNER JOIN[Nexo_Demo_1].[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID]
-            where g.[Symbol] = ('";
+            FROM" + database1.Nazwa_Bazy + ".[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN" + database1.Nazwa_Bazy + ".[ModelDanychContainer].[Asortymenty] e ON d.[AsortymentAktualnyId] = e.[Id] INNER JOIN" + database1.Nazwa_Bazy + ".[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID] where g.[Symbol] = (";
             string local2 = @"') and(g.[NumerWewnetrzny_PelnaSygnatura] LIKE '[A-Z]%') and (g.[DataWprowadzenia] BETWEEN '";
             string local3 = @"')
             ORDER BY g.[NumerWewnetrzny_PelnaSygnatura], d.[LP]";
