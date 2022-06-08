@@ -72,7 +72,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
         private void Button4_Click(object sender, EventArgs e)
         {
             Hide_Button();
-            Zmiana_Progu_Cen lol4 = new Zmiana_Progu_Cen(this)
+            Zmiana_Progu_Cen lol4 = new Zmiana_Progu_Cen()
             {
                 Owner = this
             };

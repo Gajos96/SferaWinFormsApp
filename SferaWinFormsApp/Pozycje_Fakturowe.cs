@@ -60,8 +60,7 @@ namespace SferaWinFormsApp
 
             if (cbDokument.Text != null)
             {
-                Database database = new Database();
-                using (SqlConnection polaczenie = new SqlConnection(database.Path_Connecting))
+                using (SqlConnection polaczenie = new SqlConnection(Database.Path_Connecting))
                 {
 
                     string zapytanie = Builder();
@@ -83,7 +82,6 @@ namespace SferaWinFormsApp
 
         public static string Builder()
         {
-            Database database1 = new Database();
             ///<summary>
             /// Konwersja dat na zgodne z datami z subiecta
             /// </summary>
@@ -93,7 +91,7 @@ namespace SferaWinFormsApp
             ///Zapytanie do Sql o połaczone 3 tabele Dokument/ Pozycja Asortymentu / oraz Asortyment
             /// </summary>
             string local1 = @"SELECT d.[LP] , e.[Symbol], e.[Nazwa] , (g.[DataWprowadzenia]) , g.[NumerWewnetrzny_PelnaSygnatura] as 'Numer dokumentu', g.[NumerZewnetrzny] as 'Numer Orginału' , d.[ilosc] ,d.[Cena_NettoPoRabacie] ,g.[Symbol]
-            FROM" + database1.Nazwa_Bazy + ".[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN" + database1.Nazwa_Bazy + ".[ModelDanychContainer].[Asortymenty] e ON d.[AsortymentAktualnyId] = e.[Id] INNER JOIN" + database1.Nazwa_Bazy + ".[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID] where g.[Symbol] = (";
+            FROM" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Asortymenty] e ON d.[AsortymentAktualnyId] = e.[Id] INNER JOIN" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID] where g.[Symbol] = (";
             string local2 = @"') and(g.[NumerWewnetrzny_PelnaSygnatura] LIKE '[A-Z]%') and (g.[DataWprowadzenia] BETWEEN '";
             string local3 = @"')
             ORDER BY g.[NumerWewnetrzny_PelnaSygnatura], d.[LP]";

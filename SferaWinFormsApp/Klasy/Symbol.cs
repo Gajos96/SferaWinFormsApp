@@ -51,6 +51,7 @@ namespace SferaWinFormsApp
             CN = sys5;
             Nazwa_Angielska = sys6;
         }
+
     }
 
     static class Path_Find
@@ -98,10 +99,10 @@ namespace SferaWinFormsApp
         public static bool Active { get; set; } = true;
     }
 
-    public class Database
+    public static class Database
     {
-        public string Path_Connecting  { get {return @"Data Source=GARTENLAND13\SQLEXPRESS;Initial Catalog=Nexo_Demo_1;Integrated Security=True";}}
-        public string Nazwa_Bazy { get { return @"[Nexo_Demo_1]"; } }
+        public static string Path_Connecting  { get {return @"Data Source=GARTENLAND13\SQLEXPRESS;Initial Catalog=Nexo_Demo_1;Integrated Security=True";}}
+        public static string Nazwa_Bazy { get { return @"[Nexo_Demo_1]"; } }
     }
 
     public class Cechy_List

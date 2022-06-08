@@ -16,5 +16,10 @@ namespace SferaWinFormsApp.Cenniki_Forms
         {
             InitializeComponent();
         }
+
+
+
+
+
     }
 }

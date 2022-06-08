@@ -27,7 +27,6 @@ namespace SferaWinFormsApp.Cenniki_Forms
         }
 
         #region Zmienne oraz Formy
-        Database database = new Database();
         /// <summary>
         /// Przyjmuje nazwę z Data Grid
         /// </summary>
@@ -62,7 +61,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
         #region Metody + Połaczenie z Bazą
         private void Connect()
         {
-            using (SqlConnection polaczenie = new SqlConnection(database.Path_Connecting))
+            using (SqlConnection polaczenie = new SqlConnection(Database.Path_Connecting))
             {
 
                 string zapytanie = Builder();
@@ -83,10 +82,10 @@ namespace SferaWinFormsApp.Cenniki_Forms
             }
         }
 
-        private string Builder()
+        public string Builder()
         {
             return "SELECT ROW_NUMBER() OVER ( ORDER BY [DataZatwierdzenia] ) as 'Lp.' ," +
-                " [Tytul] as 'Nazwa Cennika : ' FROM " + database.Nazwa_Bazy + ".[ModelDanychContainer].[Cenniki]";
+                " [Tytul] as 'Nazwa Cennika : ' FROM " + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Cenniki]";
         }
 
         /// <summary>

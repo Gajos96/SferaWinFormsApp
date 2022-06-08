@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using SferaWinFormsApp.Klasy;
+using SferaWinFormsApp.Cenniki_Forms;
 
 
 namespace SferaWinFormsApp
@@ -13,7 +14,6 @@ namespace SferaWinFormsApp
 
         public static Uchwyt UruchomSfere()
         {
-            Database database = new Database();
             DanePolaczenia danePolaczenia = null;
             string pName = "/UruchomionePrzezInsLauncher";
             if (Environment.GetCommandLineArgs().Any(a => string.Compare(a, pName, true) == 0))
@@ -52,7 +52,7 @@ namespace SferaWinFormsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form3());
+            Application.Run(new Zmiana_Progu_Cen());
         }
     }
 

@@ -13,10 +13,11 @@ namespace SferaWinFormsApp
 
     }
 
-    interface IMetod_Interface
-        {
+    interface IConneting
+    {
+        void Conneting();
 
-        // Zle troche rozplanowałem ehhhhh ,ale powoli do celu
+        string Builder();            
 
-        }
+    }
 }

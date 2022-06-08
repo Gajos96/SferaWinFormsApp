@@ -126,6 +126,12 @@
     <Compile Include="Cenniki_Forms\Dodaj_Dodadkowy.Designer.cs">
       <DependentUpon>Dodaj_Dodadkowy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cenniki_Forms\Ehe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cenniki_Forms\Ehe.Designer.cs">
+      <DependentUpon>Ehe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,6 +235,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Cenniki_Forms\Dodaj_Cennik.resx">
       <DependentUpon>Dodaj_Cennik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cenniki_Forms\Ehe.resx">
+      <DependentUpon>Ehe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cenniki_Forms\Zmiana_Progu_Cen.resx">
       <DependentUpon>Zmiana_Progu_Cen.cs</DependentUpon>

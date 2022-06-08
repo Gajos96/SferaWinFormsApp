@@ -23,7 +23,6 @@ namespace SferaWinFormsApp.Cenniki_Forms
         }
 
         #region Zmienne 
-        readonly Database database = new Database();
         private decimal Obniżka { get { if (_ObniżenieInt.Value > 0 && _ObniżenieInt.Value != null) { return (decimal)_ObniżenieInt.Value / 100; } else { return (decimal)0; } } }
         private string Cennik { get; set; } = "Podstawowy"; //Powod : zawsze na początku ustawione jest Cennik null i wybrana cennik podstawowy
         #endregion
@@ -66,7 +65,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
 
         private void Connect()
         {
-            using (SqlConnection polaczenie = new SqlConnection(database.Path_Connecting))
+            using (SqlConnection polaczenie = new SqlConnection(Database.Path_Connecting))
             {
 
                 string zapytanie = Builder();
@@ -90,7 +89,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
         private string Builder()
         {
             return "SELECT ROW_NUMBER() OVER ( ORDER BY [DataZatwierdzenia] ) as 'Lp.' ," +
-                " [Tytul] as 'Nazwa Cennika : ' FROM " + database.Nazwa_Bazy + ".[ModelDanychContainer].[Cenniki]";
+                " [Tytul] as 'Nazwa Cennika : ' FROM " + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Cenniki]";
         }
 
         #endregion
@@ -103,7 +102,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
             using (var conn = Program.Sfera.PodajPolaczenie())
             using (var cmd = conn.CreateCommand())
             {
-                cmd.CommandText = "SELECT DISTINCT Nazwa FROM " + database.Nazwa_Bazy + ".[ModelDanychContainer].[CechyAsortymentu] ";
+                cmd.CommandText = "SELECT DISTINCT Nazwa FROM " + Database.Nazwa_Bazy + ".[ModelDanychContainer].[CechyAsortymentu] ";
                 conn.Open();
                 using (var reader = cmd.ExecuteReader())
                 {
