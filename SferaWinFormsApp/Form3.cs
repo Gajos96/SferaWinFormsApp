@@ -381,6 +381,7 @@ namespace SferaWinFormsApp
             {
                 Program.Sfera.ZalogujOperatora(logowanie.Login, logowanie.Haslo);
                 Logowanie.Text = "Zalogowany użytkownik: " + logowanie.Uzytkownik;
+                Important_data.Login = logowanie.Uzytkownik;
             }
             else
             {

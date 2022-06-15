@@ -51,6 +51,9 @@ namespace SferaWinFormsApp
             Create_Excel();
         }
 
+        /// <summary>
+        /// Kod tworzacy styl excela oraz jego styl .
+        /// </summary>
         private void Create_Excel()
         {
             if (Check_List.GetItemChecked(0) == false && Check_List.GetItemChecked(1) == false && Check_List.GetItemChecked(2) == false && Check_List.GetItemChecked(3) == false && Check_List.GetItemChecked(4) == false && Check_List.GetItemChecked(5) == false && Check_List.GetItemChecked(6) == false)
@@ -59,7 +62,6 @@ namespace SferaWinFormsApp
             }
             else
             {
-
                 var excel = new Excel.Application
                 {
                     Visible = true
@@ -164,8 +166,7 @@ namespace SferaWinFormsApp
             oApp.Visible = false;
             int rows = 0;
             int g = 2;
-
-            for (int i = 2; i < (1500); i++)
+            for (int i = 2; i < (Sheet.Rows.Count); i++)
             {
                 if (Sheet.Cells[i, 2].Value != null)
                 {
@@ -173,7 +174,8 @@ namespace SferaWinFormsApp
                 }
             }
             rows = g;
-            var listsymbol = new List<Symbol_Update>();
+            var Lista = new Lista_Pomocnicza<Symbol_Update>();
+            //var listsymbol = new List<Symbol_Update>();
             for (int i = 2; i < (rows); i++)
             {
                 #region Pentla Bleeeee
@@ -220,7 +222,16 @@ namespace SferaWinFormsApp
                     string y = Sheet.Cells[i, "I"].Value2.ToString();
                     q = y;
                 }
-                listsymbol.Add(new Symbol_Update(z, x, w, o, l, s, p, q));
+                Lista.AddlistElement(new Symbol_Update() {
+                    Stary_Symbol = z ,
+                    Nowy_Symbol= x ,
+                    Nowa_Nazwa = w , Opis = o ,
+                    Kod_Ean = l ,
+                    Pojemnik = s ,
+                    CN= p ,
+                    Nazwa_Angielska = q 
+                });
+
                 #endregion
             }
             objBooks.Close();
@@ -230,7 +241,7 @@ namespace SferaWinFormsApp
             var New_Ladowanie = new Ładowanie();
             Excel_Load.Close();
             New_Ladowanie.Show();
-            foreach (Symbol_Update xxx in listsymbol)
+            foreach (Symbol_Update xxx in Lista.List)
             {
                 Asortyment aso = asortymenty.Dane.WyszukajPoSymbolu(xxx.Stary_Symbol);
                 if (aso != null)
@@ -238,7 +249,7 @@ namespace SferaWinFormsApp
                     using (var towarBo = asortymenty.Znajdz(aso))
                     {
                         Number_loop++;
-                        float Licz = kr.Count_Progresbar1(listsymbol.Count(), Number_loop);
+                        float Licz = kr.Count_Progresbar1(Lista.List.Count(), Number_loop);
                         New_Ladowanie.Ładowanie_Load((int)Licz);
                         if (Check_List.GetItemChecked(0) == true)
                         {
@@ -280,7 +291,7 @@ namespace SferaWinFormsApp
                 }
             }
             New_Ladowanie.Visa_Button();
-            listsymbol.Clear();
+            Lista.List.Clear();
             objBooks.Close();
             oApp.Quit();
             System.GC.Collect();

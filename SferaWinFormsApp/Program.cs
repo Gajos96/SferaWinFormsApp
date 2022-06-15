@@ -43,6 +43,7 @@ namespace SferaWinFormsApp
             }
         }
 
+        
 
         /// <summary>
         /// Główny punkt wejścia dla aplikacji.
@@ -52,7 +53,7 @@ namespace SferaWinFormsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Zmiana_Progu_Cen());
+            Application.Run(new Dodaj_Dodadkowy());
         }
     }
 

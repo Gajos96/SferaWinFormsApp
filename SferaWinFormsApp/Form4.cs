@@ -195,7 +195,7 @@ namespace SferaWinFormsApp
             oApp.Visible = false;
             int rows = 0;
             int g = 2;
-            for (int i = 2; i < (1500); i++)
+            for (int i = 2; i < (Sheet.Rows.Count); i++)
             {
                 if (Sheet.Cells[i, 2].Value != null)
                 {
@@ -203,7 +203,7 @@ namespace SferaWinFormsApp
                 }
             }
             rows = g;
-            var listsymbol = new List<Symbol>();
+            var Lista = new Lista_Pomocnicza<Symbol>();
             for (int i = 2; i < (rows); i++)
             {
                 string z = Sheet.Cells[i, 2].Value2.ToString(); //not null
@@ -238,17 +238,17 @@ namespace SferaWinFormsApp
                     string y = Sheet.Cells[i, "H"].Value2.ToString();
                     r = y;
                 }
-                listsymbol.Add(new Symbol(z, x, w, o, l, s, r));
+                Lista.AddlistElement(new Symbol() { Nazwa_Symbol = z,  Nazwa_Nazwa = x, Opis = w, StawkaVat = o, EAN = l, CN = s, Grupa1 = r , Id = i -2});     
             }
             int Number_loop = 0;
             var New_Ladowanie = new Ładowanie();
            
             Excel_Load.Close();
             New_Ladowanie.Show();
-            foreach (Symbol kupa in listsymbol)
+            foreach (Symbol kupa in Lista.List)
             {
                 Number_loop++;
-                float Licz = kr.Count_Progresbar1(listsymbol.Count(), Number_loop);
+                float Licz = kr.Count_Progresbar1(Lista.List.Count(), Number_loop);
                 New_Ladowanie.Ładowanie_Load((int)Licz);
                 using (IAsortyment towarBo = asortymenty.Utworz())
                 {
@@ -311,14 +311,13 @@ namespace SferaWinFormsApp
             
             New_Ladowanie.Visa_Button();
             objBooks.Close();
-            listsymbol.Clear();
+            Lista.List.Clear();
             oApp.Quit();
             GC.Collect();
         }
 
         private void Button3_Click(object sender, EventArgs e)
         {
-
             Dodaj();
         }
     }

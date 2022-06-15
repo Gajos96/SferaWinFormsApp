@@ -69,20 +69,12 @@ namespace SferaWinFormsApp.Cenniki_Forms
             OpenChildForm(lol3);
         }
 
-        private void Button4_Click(object sender, EventArgs e)
-        {
-            Hide_Button();
-            Zmiana_Progu_Cen lol4 = new Zmiana_Progu_Cen()
-            {
-                Owner = this
-            };
-            OpenChildForm(lol4);
-        }
+
 
         private void Button5_Click(object sender, EventArgs e)
         {
             Hide_Button();
-            Dodaj_Dodadkowy lol5 = new Dodaj_Dodadkowy(this)
+            Dodaj_Dodadkowy lol5 = new Dodaj_Dodadkowy()
             {
                 Owner = this
             };

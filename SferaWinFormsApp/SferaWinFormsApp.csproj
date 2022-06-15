@@ -54,6 +54,15 @@
     <ApplicationIcon>TextTemplate.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.Data.Desktop.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v21.2.Core, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v21.2, Version=21.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\AppData\Local\InsERT\Deployments\Nexo\Demo_1a2015a263c714600b2ce1743ce\Binaries\DocumentFormat.OpenXml.dll</HintPath>
@@ -126,12 +135,6 @@
     <Compile Include="Cenniki_Forms\Dodaj_Dodadkowy.Designer.cs">
       <DependentUpon>Dodaj_Dodadkowy.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cenniki_Forms\Ehe.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Cenniki_Forms\Ehe.Designer.cs">
-      <DependentUpon>Ehe.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,23 +147,11 @@
     <Compile Include="Cenniki_Forms\Memu_Show.Designer.cs">
       <DependentUpon>Memu_Show.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cenniki_Forms\Personalizacja_Cennika_Dodakowego.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cenniki_Forms\Personalizacja_Cennika_Dodakowego.Designer.cs">
-      <DependentUpon>Personalizacja_Cennika_Dodakowego.cs</DependentUpon>
-    </Compile>
     <Compile Include="Cenniki_Forms\Przecena.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Cenniki_Forms\Przecena.Designer.cs">
       <DependentUpon>Przecena.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Cenniki_Forms\Zmiana_Progu_Cen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cenniki_Forms\Zmiana_Progu_Cen.Designer.cs">
-      <DependentUpon>Zmiana_Progu_Cen.cs</DependentUpon>
     </Compile>
     <Compile Include="Dodaj_Klient.cs">
       <SubType>Form</SubType>
@@ -236,11 +227,8 @@
     <EmbeddedResource Include="Cenniki_Forms\Dodaj_Cennik.resx">
       <DependentUpon>Dodaj_Cennik.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Cenniki_Forms\Ehe.resx">
-      <DependentUpon>Ehe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cenniki_Forms\Zmiana_Progu_Cen.resx">
-      <DependentUpon>Zmiana_Progu_Cen.cs</DependentUpon>
+    <EmbeddedResource Include="Cenniki_Forms\Dodaj_Dodadkowy.resx">
+      <DependentUpon>Dodaj_Dodadkowy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cenniki_Forms\Zmiana_Sposobu_Wyliczania.resx">
       <DependentUpon>Zmiana_Sposobu_Wyliczania.cs</DependentUpon>
@@ -260,6 +248,7 @@
     <EmbeddedResource Include="Pozycje_Fakturowe.resx">
       <DependentUpon>Pozycje_Fakturowe.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Ustawienia.resx">
       <DependentUpon>Ustawienia.cs</DependentUpon>
     </EmbeddedResource>
@@ -286,6 +275,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Ładowanie.resx">
       <DependentUpon>Ładowanie.cs</DependentUpon>
@@ -352,6 +342,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\5332433.jpg" />
+    <None Include="Resources\photos_2020_10_13_fst_gray-light-texture-grunge.jpg" />
     <Content Include="TextTemplate.ico" />
   </ItemGroup>
   <ItemGroup>

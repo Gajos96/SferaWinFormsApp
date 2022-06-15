@@ -6,11 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace SferaWinFormsApp
 {
-    class Symbol
+    public interface IEntity
     {
+        int Id { get; set; }
+    }
+
+
+
+    class Symbol : IEntity
+    {
+        public int Id { get; set; }
         public string Nazwa_Symbol { get; set; }
         public string Nazwa_Nazwa { get; set; }
         public string Opis { get; set; }
@@ -18,19 +27,43 @@ namespace SferaWinFormsApp
         public string EAN { get; set; }
         public string CN { get; set; }
         public string Grupa1 { get; set; }
-        public Symbol(string sys, string sys1, string sys2, string sys3, string sys4, string sys5, string sys6)
-        {
-            Nazwa_Symbol = sys;
-            Nazwa_Nazwa = sys1;
-            Opis = sys2;
-            StawkaVat = sys3;
-            EAN = sys4;
-            CN = sys5;
-            Grupa1 = sys6;
-        }
     }
 
-    class Symbol_Update
+    public class Lista_Pomocnicza<T> where T : IEntity
+    {
+        public List<T> List = new List<T>();
+
+        public void AddlistElement(T element)
+        {
+            if (element != null)
+            {
+                List.Add(element);
+            }
+        }
+
+        /// <summary>
+        /// Wyszukiwanie po Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public T GetElementById(int id)
+        {
+            var element = List.FirstOrDefault(o => o.Id == id);
+            return element;
+        }
+
+        public T GetElement (int index)
+        {
+            if (index < List.Count)
+            {
+                return List[index];
+            }
+            else { return default; }
+        }
+        
+    }
+
+    class Symbol_Update : IEntity
     {
         public string Stary_Symbol { get; set; }
         public string Nowy_Symbol { get; set; }
@@ -40,18 +73,7 @@ namespace SferaWinFormsApp
         public string Pojemnik { get; set; }
         public string CN { get; set; }
         public string Nazwa_Angielska { get; set; }
-        public Symbol_Update(string lol, string sys, string sys1, string sys2, string sys3, string sys4, string sys5, string sys6)
-        {
-            Stary_Symbol = lol;
-            Nowy_Symbol = sys;
-            Nowa_Nazwa = sys1;
-            Opis = sys2;
-            Kod_Ean = sys3;
-            Pojemnik = sys4;
-            CN = sys5;
-            Nazwa_Angielska = sys6;
-        }
-
+        public int Id { get; set; }
     }
 
     static class Path_Find
@@ -94,9 +116,10 @@ namespace SferaWinFormsApp
         }
     }
 
-    public static class IsItActive
+    public static class Important_data
     {
         public static bool Active { get; set; } = true;
+        public static string Login { get; set; } = "Szef";
     }
 
     public static class Database

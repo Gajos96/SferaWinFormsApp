@@ -8,6 +8,10 @@ using SferaWinFormsApp;
 
 namespace SferaWinFormsApp.Klasy
 {
+
+    /// <summary>
+    /// Obecnie nie używane
+    /// </summary>
     class Counter
     {
         public delegate void ActivePanelEventHamdler(object o, EventArgs e);

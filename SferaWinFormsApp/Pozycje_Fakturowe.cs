@@ -79,9 +79,11 @@ namespace SferaWinFormsApp
             }
         }
 
+        
 
         public static string Builder()
         {
+            var Concat = new StringBuilder();
             ///<summary>
             /// Konwersja dat na zgodne z datami z subiecta
             /// </summary>
@@ -92,10 +94,11 @@ namespace SferaWinFormsApp
             /// </summary>
             string local1 = @"SELECT d.[LP] , e.[Symbol], e.[Nazwa] , (g.[DataWprowadzenia]) , g.[NumerWewnetrzny_PelnaSygnatura] as 'Numer dokumentu', g.[NumerZewnetrzny] as 'Numer Orginału' , d.[ilosc] ,d.[Cena_NettoPoRabacie] ,g.[Symbol]
             FROM" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Asortymenty] e ON d.[AsortymentAktualnyId] = e.[Id] INNER JOIN" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID] where g.[Symbol] = (";
+            
             string local2 = @"') and(g.[NumerWewnetrzny_PelnaSygnatura] LIKE '[A-Z]%') and (g.[DataWprowadzenia] BETWEEN '";
             string local3 = @"')
             ORDER BY g.[NumerWewnetrzny_PelnaSygnatura], d.[LP]";
-            string Question = local1 +  Sort_Data.Rodzaj_dokumentu + local2 + pomocniczy1 + "' AND '" + pomocniczy2 + local3;
+            var Question = Concat.Append( local1 +  Sort_Data.Rodzaj_dokumentu + local2 + pomocniczy1 + "' AND '" + pomocniczy2 + local3).ToString();
             return Question;
         }
 
