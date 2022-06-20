@@ -20,9 +20,9 @@ namespace SferaWinFormsApp
     public partial class Łaczymy : Form
     {
         #region Zmienne prywatne dla Łączymy
-        private string staticpath = @"\\fs1\Szklarnia\Magazyn 2021-2022 Nowy Index.xlsx\MAGAZYNY LOKALIZACJI  Jesień 2021 wiosna 2022 nowy";
+        private readonly string staticpath = @"\\fs1\Szklarnia\Magazyn 2021-2022 Nowy Index.xlsx\MAGAZYNY LOKALIZACJI  Jesień 2021 wiosna 2022 nowy";
         private string path1;
-        private Best_Void kr = new Best_Void();
+        private readonly Best_Void kr = new Best_Void();
         #endregion
 
         /// <summary>
@@ -271,7 +271,7 @@ namespace SferaWinFormsApp
             }
             var WFile = new Excel.Application();
             Excel.Workbook Wbook = WFile.Workbooks.Open(path1, ReadOnly: true);
-            var Sheet = (Excel._Worksheet)Wbook.Sheets[4];
+            var Sheet = (Excel._Worksheet)Wbook.Sheets["Sumy"];
             WFile.Visible = false;
             string row = Sheet.Cells[1, "J"].Value2.ToString();
             int ok = Int32.Parse(row);

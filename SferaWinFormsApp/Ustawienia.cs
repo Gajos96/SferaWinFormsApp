@@ -21,11 +21,11 @@ namespace SferaWinFormsApp
         class Dupa
         {
             public int Number { get; set; }
-            public string path { get; set; }
+            public string Path { get; set; }
             public Dupa(int x, string y)
             {
                 Number = x;
-                path = y;
+                Path = y;
             }
             
         }

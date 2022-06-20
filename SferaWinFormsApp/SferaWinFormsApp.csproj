@@ -33,7 +33,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\</OutputPath>
+    <OutputPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -67,29 +67,37 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\AppData\Local\InsERT\Deployments\Nexo\Demo_1a2015a263c714600b2ce1743ce\Binaries\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
-    <Reference Include="InsERT.Moria.API">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.API.dll</HintPath>
+    <Reference Include="InsERT.Moria.API, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f3ef93a6b458098, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\Bin\InsERT.Moria.API.dll</HintPath>
     </Reference>
-    <Reference Include="InsERT.Moria.BibliotekaDokumentow">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.BibliotekaDokumentow.dll</HintPath>
+    <Reference Include="InsERT.Moria.BibliotekaDokumentow, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f3ef93a6b458098, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\Bin\InsERT.Moria.BibliotekaDokumentow.dll</HintPath>
     </Reference>
-    <Reference Include="InsERT.Moria.DaneDomyslne">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.DaneDomyslne.dll</HintPath>
+    <Reference Include="InsERT.Moria.DaneDomyslne, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f3ef93a6b458098, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\Bin\InsERT.Moria.DaneDomyslne.dll</HintPath>
     </Reference>
-    <Reference Include="InsERT.Moria.ModelDanych">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.ModelDanych.dll</HintPath>
+    <Reference Include="InsERT.Moria.ModelDanych, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7e1aa7558fba1cf1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\Bin\InsERT.Moria.ModelDanych.dll</HintPath>
     </Reference>
-    <Reference Include="InsERT.Moria.Sfera">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Moria.Sfera.dll</HintPath>
+    <Reference Include="InsERT.Moria.Sfera, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f3ef93a6b458098, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\Bin\InsERT.Moria.Sfera.dll</HintPath>
     </Reference>
-    <Reference Include="InsERT.Mox.Core">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Mox.Core.dll</HintPath>
+    <Reference Include="InsERT.Mox.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f3ef93a6b458098, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\Bin\InsERT.Mox.Core.dll</HintPath>
     </Reference>
-    <Reference Include="InsERT.Mox.EntityFramework.Core">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Mox.EntityFramework.Core.dll</HintPath>
+    <Reference Include="InsERT.Mox.EntityFramework.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=574d892b577c05ec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\Bin\InsERT.Mox.EntityFramework.Core.dll</HintPath>
     </Reference>
-    <Reference Include="InsERT.Mox.EntityFrameworkSupport">
-      <HintPath>..\..\..\..\Desktop\nexoSDK_40.0.1.5404\Bin\InsERT.Mox.EntityFrameworkSupport.dll</HintPath>
+    <Reference Include="InsERT.Mox.EntityFrameworkSupport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=8f3ef93a6b458098, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Desktop\nexoSDK_40.1.0.5484\Bin\InsERT.Mox.EntityFrameworkSupport.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.17.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

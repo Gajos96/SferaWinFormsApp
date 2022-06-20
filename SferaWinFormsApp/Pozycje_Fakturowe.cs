@@ -81,24 +81,23 @@ namespace SferaWinFormsApp
 
         
 
-        public static string Builder()
+        public string Builder()
         {
-            var Concat = new StringBuilder();
+            //var Concat = new StringBuilder();
             ///<summary>
             /// Konwersja dat na zgodne z datami z subiecta
             /// </summary>
             string pomocniczy1 = Sort_Data.OriginDate.ToString("MM-dd-yyyy HH:mm:ss");
             string pomocniczy2 = Sort_Data.FinishDate.ToString("MM-dd-yyyy HH:mm:ss");
+            //Database.Nazwa_Bazy
             ///<summary>
             ///Zapytanie do Sql o połaczone 3 tabele Dokument/ Pozycja Asortymentu / oraz Asortyment
             /// </summary>
             string local1 = @"SELECT d.[LP] , e.[Symbol], e.[Nazwa] , (g.[DataWprowadzenia]) , g.[NumerWewnetrzny_PelnaSygnatura] as 'Numer dokumentu', g.[NumerZewnetrzny] as 'Numer Orginału' , d.[ilosc] ,d.[Cena_NettoPoRabacie] ,g.[Symbol]
-            FROM" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Asortymenty] e ON d.[AsortymentAktualnyId] = e.[Id] INNER JOIN" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID] where g.[Symbol] = (";
-            
+            FROM" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[PozycjeDokumentu] d INNER JOIN" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Asortymenty] e ON d.[AsortymentAktualnyId] = e.[Id] INNER JOIN" + Database.Nazwa_Bazy + ".[ModelDanychContainer].[Dokumenty] g ON d.[Dokument_Id] = g.[ID] where g.[Symbol] = ('";
             string local2 = @"') and(g.[NumerWewnetrzny_PelnaSygnatura] LIKE '[A-Z]%') and (g.[DataWprowadzenia] BETWEEN '";
-            string local3 = @"')
-            ORDER BY g.[NumerWewnetrzny_PelnaSygnatura], d.[LP]";
-            var Question = Concat.Append( local1 +  Sort_Data.Rodzaj_dokumentu + local2 + pomocniczy1 + "' AND '" + pomocniczy2 + local3).ToString();
+            string local3 = @"') ORDER BY g.[NumerWewnetrzny_PelnaSygnatura], d.[LP]";
+            string Question = local1 + Sort_Data.Rodzaj_dokumentu + local2 + pomocniczy1 + "' AND '" + pomocniczy2 + local3;
             return Question;
         }
 

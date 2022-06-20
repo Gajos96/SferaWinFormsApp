@@ -214,7 +214,7 @@ namespace SferaWinFormsApp
             int b = 7;
             b6.Enabled = false;
             await Change_Style_Button(0, b);
-            OpenChildForm(new Menu_Show(this)); ;
+            OpenChildForm(new Menu_Show()); ;
             b6.Enabled = true;
         }
 

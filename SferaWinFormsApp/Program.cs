@@ -23,9 +23,11 @@ namespace SferaWinFormsApp
             else
             {
                 danePolaczenia = DanePolaczenia.Jawne(@"GARTENLAND13\SQLEXPRESS", "Nexo_Demo_1", true);
+                //LAND13\SQLEXPRESS; Initial Catalog = Nexo_Demo_1; Integrated Secu
             }
-
             MenedzerPolaczen mp = new MenedzerPolaczen();
+            //mp.DostepDoUI = true;
+
             return mp.Polacz(danePolaczenia, ProductId.Subiekt);
         }
 
@@ -53,7 +55,7 @@ namespace SferaWinFormsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dodaj_Dodadkowy());
+            Application.Run(new Form3());
         }
     }
 

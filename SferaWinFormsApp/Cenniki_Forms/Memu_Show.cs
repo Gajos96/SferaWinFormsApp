@@ -16,7 +16,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
     {
 
        
-        public Menu_Show(Form Main_Menu)
+        public Menu_Show()
         {
                 InitializeComponent();
         }
@@ -81,15 +81,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
             OpenChildForm(lol5);
         }
 
-        private void Button6_Click(object sender, EventArgs e)
-        {
-            Hide_Button();
-            Personalizacja_Cennika_Dodakowego lol6 = new Personalizacja_Cennika_Dodakowego(this)
-            {
-                Owner = this
-            };
-            OpenChildForm(lol6);
-        }
+
 
         private void Hide_Button()
         {
