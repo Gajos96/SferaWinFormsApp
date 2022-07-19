@@ -23,12 +23,8 @@ namespace SferaWinFormsApp.Cenniki_Forms
         {
             InitializeComponent();
         }
-
         public string Symbol_Cennik { get { return Csymbol.Text; } }
         public string Nazwa_Cennik { get { return Cnazwa.Text; } }
-
-
-
         private void Dodaj_Cennik_Load(object sender, EventArgs e)
         {
             Cwaluta.Items.Add(Euro);
@@ -101,7 +97,6 @@ namespace SferaWinFormsApp.Cenniki_Forms
                 }
             }
         }
-
             private void Button1_Click(object sender, EventArgs e)
             {
                 if (Csymbol.Text != null && Cnazwa.Text != null)
@@ -112,14 +107,11 @@ namespace SferaWinFormsApp.Cenniki_Forms
                 else
                     MessageBox.Show("Nie wypełniono wszyskich Pól");
             }
-
-
             private void Dodaj_Cennik_FormClosing(object sender, FormClosingEventArgs e)
             {
                 (this.Owner as Menu_Show).panel2.Visible = true;
 
             }
-
             private void Button2_Click(object sender, EventArgs e)
             {
                 base.Close();

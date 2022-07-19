@@ -31,7 +31,7 @@ namespace SferaWinFormsApp
             {
                 b1.Visible = true;
                 b2.Visible = true;
-                b3.Visible = true;
+                b3.Visible = false;
                 b4.Visible = false;
                 b5.Visible = false;
                 b6.Visible = false;

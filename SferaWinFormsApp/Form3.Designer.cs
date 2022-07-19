@@ -296,7 +296,7 @@ namespace SferaWinFormsApp
             this.B_Pan3.Name = "B_Pan3";
             this.B_Pan3.Size = new System.Drawing.Size(208, 56);
             this.B_Pan3.TabIndex = 6;
-            this.B_Pan3.Text = "Dodatkowe Fukcje";
+            this.B_Pan3.Text = "Dodatkowe Funkcje";
             this.B_Pan3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.B_Pan3.UseVisualStyleBackColor = true;
             this.B_Pan3.Click += new System.EventHandler(this.B_Pan3_Click);

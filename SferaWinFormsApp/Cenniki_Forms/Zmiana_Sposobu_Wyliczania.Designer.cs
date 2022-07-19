@@ -102,7 +102,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
             this.groupBox2.Controls.Add(this.Cecha_Combox);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(10, 248);
+            this.groupBox2.Location = new System.Drawing.Point(13, 316);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1017, 192);
             this.groupBox2.TabIndex = 19;
@@ -168,7 +168,7 @@ namespace SferaWinFormsApp.Cenniki_Forms
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(10, 28);
+            this.groupBox1.Location = new System.Drawing.Point(13, 41);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1017, 220);
             this.groupBox1.TabIndex = 18;
@@ -210,9 +210,9 @@ namespace SferaWinFormsApp.Cenniki_Forms
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(10, 10);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(370, 18);
+            this.label2.Size = new System.Drawing.Size(499, 23);
             this.label2.TabIndex = 17;
-            this.label2.Text = "Dodawanie Progu cenowego do określonego cennika .";
+            this.label2.Text = "Wybierz cennik i ustaw sposób wyliczania ceny sprzedaży .";
             // 
             // Zmiana_Sposobu_Wyliczania
             // 

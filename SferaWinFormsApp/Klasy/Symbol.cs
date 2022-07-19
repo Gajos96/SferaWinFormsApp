@@ -15,8 +15,6 @@ namespace SferaWinFormsApp
         int Id { get; set; }
     }
 
-
-
     class Symbol : IEntity
     {
         public int Id { get; set; }
@@ -44,13 +42,14 @@ namespace SferaWinFormsApp
         /// <summary>
         /// Wyszukiwanie po Id
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id"> Fajnie </param>
         /// <returns></returns>
         public T GetElementById(int id)
         {
             var element = List.FirstOrDefault(o => o.Id == id);
             return element;
         }
+
 
         public T GetElement (int index)
         {
@@ -93,6 +92,8 @@ namespace SferaWinFormsApp
         }
     }
 
+
+    
     public static class Sort_Data
     {
         public static DateTime OriginDate { get; set; }

@@ -7,13 +7,10 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
-using System.Data.SqlClient;
-using System.Collections;
-using Newtonsoft.Json;
-using System.IO;
 
 namespace SferaWinFormsApp
 {
@@ -40,21 +37,23 @@ namespace SferaWinFormsApp
         public Łaczymy()
         {
             InitializeComponent();
-           if(File.Exists(Application.StartupPath + "/PathOption.json"))
+            if (File.Exists(Application.StartupPath + "/PathOption.json"))
             {
                 string PathObject1 = File.ReadAllText(Application.StartupPath + "/PathOption.json");
                 string staticpath = PathObject1;
                 Short_Name(staticpath);
             }
-            else { CreateBlankFile();
+            else
+            {
+                CreateBlankFile();
                 Short_Name(staticpath);
             }
         }
-    
+
         /// <summary>
         /// Dwie klasy pomocniocze do zaczytywania danych /// Powinny być przeniesione do Symbol.cs ,ale istnieje tam klasa o tej samej nazwie
         /// </summary>
-       class Pomocnicza
+        class Pomocnicza
         {
             public string Symbol_1 { get; set; }
             public int Ilosc { get; set; }
@@ -65,7 +64,7 @@ namespace SferaWinFormsApp
                 Ilosc = y;
             }
         }
-       class Symbol
+        class Symbol
         {
             public string Symbol_Rośliny { get; set; }
             public int Ilość_Rośliny { get; set; }
@@ -143,28 +142,36 @@ namespace SferaWinFormsApp
         private void Auto_Spis()
         {
             var Excel_Load = new Ładowanie_Excel();
+            var Lista_Inwetaryzacja = new List<Symbol>();
+            var WFile = new Excel.Application();
+            Excel.Workbook Wbook = WFile.Workbooks.Open(path1, ReadOnly: true);
+            var Sheet = (Excel._Worksheet)Wbook.Sheets["Sumy"];
             Excel_Load.Show();
             if (path1 == null)
             {
                 path1 = staticpath;
             }
-            var WFile = new Excel.Application();
-            Excel.Workbook Wbook = WFile.Workbooks.Open(path1, ReadOnly: true);
-            var Sheet = (Excel._Worksheet)Wbook.Sheets[4];
-            WFile.Visible = false;
-            string row = Sheet.Cells[1, "J"].Value2.ToString();
-            int ok = Int32.Parse(row);
-            var Lista_Inwetaryzacja = new List<Symbol>();
-            for (int i = 1; i < ok; i++)
+            try
             {
-                string x = Sheet.Cells[i + 1, "A"].Value2.ToString();
-                string y = Sheet.Cells[i + 1, "F"].Value2.ToString();
-                int z = Int32.Parse(y);
-                if (z < 0)
+                WFile.Visible = false;
+                string row = Sheet.Cells[1, "J"].Value2.ToString();
+                int ok = Int32.Parse(row);
+                for (int i = 1; i < ok; i++)
                 {
-                    z = 0;
+                    string x = Sheet.Cells[i + 1, "A"].Value2.ToString();
+                    string y = Sheet.Cells[i + 1, "F"].Value2.ToString();
+                    int z = Int32.Parse(y);
+                    if (z < 0)
+                    {
+                        z = 0;
+                    }
+                    Lista_Inwetaryzacja.Add(new Symbol(x, z)); //Dodawanie do listy 2 elemetów.
                 }
-                Lista_Inwetaryzacja.Add(new Symbol(x, z)); //Dodawanie do listy 2 elemetów.
+            }
+            catch
+            {
+                Excel_Load.Close();
+
             }
             string magazine_ = cbMagazyn.Text;
             IInwentaryzacje inwentaryzacje = Program.Sfera.PodajObiektTypu<IInwentaryzacje>();
@@ -204,7 +211,6 @@ namespace SferaWinFormsApp
                         pozycja.ZakonczEdycje();
                     }
                 }
-                //kupa
                 New_Ladowanie.Visa_Button();
                 if (lista.Count > 0)
                 {
@@ -232,8 +238,6 @@ namespace SferaWinFormsApp
                         p++;
                     }
                 }
-
-
                 // osoba zatwierdzająca jest wymagana przy wykonanej inwentaryzacji:
                 inwentaryzacja.Dane.Zatwierdzajacy = inwentaryzacja.Dane.Odpowiedzialny;
                 // ustawianie statusu:
@@ -255,6 +259,7 @@ namespace SferaWinFormsApp
                 Lista_Inwetaryzacja.Clear();
                 System.GC.Collect();
             }
+
         }
 
         /// <summary>
@@ -264,30 +269,37 @@ namespace SferaWinFormsApp
         {
             IAsortymenty asortymenty = Program.Sfera.PodajObiektTypu<IAsortymenty>();
             var Excel_Load = new Ładowanie_Excel();
+            var Lista_Inwetaryzacja = new List<Symbol>();
+            var lista = new List<Pomocnicza>();
+            var WFile = new Excel.Application();
+            Excel.Workbook Wbook = WFile.Workbooks.Open(path1, ReadOnly: true);
+            var Sheet = (Excel._Worksheet)Wbook.Sheets["Sumy"];
             Excel_Load.Show();
             if (path1 == null)
             {
                 path1 = staticpath;
             }
-            var WFile = new Excel.Application();
-            Excel.Workbook Wbook = WFile.Workbooks.Open(path1, ReadOnly: true);
-            var Sheet = (Excel._Worksheet)Wbook.Sheets["Sumy"];
             WFile.Visible = false;
-            string row = Sheet.Cells[1, "J"].Value2.ToString();
-            int ok = Int32.Parse(row);
-            var Lista_Inwetaryzacja = new List<Symbol>();
-            for (int i = 1; i < ok; i++)
+            try
             {
-                string x = Sheet.Cells[i + 1, "A"].Value2.ToString();
-                string y = Sheet.Cells[i + 1, "F"].Value2.ToString();
-                int z = Int32.Parse(y);
-                if (z < 0)
+                string row = Sheet.Cells[1, "J"].Value2.ToString();
+                int ok = Int32.Parse(row);
+                for (int i = 1; i < ok; i++)
                 {
-                    z = 0;
+                    string x = Sheet.Cells[i + 1, "A"].Value2.ToString();
+                    string y = Sheet.Cells[i + 1, "F"].Value2.ToString();
+                    int z = Int32.Parse(y);
+                    if (z < 0)
+                    {
+                        z = 0;
+                    }
+                    Lista_Inwetaryzacja.Add(new Symbol(x, z)); //Dodawanie do listy 2 elemetów.
                 }
-                Lista_Inwetaryzacja.Add(new Symbol(x, z)); //Dodawanie do listy 2 elemetów.
             }
-            var lista = new List<Pomocnicza>();
+            catch
+            {
+                Excel_Load.Close();
+            }
             foreach (Symbol kupa in Lista_Inwetaryzacja)
             {
                 Asortyment asortyment = asortymenty.Dane.Wszystkie().Where(a => a.Symbol == kupa.Symbol_Rośliny).FirstOrDefault();
@@ -384,7 +396,15 @@ namespace SferaWinFormsApp
         /// <param name="e"></param>
         private void Nowosci_Click(object sender, EventArgs e)
         {
-            Pozycje_not_null();
+            try
+            {
+                Pozycje_not_null();
+            }
+            catch (Exception theException)
+            {
+                MessageBox.Show("Numer błedu: " + theException.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
